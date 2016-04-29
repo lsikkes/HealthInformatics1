@@ -20,10 +20,8 @@ namespace GeenNaam
     /// </summary>
     public partial class MainWindow : Window
     {
-        //static String AbsolutePath = @"C:\Users\Thijmen\git\HealthInformatics1\Visual Studio - Map\resources\";
         static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
- 
-        //static String AbsolutePath = @"..\..\resources\";
+        Double height, width;
         
         public MainWindow()
         {
@@ -32,8 +30,16 @@ namespace GeenNaam
 
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
             this.Icon = BitmapFrame.Create(iconUri);
+
+            map.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+
+            width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            height = System.Windows.SystemParameters.PrimaryScreenHeight;
+
+            Console.WriteLine("window size is " + width + "x" + height);
+
             // Fill the environment with objects
-            setPlayer(1000, 400, 200);
+            setPlayer((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 230);
             addSurrounding();
             addCharacters();
             addCars();
