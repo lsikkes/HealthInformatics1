@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace GeenNaam
 {
@@ -19,11 +20,18 @@ namespace GeenNaam
     /// </summary>
     public partial class MainWindow : Window
     {
-        static String AbsolutePath = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\";
+        //static String AbsolutePath = @"C:\Users\Thijmen\git\HealthInformatics1\Visual Studio - Map\resources\";
+        static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
+ 
+        //static String AbsolutePath = @"..\..\resources\";
+        
         public MainWindow()
         {
             // Initialize the environment
             InitializeComponent();
+
+            Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
+            this.Icon = BitmapFrame.Create(iconUri);
             // Fill the environment with objects
             setPlayer(1000, 400, 200);
             addSurrounding();
@@ -108,6 +116,7 @@ namespace GeenNaam
             Image Mole = new Image();
             Mole.Width = 400;
             Mole.Height = 400;
+
             String ImgNameMole = AbsolutePath + "image_player_scoope.PNG";
 
             ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
@@ -316,8 +325,5 @@ namespace GeenNaam
             panel.Children.Add(Mole);
             map.Children.Add(panel);
         }
-
-
-
     }
 }
