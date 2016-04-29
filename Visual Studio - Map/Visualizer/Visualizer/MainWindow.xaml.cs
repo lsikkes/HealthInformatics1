@@ -19,6 +19,7 @@ namespace GeenNaam
     /// </summary>
     public partial class MainWindow : Window
     {
+        static String AbsolutePath = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\";
         public MainWindow()
         {
             // Initialize the environment
@@ -107,7 +108,8 @@ namespace GeenNaam
             Image Mole = new Image();
             Mole.Width = 400;
             Mole.Height = 400;
-            String ImgNameMole = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\image_player_scoope.PNG";
+            String ImgNameMole = AbsolutePath + "image_player_scoope.PNG";
+
             ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
             Mole.Source = MoleImage;
             panel.Children.Add(Mole);
@@ -115,7 +117,7 @@ namespace GeenNaam
             Mole = new Image();
             Mole.Width = 50;
             Mole.Height = 50;
-            ImgNameMole = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\image_player.PNG";
+            ImgNameMole = AbsolutePath + "image_player.PNG";
             MoleImage = new BitmapImage(new Uri(ImgNameMole));
             Mole.Source = MoleImage;
             margin = Mole.Margin;
@@ -162,8 +164,8 @@ namespace GeenNaam
             Mole.Width = 60;
             Mole.Height = 60;
             String location = "";
-            if (ID == 0) { location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\image_character_0.PNG"; }
-            else if (ID == 1) { location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\image_character_1.PNG"; }
+            if (ID == 0) { location = AbsolutePath + "image_character_0.PNG"; }
+            else if (ID == 1) { location = AbsolutePath + "image_character_1.PNG"; }
             ImageSource MoleImage = new BitmapImage(new Uri(location));
             Mole.Source = MoleImage;
 
@@ -173,8 +175,8 @@ namespace GeenNaam
             Mole = new Image();
             Mole.Width = 25;
             Mole.Height = 25;
-            if (emoji == 0) { location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\emoji_xhappy.PNG"; }
-            else if (emoji == 1) { location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\emoji_sick.PNG"; }
+            if (emoji == 0) { location = AbsolutePath + "emoji_xhappy.PNG"; }
+            else if (emoji == 1) { location = AbsolutePath + "emoji_sick.PNG"; }
             MoleImage = new BitmapImage(new Uri(location));
             Mole.Source = MoleImage;
 
@@ -209,7 +211,7 @@ namespace GeenNaam
             Image Mole = new Image();
             Mole.Width = 50;
             Mole.Height = 50;
-            String location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\icon_light_off.PNG";
+            String location = AbsolutePath + "icon_light_off.PNG";
             ImageSource MoleImage = new BitmapImage(new Uri(location));
             Mole.Source = MoleImage;
 
@@ -239,7 +241,7 @@ namespace GeenNaam
             Image Mole = new Image();
             Mole.Width = 50;
             Mole.Height = 50;
-            String location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\icon_tv.PNG";
+            String location = AbsolutePath + "icon_tv.PNG";
             ImageSource MoleImage = new BitmapImage(new Uri(location));
             Mole.Source = MoleImage;
             // append
@@ -268,7 +270,7 @@ namespace GeenNaam
             Image Mole = new Image();
             Mole.Width = 125;
             Mole.Height = 250;
-            String ImgNameMole = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\image_police_car.PNG";
+            String ImgNameMole = AbsolutePath + "image_police_car.PNG";
             ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
             Mole.Source = MoleImage;
             panel.Children.Add(Mole);
@@ -276,7 +278,7 @@ namespace GeenNaam
             Mole = new Image();
             Mole.Width = 50;
             Mole.Height = 50;
-            ImgNameMole = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\icon_police.PNG";
+            ImgNameMole = AbsolutePath + "icon_police.PNG";
             MoleImage = new BitmapImage(new Uri(ImgNameMole));
             Mole.Source = MoleImage;
             margin = Mole.Margin;
@@ -307,7 +309,7 @@ namespace GeenNaam
             Image Mole = new Image();
             Mole.Width = 50;
             Mole.Height = 50;
-            String location = "C:\\Users\\Thijmen\\git\\HealthInformatics1\\Visual Studio - Map\\resources\\icon_chair.PNG";
+            String location = AbsolutePath + "icon_chair.PNG";
             ImageSource MoleImage = new BitmapImage(new Uri(location));
             Mole.Source = MoleImage;
             // append
