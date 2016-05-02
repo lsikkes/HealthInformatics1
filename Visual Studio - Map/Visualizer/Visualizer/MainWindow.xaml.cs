@@ -27,7 +27,7 @@ namespace GeenNaam
         private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
         private Visualizer.FactorySurrounding surroundingFactory = new Visualizer.FactorySurrounding();
         private Visualizer.CharacterFactory characterFactory = new Visualizer.CharacterFactory();
-        private Visualizer.Patient patient;
+        public static Visualizer.Patient patient;
 
         private static readonly int stepMapMove = 100, zeroMapMove = 0;
 
@@ -256,11 +256,6 @@ namespace GeenNaam
             map.Children.Add(panel);
         }
 
-        /// <summary>
-        /// Method that handles all keyboard events
-        /// </summary>
-        /// <param name="sender"> The object that sends the event </param>
-        /// <param name="e"> The event that occurs </param>
         private void keyPress(object sender, KeyEventArgs e)
         {
             switch (e.Key)
@@ -270,20 +265,16 @@ namespace GeenNaam
                 case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
                 case Key.W: moveMap(zeroMapMove, stepMapMove); break;
                 case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
-                case Key.Up: patient.walkUp(); break;
-                case Key.Down: patient.walkDown(); break;
-                case Key.Left: patient.walkLeft(); break;
-                case Key.Right: patient.walkRight(); break;
-                default: Console.WriteLine("Unknow key input " + e.Key); break;
+                default: Visualizer.KeyListener.keyPress(sender, e); break;
             }
-        }
+        }        
 
         /// <summary>
         /// Moves the map in the direction of dx and dy.
         /// </summary>
         /// <param name="dx">Moving dx pixels on the x axis</param>
         /// <param name="dy">Moving dy pixels on the y axis</param>
-        private void moveMap(int dx, int dy)
+        public void moveMap(int dx, int dy)
         {
             Thickness m = map.Margin;
             m.Left = m.Left + dx;
