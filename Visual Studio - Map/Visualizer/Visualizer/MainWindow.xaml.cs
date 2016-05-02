@@ -26,6 +26,7 @@ namespace GeenNaam
 
         private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
         private Visualizer.FactorySurrounding surroundingFactory = new Visualizer.FactorySurrounding();
+        private Visualizer.CharacterFactory characterFactory = new Visualizer.CharacterFactory();
         
         //static String AbsolutePath = @"..\..\resources\";
         public MainWindow()
@@ -34,7 +35,7 @@ namespace GeenNaam
 
             Visualizer.Patient patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
             map.Children.Add(patient);
-            
+
 
             addSurrounding();
 
@@ -121,51 +122,8 @@ namespace GeenNaam
         //method to add a character
         public void addCharacter(int x, int y, int ID, int emoji)
         {
-            StackPanel panel;
-            panel = new StackPanel();
-            panel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = panel.Margin;
-            margin.Left = x;
-            margin.Top = y;
-            panel.Margin = margin;
-
-            StackPanel panel2;
-            panel2 = new StackPanel();
-            panel2.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel2.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            margin = panel2.Margin;
-            margin.Left = 0;
-            margin.Top = 0;
-            panel2.Margin = margin;
-
-            Image Mole = new Image();
-            Mole.Width = 60;
-            Mole.Height = 60;
-            String location = "";
-            if (ID == 0) { location = AbsolutePath + "image_character_0.PNG"; }
-            else if (ID == 1) { location = AbsolutePath + "image_character_1.PNG"; }
-            ImageSource MoleImage = new BitmapImage(new Uri(location));
-            Mole.Source = MoleImage;
-
-            panel2.Children.Add(Mole);
-            panel.Children.Add(panel2);
-
-            Mole = new Image();
-            Mole.Width = 25;
-            Mole.Height = 25;
-            if (emoji == 0) { location = AbsolutePath + "emoji_xhappy.PNG"; }
-            else if (emoji == 1) { location = AbsolutePath + "emoji_sick.PNG"; }
-            MoleImage = new BitmapImage(new Uri(location));
-            Mole.Source = MoleImage;
-
-            margin = Mole.Margin;
-            margin.Left = 45;
-            margin.Top = -105;
-            Mole.Margin = margin;
-            panel.Children.Add(Mole);
-
-            map.Children.Add(panel);
+            
+            map.Children.Add(characterFactory.createCharacter(x, y, ID, emoji));
         }
 
         // method to place all lights
