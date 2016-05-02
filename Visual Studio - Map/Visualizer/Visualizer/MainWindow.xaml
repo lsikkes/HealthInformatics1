@@ -19,10 +19,54 @@
             <Button Content="Afsluiten" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="120" Click="close"/>
         </Grid>
 
-        <Grid Name="hoverTop" Background="Red" Opacity="0.3" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
-        <Grid Name="hoverBot" Background="Red" Opacity="0.3" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
-        <Grid Name="hoverLef" Background="Red" Opacity="0.3" Width="10"  HorizontalAlignment="Left"    VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
-        <Grid Name="hoverRig" Background="Red" Opacity="0.3" Width="10"  HorizontalAlignment="Right"   VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
+        <Grid Name="hoverTop" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Opacity" Value="0.0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid Name="hoverBot" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Opacity" Value="0.0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid Name="hoverLef" Background="Red" Width="10"  HorizontalAlignment="Left"    VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Opacity" Value="0.0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid Name="hoverRig" Background="Red" Width="10" HorizontalAlignment="Right"   VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Opacity" Value="0.0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
 
     </Grid>
 </Window>
