@@ -22,11 +22,30 @@ namespace GeenNaam
     public partial class MainWindow : Window
     {
         public static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
-        private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
         public Double height, width;
+
+        private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
+        private Visualizer.FactorySurrounding surroundingFactory = new Visualizer.FactorySurrounding();
         
         //static String AbsolutePath = @"..\..\resources\";
         public MainWindow()
+        {
+            init();
+
+            Visualizer.Patient patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
+            map.Children.Add(patient);
+            
+
+            addSurrounding();
+
+            addCharacters();
+            addCars();
+            addLights();
+            addTVs();
+            addSeats();
+        }
+
+        public void init()
         {
             InitializeComponent();
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
@@ -35,45 +54,30 @@ namespace GeenNaam
             height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Console.WriteLine("window size is " + width + "x" + height);
 
-            Visualizer.Patient patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
-
-            map.Children.Add(patient);
-            
+            map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            map.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             map.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-
-
-            addSurrounding();
-            addCharacters();
-            addCars();
-            addLights();
-            addTVs();
-            addSeats();
+            map.Margin = patientFactory.setMargin(map.Margin, 0, 0);
         }
 
         // method to add all the surroundings to the environment
         public void addSurrounding()
         {
-            map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            map.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = map.Margin;
-            margin.Left = 0;
-            margin.Top = 0;
-            map.Margin = margin;
             Brush color;
+            // add walls
             color = Brushes.LightGray;
-            addSquare(50, 1080, 0, 0, color);
-            addSquare(500, 200, 300, 0, color);
-            addSquare(500, 200, 1000, 0, color);
-            addSquare(1200, 200, 300, 700, color);         
+            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.05), h2p(1.00), 0,         0,         color));
+            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.35), h2p(0.15), w2p(0.25), 0,         color));
+            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.35), h2p(0.15), w2p(0.75), 0,         color));
+            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.75), h2p(0.15), w2p(0.25), h2p(0.85), color));
+            // adds trees to the environment
+            color = Brushes.LightGreen;
+            map.Children.Add(surroundingFactory.createSurrounding(h2p(0.15), h2p(0.15), w2p(0.30), h2p(0.67), color));
+            map.Children.Add(surroundingFactory.createSurrounding(h2p(0.15), h2p(0.15), w2p(0.50), h2p(0.67), color));
         }
 
-        // adds trees to the environment
-        public void addTrees()
-        {
-            Brush color = Brushes.LightGreen;
-            addSquare(100, 100, 400, 590, color);
-            addSquare(100, 100, 550, 590, color);
-        }
+        public int w2p(double perc) { return (int)Math.Round(perc * width); }
+        public int h2p(double perc) { return (int)Math.Round(perc * height); }
 
         // method to place all seats
         public void addSeats()
@@ -105,45 +109,6 @@ namespace GeenNaam
             rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
 
             map.Children.Add(rect);
-        }
-
-        // method to set the player within the map
-        public void setPlayer(int x, int y, int rotation)
-        {
-            StackPanel panel;
-            panel = new StackPanel();
-            panel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = panel.Margin;
-            margin.Left = x;
-            margin.Top = y;
-            panel.Margin = margin;
-
-            Image Mole = new Image();
-            Mole.Width = 400;
-            Mole.Height = 400;
-
-            String ImgNameMole = AbsolutePath + "image_player_scoope.PNG";
-
-            ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
-            panel.Children.Add(Mole);
-
-            Mole = new Image();
-            Mole.Width = 50;
-            Mole.Height = 50;
-            ImgNameMole = AbsolutePath + "image_player.PNG";
-            MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
-            margin = Mole.Margin;
-            margin.Left = -380;
-            margin.Top = -410;
-            Mole.Margin = margin;
-            panel.Children.Add(Mole);
-
-            RotateTransform rotateTransform1 = new RotateTransform(rotation, 10, 190);
-            panel.RenderTransform = rotateTransform1;
-            map.Children.Add(panel);
         }
 
         //method to add all characters
