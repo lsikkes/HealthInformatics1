@@ -2,8 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowState="Maximized"
-        Title="Visualizer" Height="1080" Width="1920"
-        Icon="C:\Users\Thijmen\git\HealthInformatics1\Visual Studio - Map\resources\logo.PNG">
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Visualizer"
+        KeyDown="keyPress"
+        >
 
     <!--    Add the menu here aswell -->
     <Grid Name="map" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
