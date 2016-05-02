@@ -27,13 +27,14 @@ namespace GeenNaam
         private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
         private Visualizer.FactorySurrounding surroundingFactory = new Visualizer.FactorySurrounding();
         private Visualizer.CharacterFactory characterFactory = new Visualizer.CharacterFactory();
-        
+        private Visualizer.Patient patient;
+
         //static String AbsolutePath = @"..\..\resources\";
         public MainWindow()
         {
             init();
 
-            Visualizer.Patient patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
+            patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
             map.Children.Add(patient);
 
 
@@ -262,6 +263,22 @@ namespace GeenNaam
                 case Key.D: addMargin(100, 0); break;
                 case Key.W: addMargin(0, -100); break;
                 case Key.S: addMargin(0, 100); break;
+                case Key.Up:
+                    patient.walk(0, -100);
+                    patient.RenderTransform = new RotateTransform(270, 10, 190);
+                    break;
+                case Key.Down:
+                    patient.walk(0, 100);
+                    patient.RenderTransform = new RotateTransform(90, 10, 190);
+                    break;
+                case Key.Left:
+                    patient.walk(-100, 0);
+                    patient.RenderTransform = new RotateTransform(180, 10, 190);
+                    break;
+                case Key.Right:
+                    patient.walk(100, 0);
+                    patient.RenderTransform = new RotateTransform(0, 10, 190);
+                    break;
             }
         }
 
