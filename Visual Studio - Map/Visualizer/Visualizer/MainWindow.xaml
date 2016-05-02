@@ -4,7 +4,9 @@
         WindowState="Maximized"
         WindowStyle="None"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="Visualizer"
+        KeyDown="keyPress"
         >
 
     <!--    Add the menu here aswell -->

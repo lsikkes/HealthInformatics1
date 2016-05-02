@@ -252,5 +252,27 @@ namespace GeenNaam
             panel.Children.Add(Mole);
             map.Children.Add(panel);
         }
+
+        private void keyPress(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Escape: this.Close(); break;
+                case Key.A: addMargin(-100, 0); break;
+                case Key.D: addMargin(100, 0); break;
+                case Key.W: addMargin(0, -100); break;
+                case Key.S: addMargin(0, 100); break;
+            }
+        }
+
+        private void addMargin(int dx, int dy)
+        {
+            Thickness m = map.Margin;
+            m.Left = m.Left + dx;
+            m.Top = m.Top + dy;
+            map.Margin = m;
+            Console.WriteLine("ik ben bewogen" + this.Margin.Left);
+        }
+
     }
 }
