@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Threading;
 
 namespace GeenNaam
 {
@@ -20,20 +21,20 @@ namespace GeenNaam
     /// </summary>
     public partial class MainWindow : Window
     {
-        //static String AbsolutePath = @"C:\Users\Thijmen\git\HealthInformatics1\Visual Studio - Map\resources\";
-        static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
- 
-        //static String AbsolutePath = @"..\..\resources\";
+        public static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
+        private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
         
+        //static String AbsolutePath = @"..\..\resources\";
         public MainWindow()
         {
-            // Initialize the environment
             InitializeComponent();
-
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
             this.Icon = BitmapFrame.Create(iconUri);
-            // Fill the environment with objects
-            setPlayer(1000, 400, 200);
+
+            Visualizer.Patient patient = patientFactory.createPatient(100, 100, 0);
+
+            map.Children.Add(patient);
+            
             addSurrounding();
             addCharacters();
             addCars();
