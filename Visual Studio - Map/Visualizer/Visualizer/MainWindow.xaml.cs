@@ -259,10 +259,10 @@ namespace GeenNaam
             switch (e.Key)
             {
                 case Key.Escape: this.Close(); break;
-                case Key.A: addMargin(-100, 0); break;
-                case Key.D: addMargin(100, 0); break;
-                case Key.W: addMargin(0, -100); break;
-                case Key.S: addMargin(0, 100); break;
+                case Key.A: addMargin(100, 0); break;
+                case Key.D: addMargin(-100, 0); break;
+                case Key.W: addMargin(0, 100); break;
+                case Key.S: addMargin(0, -100); break;
                 case Key.Up:
                     patient.walk(0, -100);
                     patient.RenderTransform = new RotateTransform(270, 10, 190);
