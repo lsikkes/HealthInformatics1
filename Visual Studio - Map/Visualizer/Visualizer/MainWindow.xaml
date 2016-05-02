@@ -8,10 +8,21 @@
         Title="Visualizer"
         KeyDown="keyPress"
         >
+    <Grid Name="content" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+        <Grid Name="map" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"></Grid>
 
-    <!--    Add the menu here aswell -->
-    <Grid Name="map" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-        <!--    Use this as a mask for rounded corners -->
-        <Border Name="mask" Background="White" CornerRadius="70"/>
+        <Grid Name="menuOpener" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"  Background="Blue" Opacity="0.7">
+            <Button Content="Menu" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="120" Click="toggleMenu"/>
+        </Grid>
+        
+        <Grid Name="menu" HorizontalAlignment="Left" Margin="0,50,0,0" Width="150" Background="Blue" Opacity="0.7" Visibility="Collapsed">
+            <Button Content="Afsluiten" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="120" Click="close"/>
+        </Grid>
+
+        <Grid Name="hoverTop" Background="Red" Opacity="0.3" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
+        <Grid Name="hoverBot" Background="Red" Opacity="0.3" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
+        <Grid Name="hoverLef" Background="Red" Opacity="0.3" Width="10"  HorizontalAlignment="Left"    VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
+        <Grid Name="hoverRig" Background="Red" Opacity="0.3" Width="10"  HorizontalAlignment="Right"   VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler"></Grid>
+
     </Grid>
 </Window>

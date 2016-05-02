@@ -267,7 +267,29 @@ namespace GeenNaam
                 case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
                 default: Visualizer.KeyListener.keyPress(sender, e); break;
             }
-        }        
+        }
+
+        private void toggleMenu(object sender, RoutedEventArgs e)
+        {
+            if(menu.Visibility==System.Windows.Visibility.Collapsed){
+                menu.Visibility = System.Windows.Visibility.Visible;
+            } else {
+                menu.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
+        private void close(object sender, RoutedEventArgs e){
+            this.Close();
+        }
+
+        public void OnMouseEnterHandler(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("hovering on: ");
+        }
+        public void OnMouseLeaveHandler(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("hovering off ");
+        }
 
         /// <summary>
         /// Moves the map in the direction of dx and dy.

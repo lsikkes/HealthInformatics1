@@ -64,6 +64,7 @@
     <Compile Include="FactoryPatient.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="KeyListener.cs" />
+    <Compile Include="MouseTrigger.cs" />
     <Compile Include="VRObject.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="MainWindow.xaml.cs">
