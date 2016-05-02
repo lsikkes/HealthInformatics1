@@ -29,6 +29,8 @@ namespace GeenNaam
         private Visualizer.CharacterFactory characterFactory = new Visualizer.CharacterFactory();
         private Visualizer.Patient patient;
 
+        private static readonly int stepMapMove = 100, zeroMapMove = 0;
+
         //static String AbsolutePath = @"..\..\resources\";
         public MainWindow()
         {
@@ -254,41 +256,39 @@ namespace GeenNaam
             map.Children.Add(panel);
         }
 
+        /// <summary>
+        /// Method that handles all keyboard events
+        /// </summary>
+        /// <param name="sender"> The object that sends the event </param>
+        /// <param name="e"> The event that occurs </param>
         private void keyPress(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
                 case Key.Escape: this.Close(); break;
-                case Key.A: addMargin(100, 0); break;
-                case Key.D: addMargin(-100, 0); break;
-                case Key.W: addMargin(0, 100); break;
-                case Key.S: addMargin(0, -100); break;
-                case Key.Up:
-                    patient.walk(0, -100);
-                    patient.RenderTransform = new RotateTransform(270, 10, 190);
-                    break;
-                case Key.Down:
-                    patient.walk(0, 100);
-                    patient.RenderTransform = new RotateTransform(90, 10, 190);
-                    break;
-                case Key.Left:
-                    patient.walk(-100, 0);
-                    patient.RenderTransform = new RotateTransform(180, 10, 190);
-                    break;
-                case Key.Right:
-                    patient.walk(100, 0);
-                    patient.RenderTransform = new RotateTransform(0, 10, 190);
-                    break;
+                case Key.A: moveMap(stepMapMove, zeroMapMove); break;
+                case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
+                case Key.W: moveMap(zeroMapMove, stepMapMove); break;
+                case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
+                case Key.Up: patient.walkUp(); break;
+                case Key.Down: patient.walkDown(); break;
+                case Key.Left: patient.walkLeft(); break;
+                case Key.Right: patient.walkRight(); break;
+                default: Console.WriteLine("Unknow key input " + e.Key); break;
             }
         }
 
-        private void addMargin(int dx, int dy)
+        /// <summary>
+        /// Moves the map in the direction of dx and dy.
+        /// </summary>
+        /// <param name="dx">Moving dx pixels on the x axis</param>
+        /// <param name="dy">Moving dy pixels on the y axis</param>
+        private void moveMap(int dx, int dy)
         {
             Thickness m = map.Margin;
             m.Left = m.Left + dx;
             m.Top = m.Top + dy;
             map.Margin = m;
-            Console.WriteLine("ik ben bewogen" + this.Margin.Left);
         }
 
     }
