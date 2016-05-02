@@ -36,8 +36,8 @@ namespace Visualizer
         public Image getImage(String path, int width, int height)
         {
             Image Mole = new Image();
-            Mole.Width = 400;
-            Mole.Height = 400;
+            Mole.Width = width;
+            Mole.Height = height;
 
             String ImgNameMole = GeenNaam.MainWindow.AbsolutePath + path;
 
