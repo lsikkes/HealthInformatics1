@@ -36,8 +36,6 @@ namespace GeenNaam
         {
             init();
 
-            Visualizer.Logger log = Visualizer.Logger.getInstance();
-
             patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
             map.Children.Add(patient);
 
