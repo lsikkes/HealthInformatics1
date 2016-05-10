@@ -1,46 +1,83 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Reflection;
-
+﻿// <copyright file="Logger.cs" company="HI1 aka Geen naam">
+//     Copyright (c) HI1 aka Geen naam. All rights reserved.
+// </copyright>
 namespace Visualizer
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+
     /// <summary>
     /// The logger class is a singleton that manages logging.
     /// It creates two log files.
     /// A current file, this is for easy debugging in short amount of time.
     /// one backup file, this is for retrieving old data.
-    /// The files are html files which we can use with css.
+    /// The files are HTML files which we can use with CSS.
     /// </summary>
-    class Logger
+    internal class Logger
     {
-        private static readonly String black = "black", red = "red", orange = "orange", green = "green";
-        private static readonly String debugS = "DEBUG", infoS = "INFO", errorS = "ERROR", warningS = "WARNING";
-        private static readonly int logFiles = 101;
-
-        private static readonly String path = Directory.GetParent(@"..\..\..\..\").ToString() + @"\logger\";
-        private static readonly Logger instance = new Logger();
-        private StreamWriter writerStore, writerCurrent;
-        private Boolean logAll = true, logBackup = true, toConsole = false;
+        #region Fields
 
         /// <summary>
-        /// Constructor of the Logger class.
-        /// It creates two log files where the log messages are stored.
+        /// Colors used for marking the log levels
+        /// </summary>
+        private static readonly string Black = "black", Red = "red", Orange = "orange", Green = "green";
+
+        /// <summary>
+        /// Log levels
+        /// </summary>
+        private static readonly string DebugS = "DEBUG", InfoS = "INFO", ErrorS = "ERROR", WarningS = "WARNING";
+
+        /// <summary>
+        /// Amount of log files stored
+        /// </summary>
+        private static readonly int LogFiles = 101;
+
+        /// <summary>
+        /// The relative path to store the log files
+        /// </summary>
+        private static readonly string Path = Directory.GetParent(@"..\..\..\..\").ToString() + @"\logger\";
+
+        /// <summary>
+        /// Singleton instance
+        /// </summary>
+        private static readonly Logger Instance = new Logger();
+
+        /// <summary>
+        /// Writers to use
+        /// </summary>
+        private StreamWriter writerStore, writerCurrent;
+
+        /// <summary>
+        /// booleans to keep track where to log to
+        /// </summary>
+        private bool logAll = true, logBackup = true, toConsole = false;
+
+        #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Logger"/> class.
         /// </summary>
         public Logger()
         {
-            createFiles();
+            this.CreateFiles();
         }
+
+        #endregion Constructors
+
+        #region Methods
 
         /// <summary>
         /// Gets the instance of the Singleton
         /// </summary>
-        /// <returns> Singleton instance </returns>
-        public static Logger getInstance()
+        /// <returns>
+        /// Singleton instance
+        /// </returns>
+        public static Logger GetInstance()
         {
-            return instance;
+            return Instance;
         }
 
         /// <summary>
@@ -48,9 +85,9 @@ namespace Visualizer
         /// Should be used for information purpose only
         /// </summary>
         /// <param name="message"> the message to log </param>
-        public void info(String message)
+        public void Info(string message)
         {
-            writeLine(black, infoS, message);
+            this.WriteLine(Black, InfoS, message);
         }
 
         /// <summary>
@@ -58,9 +95,9 @@ namespace Visualizer
         /// Should be used for debug purpose only
         /// </summary>
         /// <param name="message"> the message to log</param>
-        public void debug(String message)
+        public void Debug(string message)
         {
-            writeLine(green, debugS, message);
+            this.WriteLine(Green, DebugS, message);
         }
 
         /// <summary>
@@ -68,9 +105,9 @@ namespace Visualizer
         /// Should be used for error purpose only
         /// </summary>
         /// <param name="message"> the message to log</param>
-        public void error(String message)
+        public void Error(string message)
         {
-            writeLine(red, errorS, message);
+            this.WriteLine(Red, ErrorS, message);
         }
 
         /// <summary>
@@ -78,33 +115,33 @@ namespace Visualizer
         /// Should be used for warning purpose only
         /// </summary>
         /// <param name="message"> the message to log</param>
-        public void warning(String message)
+        public void Warning(string message)
         {
-            writeLine(orange, warningS, message);
+            this.WriteLine(Orange, WarningS, message);
         }
 
         /// <summary>
-        /// Sets the toConsole bool to his other state
+        /// Sets the toConsole boolean to his other state
         /// </summary>
-        public void consoleTrigger()
+        public void ConsoleTrigger()
         {
-            toConsole = !toConsole;
+            this.toConsole = !this.toConsole;
         }
 
         /// <summary>
-        /// Sets the logAll bool to his other state
+        /// Sets the logAll boolean to his other state
         /// </summary>
-        public void logTrigger()
+        public void LogTrigger()
         {
-            logAll = !logAll;
+            this.logAll = !this.logAll;
         }
 
         /// <summary>
-        /// Sets the logBackup bool to his other state
+        /// Sets the logBackup boolean to his other state
         /// </summary>
-        public void backupTrigger()
+        public void BackupTrigger()
         {
-            logBackup = !logBackup;
+            this.logBackup = !this.logBackup;
         }
 
         /// <summary>
@@ -114,19 +151,20 @@ namespace Visualizer
         /// <param name="color">The color of the line</param>
         /// <param name="level">The level of the line</param>
         /// <param name="message">the message of the line</param>
-        private void writeLine(String color, String level, String message)
+        private void WriteLine(string color, string level, string message)
         {
-            if (logAll)
+            if (this.logAll)
             {
-                String line = getTime() + "<span style='color:" + color + ";'><b> " + level + "</b></span> " + message + "<br/>";
-                writeLine(writerCurrent, line);
-                if (logBackup)
+                string line = this.GetTime() + "<span style='color:" + color + ";'><b> " + level + "</b></span> " + message + "<br/>";
+                this.WriteLine(this.writerCurrent, line);
+                if (this.logBackup)
                 {
-                    writeLine(writerStore, line);
+                    this.WriteLine(this.writerStore, line);
                 }
-                if (toConsole)
+
+                if (this.toConsole)
                 {
-                    Console.WriteLine(getTime() + " " + level + " " + message);
+                    Console.WriteLine(this.GetTime() + " " + level + " " + message);
                 }
             }
         }
@@ -136,7 +174,7 @@ namespace Visualizer
         /// </summary>
         /// <param name="writer"> writer to be used</param>
         /// <param name="message"> message to be written</param>
-        private void writeLine(StreamWriter writer, String message)
+        private void WriteLine(StreamWriter writer, string message)
         {
             writer.WriteLine(message);
             writer.Flush();
@@ -147,24 +185,24 @@ namespace Visualizer
         /// One current file and one file with the date.
         /// When there are more than logFiles (101) files the oldest files are deleted.
         /// </summary>
-        private void createFiles()
+        private void CreateFiles()
         {
-            if (logAll)
+            if (this.logAll)
             {
-                Directory.CreateDirectory(path);
-                String time = DateTime.Now.ToString("MM-dd-yy HH_mm_ss");
-                writerCurrent = new StreamWriter(path + @"\current.html");
-                writeStart(writerCurrent);
-                if (logBackup)
+                Directory.CreateDirectory(Path);
+                string time = DateTime.Now.ToString("MM-dd-yy HH_mm_ss");
+                this.writerCurrent = new StreamWriter(Path + @"\current.html");
+                this.WriteStart(this.writerCurrent);
+                if (this.logBackup)
                 {
-                    writerStore = new StreamWriter(path + @"\" + time + ".html");
-                    writeStart(writerStore);
+                    this.writerStore = new StreamWriter(Path + @"\" + time + ".html");
+                    this.WriteStart(this.writerStore);
                 }
-                foreach (var file in new DirectoryInfo(path).GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(logFiles))
+
+                foreach (var file in new DirectoryInfo(Path).GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(LogFiles))
                 {
                     file.Delete();
                 }
-                    
             }
         }
 
@@ -172,9 +210,9 @@ namespace Visualizer
         /// Writes the header of the log file with the defined writer.
         /// </summary>
         /// <param name="writer"> writer to be used </param>
-        private void writeStart(StreamWriter writer)
+        private void WriteStart(StreamWriter writer)
         {
-            writer.WriteLine("Log file of the run on " + getTime() + "</br>");
+            writer.WriteLine("Log file of the run on " + this.GetTime() + "</br>");
             writer.WriteLine("<span style='color:red;'><b>red</b></span> text stands for ERROR</br>");
             writer.WriteLine("<span style='color:orange;'><b>orange</b></span> text stands for WARNING</br>");
             writer.WriteLine("<span style='color:green;'><b>green</b></span> text stands for DEBUG</br>");
@@ -183,12 +221,14 @@ namespace Visualizer
         }
 
         /// <summary>
-        /// Get the current time in the preffered format
+        /// Get the current time in the preferred format
         /// </summary>
         /// <returns> String with the current time</returns>
-        private String getTime()
+        private string GetTime()
         {
             return DateTime.Now.ToString("HH:mm:ss");
         }
+
+        #endregion Methods
     }
 }
