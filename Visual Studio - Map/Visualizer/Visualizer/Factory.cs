@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,18 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
 
 namespace Visualizer
 {
-    /**
-     * A Class to create VRObjects
-     * */
+    /// <summary>
+    /// Class Factory.
+    /// </summary>
     public class Factory
     {
-        /**
-         * A method to set the margin of VRobject
-         * */
+        #region Methods
+
+        /// <summary>
+        /// Sets the margin.
+        /// </summary>
+        /// <param name="margin">The margin.</param>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns>Thickness.</returns>
         public Thickness setMargin(Thickness margin, int x, int y)
         {
             margin.Left = x;
@@ -30,9 +36,13 @@ namespace Visualizer
             return margin;
         }
 
-        /**
-         * A method to return an image
-         * */
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns>Image.</returns>
         public Image getImage(String path, int width, int height)
         {
             Image Mole = new Image();
@@ -47,9 +57,15 @@ namespace Visualizer
             return Mole;
         }
 
-        /**
-         * A method to return an image with a set margin
-         * */
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns>Image.</returns>
         public Image getImage(String path, int width, int height, int x, int y)
         {
             Image Mole = getImage(path, width, height);
@@ -57,6 +73,6 @@ namespace Visualizer
             return Mole;
         }
 
+        #endregion Methods
     }
-
 }

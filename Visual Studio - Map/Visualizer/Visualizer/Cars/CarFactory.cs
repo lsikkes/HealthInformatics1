@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Visualizer.Cars;
 
 namespace Visualizer
 {
-    class CarFactory : Factory
+    internal class CarFactory : Factory
     {
+        #region Methods
+
         /// <summary>
         /// Creates the car.
         /// </summary>
@@ -24,20 +23,24 @@ namespace Visualizer
             switch (type)
             {
                 case "police":
-                     car = new PoliceCar();
-                     break;
+                    car = new PoliceCar();
+                    break;
+
                 case "normal":
-                     car = new NormalCar();
-                     break;
+                    car = new NormalCar();
+                    break;
+
                 case "fire":
-                     car = new FirefighterCar();
-                     break;
+                    car = new FirefighterCar();
+                    break;
+
                 case "ambulance":
-                     car = new AmbulanceCar();
-                     break;
+                    car = new AmbulanceCar();
+                    break;
+
                 default:
-                     car = null;
-                     break;
+                    car = null;
+                    break;
             }
             if (car == null) { throw new Exception("carType not specified correctly"); }
             Image carImage = car.getCarImage();
@@ -52,5 +55,7 @@ namespace Visualizer
 
             return car;
         }
+
+        #endregion Methods
     }
 }
