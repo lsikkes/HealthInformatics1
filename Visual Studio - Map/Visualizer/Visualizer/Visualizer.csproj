@@ -58,6 +58,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Cars\Car.cs" />
+    <Compile Include="Cars\CarFactory.cs" />
+    <Compile Include="Cars\AmbulanceCar.cs" />
+    <Compile Include="Cars\NormalCar.cs" />
+    <Compile Include="Cars\FirefighterCar.cs" />
+    <Compile Include="Cars\PoliceCar.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterFactory.cs" />
     <Compile Include="FactorySurrounding.cs" />

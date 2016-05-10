@@ -27,6 +27,7 @@ namespace GeenNaam
         private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
         private Visualizer.FactorySurrounding surroundingFactory = new Visualizer.FactorySurrounding();
         private Visualizer.CharacterFactory characterFactory = new Visualizer.CharacterFactory();
+        private Visualizer.CarFactory carFactory = new Visualizer.CarFactory();
         public static Visualizer.Patient patient;
 
         private static readonly int stepMapMove = 100, zeroMapMove = 0;
@@ -195,42 +196,16 @@ namespace GeenNaam
             addCar(150, 20, 0);
         }
 
-        // method to set a car within the map
+        /// <summary>
+        /// Adds the car.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="rotation">The rotation.</param>
         public void addCar(int x, int y, int rotation)
         {
-            StackPanel panel;
-            panel = new StackPanel();
-            panel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = panel.Margin;
-            margin.Left = x;
-            margin.Top = y;
-            panel.Margin = margin;
-
-            Image Mole = new Image();
-            Mole.Width = 125;
-            Mole.Height = 250;
-            String ImgNameMole = AbsolutePath + "image_police_car.PNG";
-            ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
-            panel.Children.Add(Mole);
-
-            Mole = new Image();
-            Mole.Width = 50;
-            Mole.Height = 50;
-            ImgNameMole = AbsolutePath + "icon_police.PNG";
-            MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
-            margin = Mole.Margin;
-            margin.Left = 0;
-            margin.Top = -300;
-            Mole.Margin = margin;
-            panel.Children.Add(Mole);
-
-            RotateTransform rotateTransform1 = new RotateTransform(rotation, 65, 125);
-            panel.RenderTransform = rotateTransform1;
-
-            map.Children.Add(panel);
+            map.Children.Add(carFactory.createCar("police", x, y, rotation));
+         
         }
 
         // Method to add a light to the environment
