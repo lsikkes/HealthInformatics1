@@ -9,8 +9,16 @@ using System.Windows.Media.Imaging;
 
 namespace Visualizer.Furniture
 {
-    internal class Seat : StackPanel
+    public class Seat : Bench
     {
+        #region Constructors
+
+        public Seat()
+        {
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         public Image getImage()
@@ -24,18 +32,17 @@ namespace Visualizer.Furniture
             return seatImg;
         }
 
-        public Panel createSeatPanel(int x, int y)
+        public Image createSeatImage(int x, int y)
         {
-            StackPanel panel;
-            panel = new StackPanel();
-            panel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = panel.Margin;
+            Image seatImg = getImage();
+
+            seatImg.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            seatImg.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
+            Thickness margin = seatImg.Margin;
             margin.Left = x;
             margin.Top = y;
-            panel.Margin = margin;
-            panel.Children.Add(getImage());
-            return panel;
+            seatImg.Margin = margin;
+            return seatImg;
         }
 
         #endregion Methods
