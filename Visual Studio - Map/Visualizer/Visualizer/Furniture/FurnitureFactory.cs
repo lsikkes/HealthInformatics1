@@ -7,5 +7,12 @@ namespace Visualizer.Furniture
 {
     internal class FurnitureFactory : Factory
     {
+        #region Constructors
+
+        public FurnitureFactory()
+        {
+        }
+
+        #endregion Constructors
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Visualizer;
+using Visualizer.Furniture;
 using Visualizer.Tv;
 
 namespace GeenNaam
@@ -35,6 +37,7 @@ namespace GeenNaam
         private CharacterFactory characterFactory = new CharacterFactory();
         private CarFactory carFactory = new CarFactory();
         private TvFactory tvFactory = new TvFactory();
+        private BenchFactory benchFactory = new BenchFactory();
 
         #endregion Fields
 
@@ -103,11 +106,17 @@ namespace GeenNaam
         // method to place all seats
         public void addSeats()
         {
-            Brush color = Brushes.Brown;
-            addSquare(210, 70, 1100, 620, color);
-            addSeat(1110, 630);
-            addSeat(1180, 630);
-            addSeat(1250, 630);
+            ArrayList al = benchFactory.createBench("v", 8, 70, 100);
+            for (int i = 0; i < al.Count; i++)
+            {
+                map.Children.Add((StackPanel)al[i]);
+            }
+
+            //Brush color = Brushes.Brown;
+            //addSquare(210, 70, 1100, 620, color);
+            //addSeat(1110, 630);
+            //addSeat(1180, 630);
+            //addSeat(1250, 630);
         }
 
         //method to add all characters
