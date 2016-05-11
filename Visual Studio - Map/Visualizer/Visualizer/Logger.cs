@@ -14,7 +14,7 @@ namespace Visualizer
     /// one backup file, this is for retrieving old data.
     /// The files are HTML files which we can use with CSS.
     /// </summary>
-    internal class Logger
+    public class Logger
     {
         #region Fields
 
@@ -41,7 +41,7 @@ namespace Visualizer
         /// <summary>
         /// Singleton instance
         /// </summary>
-        private static readonly Logger Instance = new Logger();
+        private static Logger Instance = new Logger();
 
         /// <summary>
         /// Writers to use
@@ -60,7 +60,7 @@ namespace Visualizer
         /// <summary>
         /// Initializes a new instance of the <see cref="Logger"/> class.
         /// </summary>
-        public Logger()
+        private Logger()
         {
             this.CreateFiles();
         }
@@ -120,28 +120,34 @@ namespace Visualizer
             this.WriteLine(Orange, WarningS, message);
         }
 
-        /// <summary>
-        /// Sets the toConsole boolean to his other state
-        /// </summary>
-        public void ConsoleTrigger()
+        public void setLogAll(bool state)
         {
-            this.toConsole = !this.toConsole;
+            this.logAll = state;
         }
 
-        /// <summary>
-        /// Sets the logAll boolean to his other state
-        /// </summary>
-        public void LogTrigger()
+        public void setLogBackup(bool state)
         {
-            this.logAll = !this.logAll;
+            this.logBackup = state;
         }
 
-        /// <summary>
-        /// Sets the logBackup boolean to his other state
-        /// </summary>
-        public void BackupTrigger()
+        public void setToConsole(bool state)
         {
-            this.logBackup = !this.logBackup;
+            this.toConsole = state;
+        }
+
+        public bool getLogAll()
+        {
+            return this.logAll;
+        }
+
+        public bool getLogBackup()
+        {
+            return this.logBackup;
+        }
+
+        public bool getToConsole()
+        {
+            return this.toConsole;
         }
 
         /// <summary>
@@ -187,6 +193,9 @@ namespace Visualizer
         /// </summary>
         private void CreateFiles()
         {
+            Console.WriteLine("path is " + Path);
+
+            //Logger.GetInstance().Info("path is " + Path);
             if (this.logAll)
             {
                 Directory.CreateDirectory(Path);
