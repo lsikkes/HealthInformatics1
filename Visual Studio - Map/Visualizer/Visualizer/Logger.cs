@@ -120,31 +120,55 @@ namespace Visualizer
             this.WriteLine(Orange, WarningS, message);
         }
 
+        /// <summary>
+        /// Sets the log all.
+        /// </summary>
+        /// <param name="state">if set to <c>true</c> [state].</param>
         public void setLogAll(bool state)
         {
             this.logAll = state;
         }
 
+        /// <summary>
+        /// Sets the log backup.
+        /// </summary>
+        /// <param name="state">if set to <c>true</c> [state].</param>
         public void setLogBackup(bool state)
         {
             this.logBackup = state;
         }
 
+        /// <summary>
+        /// Sets to console.
+        /// </summary>
+        /// <param name="state">if set to <c>true</c> [state].</param>
         public void setToConsole(bool state)
         {
             this.toConsole = state;
         }
 
+        /// <summary>
+        /// Gets the log all.
+        /// </summary>
+        /// <returns>boolean logAll</returns>
         public bool getLogAll()
         {
             return this.logAll;
         }
 
+        /// <summary>
+        /// Gets the log backup.
+        /// </summary>
+        /// <returns>boolean logBackup</returns>
         public bool getLogBackup()
         {
             return this.logBackup;
         }
 
+        /// <summary>
+        /// Gets to console.
+        /// </summary>
+        /// <returns>boolean toConsole</returns>
         public bool getToConsole()
         {
             return this.toConsole;
