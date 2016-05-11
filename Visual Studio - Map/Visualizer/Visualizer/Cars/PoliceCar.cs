@@ -6,7 +6,7 @@ using System.Windows.Media.Imaging;
 
 namespace Visualizer.Cars
 {
-    internal class PoliceCar : Car
+    public class PoliceCar : Car
     {
         #region Methods
 

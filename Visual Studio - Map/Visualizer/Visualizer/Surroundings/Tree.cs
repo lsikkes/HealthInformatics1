@@ -7,7 +7,7 @@ namespace Visualizer.Surroundings
     /// Class Tree.
     /// </summary>
     /// <seealso cref="Visualizer.Surroundings.Surrounding" />
-    internal class Tree : Surrounding
+    public class Tree : Surrounding
     {
         #region Fields
 

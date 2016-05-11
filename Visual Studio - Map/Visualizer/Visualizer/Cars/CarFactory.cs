@@ -5,7 +5,7 @@ using Visualizer.Cars;
 
 namespace Visualizer
 {
-    internal class CarFactory : Factory
+    public class CarFactory : Factory
     {
         #region Methods
 

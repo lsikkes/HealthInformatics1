@@ -9,7 +9,7 @@ namespace Visualizer
     /// Class Character.
     /// </summary>
     /// <seealso cref="Visualizer.VRObject" />
-    internal class Character : VRObject
+    internal class Character : MovableObject
     {
         #region Constructors
 

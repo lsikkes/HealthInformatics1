@@ -6,7 +6,7 @@ namespace Visualizer.Surroundings
     /// <summary>
     /// Class Surrounding.
     /// </summary>
-    internal class Surrounding
+    public class Surrounding : ImmovableObject
     {
         #region Methods
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Visualizer.Tv
 {
-    internal class TvScreen : VRObject
+    internal class TvScreen : ImmovableObject
     {
         #region Methods
 

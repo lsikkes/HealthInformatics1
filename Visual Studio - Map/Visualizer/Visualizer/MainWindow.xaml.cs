@@ -72,6 +72,7 @@ namespace GeenNaam
             width = System.Windows.SystemParameters.PrimaryScreenWidth;
             height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Console.WriteLine("window size is " + width + "x" + height);
+            Console.WriteLine("test");
 
             map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             map.VerticalAlignment = System.Windows.VerticalAlignment.Top;
@@ -106,11 +107,7 @@ namespace GeenNaam
         // method to place all seats
         public void addSeats()
         {
-            ArrayList al = benchFactory.createBench("v", 8, 70, 100);
-            for (int i = 0; i < al.Count; i++)
-            {
-                map.Children.Add((StackPanel)al[i]);
-            }
+            map.Children.Add(benchFactory.createBench("v", 8, 70, 100));
 
             //Brush color = Brushes.Brown;
             //addSquare(210, 70, 1100, 620, color);
