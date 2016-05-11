@@ -1,40 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Visualizer
 {
-    /// <summary>
-    /// Class Factory.
-    /// </summary>
-    public class Factory
+    internal class Car : VRObject
     {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Car"/> class.
+        /// </summary>
+        public Car() { }
+
+        #endregion Constructors
+
         #region Methods
 
         /// <summary>
-        /// Sets the margin.
+        /// Gets the car image.
         /// </summary>
-        /// <param name="margin">The margin.</param>
-        /// <param name="x">The x coordinate.</param>
-        /// <param name="y">The y coordinate.</param>
-        /// <returns>Thickness.</returns>
-        public Thickness setMargin(Thickness margin, int x, int y)
-        {
-            margin.Left = x;
-            margin.Top = y;
-            return margin;
-        }
+        /// <returns>Image.</returns>
+        public virtual Image getCarImage() { return null; }
+
+        /// <summary>
+        /// Gets the icon image.
+        /// </summary>
+        /// <returns>Image.</returns>
+        public virtual Image getIconImage() { return null; }
 
         /// <summary>
         /// Gets the image.
@@ -71,6 +66,20 @@ namespace Visualizer
             Image Mole = getImage(path, width, height);
             Mole.Margin = setMargin(Mole.Margin, x, y);
             return Mole;
+        }
+
+        /// <summary>
+        /// Sets the margin.
+        /// </summary>
+        /// <param name="margin">The margin.</param>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns>Thickness.</returns>
+        public Thickness setMargin(Thickness margin, int x, int y)
+        {
+            margin.Left = x;
+            margin.Top = y;
+            return margin;
         }
 
         #endregion Methods

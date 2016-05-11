@@ -58,15 +58,33 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Character.cs" />
-    <Compile Include="CharacterFactory.cs" />
-    <Compile Include="FactorySurrounding.cs" />
-    <Compile Include="FactoryPatient.cs" />
+    <Compile Include="Cars\Car.cs" />
+    <Compile Include="Cars\CarFactory.cs" />
+    <Compile Include="Cars\AmbulanceCar.cs" />
+    <Compile Include="Cars\NormalCar.cs" />
+    <Compile Include="Cars\FirefighterCar.cs" />
+    <Compile Include="Cars\PoliceCar.cs" />
+    <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\CharacterFactory.cs" />
+    <Compile Include="Furniture\Bench.cs" />
+    <Compile Include="Furniture\BenchFactory.cs" />
+    <Compile Include="Furniture\FurnitureFactory.cs" />
+    <Compile Include="Furniture\Seat.cs" />
+    <Compile Include="Surroundings\SurroundingFactory.cs" />
+    <Compile Include="Patient\PatientFactory.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="KeyListener.cs" />
+<<<<<<< HEAD
     <Compile Include="Logger.cs" />
+=======
+    <Compile Include="Surroundings\Surrounding.cs" />
+    <Compile Include="Surroundings\Tree.cs" />
+    <Compile Include="Surroundings\Wall.cs" />
+    <Compile Include="Tv\TvFactory.cs" />
+    <Compile Include="Tv\TvScreen.cs" />
+>>>>>>> factoryBranch
     <Compile Include="VRObject.cs" />
-    <Compile Include="Patient.cs" />
+    <Compile Include="Patient\Patient.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -90,12 +108,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
