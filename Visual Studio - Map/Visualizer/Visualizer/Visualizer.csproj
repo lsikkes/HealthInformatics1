@@ -74,15 +74,11 @@
     <Compile Include="Patient\PatientFactory.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="KeyListener.cs" />
-<<<<<<< HEAD
-    <Compile Include="Logger.cs" />
-=======
     <Compile Include="Surroundings\Surrounding.cs" />
     <Compile Include="Surroundings\Tree.cs" />
     <Compile Include="Surroundings\Wall.cs" />
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
->>>>>>> factoryBranch
     <Compile Include="VRObject.cs" />
     <Compile Include="Patient\Patient.cs" />
     <Compile Include="MainWindow.xaml.cs">
