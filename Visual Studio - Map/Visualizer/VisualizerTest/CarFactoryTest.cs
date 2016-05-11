@@ -10,7 +10,7 @@ namespace VisualizerTest
         #region Methods
 
         [TestMethod]
-        public void createFactoryTest()
+        public void createCarFactoryTest()
         {
             CarFactory carFactory = new CarFactory();
             Assert.IsNotNull(carFactory);

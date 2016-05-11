@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Visualizer.Tv
+namespace Visualizer
 {
-    internal class TvScreen : ImmovableObject
+    public class TvScreen : ImmovableObject
     {
         #region Methods
 

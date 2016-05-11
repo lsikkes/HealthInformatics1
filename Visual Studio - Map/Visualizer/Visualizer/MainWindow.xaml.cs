@@ -16,7 +16,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Visualizer;
 using Visualizer.Furniture;
-using Visualizer.Tv;
 
 namespace GeenNaam
 {
