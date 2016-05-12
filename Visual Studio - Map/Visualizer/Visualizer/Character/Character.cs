@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Visualizer
+{
+    /// <summary>
+    /// Class Character.
+    /// </summary>
+    /// <seealso cref="Visualizer.VRObject" />
+    internal class Character : VRObject
+    {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Character"/> class.
+        /// </summary>
+        public Character()
+        {
+        }
+
+        #endregion Constructors
+    }
+}
