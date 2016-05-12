@@ -39,6 +39,8 @@ namespace GeenNaam
         private TvFactory tvFactory = new TvFactory();
         private BenchFactory benchFactory = new BenchFactory();
 
+        private Logger log = Logger.GetInstance();
+
         #endregion Fields
 
         #region Constructors
@@ -264,11 +266,11 @@ namespace GeenNaam
         {
             switch (e.Key)
             {
-                case Key.Escape: this.Close(); break;
-                case Key.A: moveMap(stepMapMove, zeroMapMove); break;
-                case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
-                case Key.W: moveMap(zeroMapMove, stepMapMove); break;
-                case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
+                case Key.Escape: log.Info("application exited with escape"); this.Close(); break;
+                case Key.A: moveMap(stepMapMove, zeroMapMove); log.Info("map moved left"); break;
+                case Key.D: moveMap(-stepMapMove, zeroMapMove); log.Info("map moved right"); break;
+                case Key.W: moveMap(zeroMapMove, stepMapMove); log.Info("map moved up"); break;
+                case Key.S: moveMap(zeroMapMove, -stepMapMove); log.Info("map moved down"); break;
                 default: Visualizer.KeyListener.keyPress(sender, e); break;
             }
         }

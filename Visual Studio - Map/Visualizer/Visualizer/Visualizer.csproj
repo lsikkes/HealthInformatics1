@@ -80,6 +80,7 @@
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
     <Compile Include="VRObject.cs" />
+	<Compile Include="Logger.cs" />
     <Compile Include="Patient\Patient.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
