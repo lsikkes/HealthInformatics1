@@ -1,12 +1,21 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-
+﻿// <copyright file="FirefighterCar.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace Visualizer.Cars
 {
-    internal class FirefighterCar : Car
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+
+    /// <summary>
+    /// Class FirefighterCar.
+    /// </summary>
+    /// <seealso cref="Visualizer.Car" />
+    public class FirefighterCar : Car
     {
         #region Methods
 
@@ -14,9 +23,9 @@ namespace Visualizer.Cars
         /// Gets the car image.
         /// </summary>
         /// <returns>Image.</returns>
-        public override Image getCarImage()
+        public override Image GetCarImage()
         {
-            Image carImage = getImage("image_police_car.PNG", 125, 250);
+            Image carImage = GetImage("image_police_car.PNG", 125, 250);
             return carImage;
         }
 
@@ -24,9 +33,9 @@ namespace Visualizer.Cars
         /// Gets the icon image.
         /// </summary>
         /// <returns>Image.</returns>
-        public override Image getIconImage()
+        public override Image GetIconImage()
         {
-            Image carIcon = getImage("icon_police.PNG", 50, 50, 0, -300);
+            Image carIcon = GetImage("icon_police.PNG", 50, 50, 0, -300);
             return carIcon;
         }
 

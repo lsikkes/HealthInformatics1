@@ -1,85 +1,67 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
+﻿// <copyright file="Bench.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer.Furniture
 {
-    internal class Bench : ArrayList
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
+    /// <summary>
+    /// Class Bench.
+    /// </summary>
+    /// <seealso cref="Visualizer.ImmovableObject" />
+    public class Bench : ImmovableObject
     {
-        #region Fields
-
-        private int amountSeats;
-
-        #endregion Fields
-
         #region Constructors
 
-        public Bench(String orientation, int amountSeats, int x, int y)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Bench" /> class.
+        /// </summary>
+        public Bench()
         {
-            Rectangle rect = createBenchRectangle(orientation, amountSeats, x, y);
-            StackPanel panel = new StackPanel();
-            panel.Children.Add(rect);
-            Add(panel);
-            x += 10;
-            y += 10;
-            for (int i = 0; i < amountSeats; i++)
-            {
-                StackPanel panel2 = new StackPanel();
-                panel2.Children.Add(createSeat(x, y));
-                Add(panel2);
-                if (orientation.Equals("h"))
-                {
-                    x += 70;
-                }
-                else if (orientation.Equals("v"))
-                {
-                    y += 70;
-                }
-            }
-            this.amountSeats = amountSeats;
         }
 
         #endregion Constructors
 
         #region Methods
 
-        public Seat createSeat(int x, int y)
-        {
-            Seat seat = new Seat();
-            seat.Children.Add(seat.createSeatPanel(x, y));
-            return seat;
-        }
+        ////public ArrayList makeBenchArray(String orientation, int amountSeats, int x, int y)
+        ////{
+        ////    ArrayList list = new ArrayList();
+        ////    x += 10;
+        ////    y += 10;
+        ////    for (int i = 0; i < amountSeats; i++)
+        ////    {
+        ////        StackPanel panel2 = new StackPanel();
+        ////        panel2.Children.Add(createSeat(x, y));
+        ////        list.Add(createSeat(x, y));
+        ////        if (orientation.Equals("h"))
+        ////        {
+        ////            x += 70;
+        ////        }
+        ////        else if (orientation.Equals("v"))
+        ////        {
+        ////            y += 70;
+        ////        }
+        ////    }
+        ////    return list;
+        ////}
 
-        public Rectangle createBenchRectangle(String orientation, int amountSeats, int x, int y)
-        {
-            Rectangle rect = new Rectangle();
-            rect.Fill = new SolidColorBrush(Colors.Pink);
-
-            if (orientation.Equals("h"))
-            {
-                rect.Width = 70 * amountSeats;
-                rect.Height = 70;
-            }
-            else if (orientation.Equals("v"))
-            {
-                rect.Width = 70;
-                rect.Height = 70 * amountSeats;
-            }
-
-            Thickness margin = rect.Margin;
-            margin.Left = x;
-            margin.Top = y;
-            rect.Margin = margin;
-            rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            return rect;
-        }
+        ////public Seat createSeat(int x, int y)
+        ////{
+        ////    Seat seat = new Seat();
+        ////    return (Seat)seat.createSeatImage(x, y);
+        /////}
 
         #endregion Methods
     }

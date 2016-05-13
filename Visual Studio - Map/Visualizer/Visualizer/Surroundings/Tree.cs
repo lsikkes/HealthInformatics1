@@ -1,24 +1,53 @@
-﻿using System.Windows.Media;
-using System.Windows.Shapes;
+﻿// <copyright file="Tree.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer.Surroundings
 {
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
     /// <summary>
     /// Class Tree.
     /// </summary>
     /// <seealso cref="Visualizer.Surroundings.Surrounding" />
-    internal class Tree : Surrounding
+    public class Tree : Surrounding
     {
         #region Fields
 
-        private int w, h, x, y;
+        /// <summary>
+        /// The width of the tree
+        /// </summary>
+        private int w,
+
+            /// <summary>
+            /// The height of the tree
+            /// </summary>
+            h,
+
+            /// <summary>
+            /// The x coordinate of the tree
+            /// </summary>
+            x,
+
+            /// <summary>
+            /// The y coordinate of the tree
+            /// </summary>
+            y;
+
+        /// <summary>
+        /// The tree color
+        /// </summary>
+        private Color treeColor = Colors.Green;
 
         #endregion Fields
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tree"/> class.
+        /// Initializes a new instance of the <see cref="Tree" /> class.
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
@@ -37,29 +66,14 @@ namespace Visualizer.Surroundings
         #region Methods
 
         /// <summary>
-        /// Makes the rectangle.
+        /// Makes a rectangle for a tree object.
         /// </summary>
         /// <returns>Rectangle.</returns>
-        public override Rectangle makeRect()
+        public override Rectangle GetRect()
         {
-            Rectangle rect = new Rectangle();
-            rect.Fill = new SolidColorBrush(Colors.Green);
-            rect.Width = this.w;
-            rect.Height = this.h;
-
-            rect.Margin = setMargin(rect.Margin, x, y);
-            rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+            Rectangle rect = MakeRect(this.x, this.y, this.w, this.h);
+            rect.Fill = new SolidColorBrush(this.treeColor);
             return rect;
-        }
-
-        /// <summary>
-        /// Gets the rectangle.
-        /// </summary>
-        /// <returns>Rectangle.</returns>
-        public override Rectangle getRect()
-        {
-            return makeRect();
         }
 
         #endregion Methods

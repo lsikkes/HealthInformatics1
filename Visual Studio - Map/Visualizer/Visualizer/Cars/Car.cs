@@ -1,19 +1,31 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿// <copyright file="Car.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer
 {
-    internal class Car : VRObject
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+
+    /// <summary>
+    /// Class Car.
+    /// </summary>
+    /// <seealso cref="Visualizer.MovableObject" />
+    public class Car : MovableObject
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Car"/> class.
+        /// Initializes a new instance of the <see cref="Car" /> class.
         /// </summary>
-        public Car() { }
+        public Car()
+        {
+        }
 
         #endregion Constructors
 
@@ -22,14 +34,20 @@ namespace Visualizer
         /// <summary>
         /// Gets the car image.
         /// </summary>
-        /// <returns>Image.</returns>
-        public virtual Image getCarImage() { return null; }
+        /// <returns> Image. </returns>
+        public virtual Image GetCarImage()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Gets the icon image.
         /// </summary>
-        /// <returns>Image.</returns>
-        public virtual Image getIconImage() { return null; }
+        /// <returns> Image. </returns>
+        public virtual Image GetIconImage()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Gets the image.
@@ -37,19 +55,19 @@ namespace Visualizer
         /// <param name="path">The path.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        /// <returns>Image.</returns>
-        public Image getImage(String path, int width, int height)
+        /// <returns> Image. </returns>
+        public Image GetImage(string path, int width, int height)
         {
-            Image Mole = new Image();
-            Mole.Width = width;
-            Mole.Height = height;
+            Image carImage = new Image();
+            carImage.Width = width;
+            carImage.Height = height;
 
-            String ImgNameMole = GeenNaam.MainWindow.AbsolutePath + path;
+            string carImagePath = GeenNaam.MainWindow.AbsolutePath + path;
 
-            ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
+            ImageSource carImageSource = new BitmapImage(new Uri(carImagePath));
+            carImage.Source = carImageSource;
 
-            return Mole;
+            return carImage;
         }
 
         /// <summary>
@@ -60,12 +78,12 @@ namespace Visualizer
         /// <param name="height">The height.</param>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        /// <returns>Image.</returns>
-        public Image getImage(String path, int width, int height, int x, int y)
+        /// <returns> Image. </returns>
+        public Image GetImage(string path, int width, int height, int x, int y)
         {
-            Image Mole = getImage(path, width, height);
-            Mole.Margin = setMargin(Mole.Margin, x, y);
-            return Mole;
+            Image carImage = this.GetImage(path, width, height);
+            carImage.Margin = this.SetMargin(carImage.Margin, x, y);
+            return carImage;
         }
 
         /// <summary>
@@ -74,8 +92,8 @@ namespace Visualizer
         /// <param name="margin">The margin.</param>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        /// <returns>Thickness.</returns>
-        public Thickness setMargin(Thickness margin, int x, int y)
+        /// <returns> Thickness. </returns>
+        public Thickness SetMargin(Thickness margin, int x, int y)
         {
             margin.Left = x;
             margin.Top = y;

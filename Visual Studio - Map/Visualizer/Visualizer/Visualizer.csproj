@@ -70,6 +70,8 @@
     <Compile Include="Furniture\BenchFactory.cs" />
     <Compile Include="Furniture\FurnitureFactory.cs" />
     <Compile Include="Furniture\Seat.cs" />
+    <Compile Include="ImmovableObject.cs" />
+    <Compile Include="MovableObject.cs" />
     <Compile Include="Surroundings\SurroundingFactory.cs" />
     <Compile Include="Patient\PatientFactory.cs" />
     <Compile Include="Factory.cs" />
@@ -77,8 +79,8 @@
     <Compile Include="Surroundings\Surrounding.cs" />
     <Compile Include="Surroundings\Tree.cs" />
     <Compile Include="Surroundings\Wall.cs" />
-    <Compile Include="Tv\TvFactory.cs" />
-    <Compile Include="Tv\TvScreen.cs" />
+    <Compile Include="Tv\TVFactory.cs" />
+    <Compile Include="Tv\TVScreen.cs" />
     <Compile Include="VRObject.cs" />
 	<Compile Include="Logger.cs" />
     <Compile Include="Patient\Patient.cs" />
@@ -105,7 +107,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

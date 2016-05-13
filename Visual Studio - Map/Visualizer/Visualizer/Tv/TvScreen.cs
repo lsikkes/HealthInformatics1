@@ -1,15 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// <copyright file="TVScreen.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
-namespace Visualizer.Tv
+namespace Visualizer
 {
-    internal class TvScreen : VRObject
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+    /// <summary>
+    /// Class TVScreen.
+    /// </summary>
+    /// <seealso cref="Visualizer.ImmovableObject" />
+    public class TVScreen : ImmovableObject
     {
         #region Methods
 
-        public void setTextOnTv(String text)
+        /// <summary>
+        /// Sets the text on TV.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        public void SetTextOnTV(string text)
         {
         }
 

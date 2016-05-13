@@ -16,7 +16,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Visualizer;
 using Visualizer.Furniture;
-using Visualizer.Tv;
 
 namespace GeenNaam
 {
@@ -36,7 +35,7 @@ namespace GeenNaam
         private SurroundingFactory surroundingFactory = new SurroundingFactory();
         private CharacterFactory characterFactory = new CharacterFactory();
         private CarFactory carFactory = new CarFactory();
-        private TvFactory tvFactory = new TvFactory();
+        private TVFactory tvFactory = new TVFactory();
         private BenchFactory benchFactory = new BenchFactory();
 
         private Logger log = Logger.GetInstance();
@@ -50,7 +49,7 @@ namespace GeenNaam
         {
             init();
 
-            patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
+            patient = patientFactory.CreatePatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
             map.Children.Add(patient);
 
             addSurrounding();
@@ -74,25 +73,26 @@ namespace GeenNaam
             width = System.Windows.SystemParameters.PrimaryScreenWidth;
             height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Console.WriteLine("window size is " + width + "x" + height);
+            Console.WriteLine("test");
 
             map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             map.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             map.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            map.Margin = patientFactory.setMargin(map.Margin, 0, 0);
+            map.Margin = patientFactory.SetMargin(map.Margin, 0, 0);
         }
 
         // method to add all the surroundings to the environment
         public void addSurrounding()
         {
             // add walls
-            map.Children.Add(surroundingFactory.createSurrounding(1, w2p(0.05), h2p(1.00), 0, 0));
-            map.Children.Add(surroundingFactory.createSurrounding(1, w2p(0.35), h2p(0.15), w2p(0.25), 0));
-            map.Children.Add(surroundingFactory.createSurrounding(1, w2p(0.35), h2p(0.15), w2p(0.75), 0));
-            map.Children.Add(surroundingFactory.createSurrounding(1, w2p(0.75), h2p(0.15), w2p(0.25), h2p(0.85)));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.05), h2p(1.00), 0, 0));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.35), h2p(0.15), w2p(0.25), 0));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.35), h2p(0.15), w2p(0.75), 0));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.75), h2p(0.15), w2p(0.25), h2p(0.85)));
 
             // adds trees to the environment
-            map.Children.Add(surroundingFactory.createSurrounding(0, h2p(0.15), h2p(0.15), w2p(0.30), h2p(0.67)));
-            map.Children.Add(surroundingFactory.createSurrounding(0, h2p(0.15), h2p(0.15), w2p(0.50), h2p(0.67)));
+            map.Children.Add(surroundingFactory.CreateSurrounding(0, h2p(0.15), h2p(0.15), w2p(0.30), h2p(0.67)));
+            map.Children.Add(surroundingFactory.CreateSurrounding(0, h2p(0.15), h2p(0.15), w2p(0.50), h2p(0.67)));
         }
 
         public int w2p(double perc)
@@ -108,11 +108,7 @@ namespace GeenNaam
         // method to place all seats
         public void addSeats()
         {
-            ArrayList al = benchFactory.createBench("v", 8, 70, 100);
-            for (int i = 0; i < al.Count; i++)
-            {
-                map.Children.Add((StackPanel)al[i]);
-            }
+            map.Children.Add(benchFactory.CreateBench("v", 8, 70, 100));
 
             //Brush color = Brushes.Brown;
             //addSquare(210, 70, 1100, 620, color);
@@ -131,7 +127,7 @@ namespace GeenNaam
         //method to add a character
         public void addCharacter(int x, int y, int ID, int emoji)
         {
-            map.Children.Add(characterFactory.createCharacter(x, y, ID, emoji));
+            map.Children.Add(characterFactory.CreateCharacter(x, y, ID, emoji));
         }
 
         // method to place all lights
@@ -174,7 +170,7 @@ namespace GeenNaam
         // Method to add a light to the environment
         public void addTV(int x, int y)
         {
-            map.Children.Add(tvFactory.createTvScreen(x, y));
+            map.Children.Add(tvFactory.CreateTvScreen(x, y));
         }
 
         // method to set the cars in the environment
@@ -191,7 +187,7 @@ namespace GeenNaam
         /// <param name="rotation">The rotation.</param>
         public void addCar(int x, int y, int rotation)
         {
-            map.Children.Add(carFactory.createCar("normal", x, y, rotation));
+            map.Children.Add(carFactory.CreateCar(0, x, y, rotation));
         }
 
         // Method to add a light to the environment
@@ -266,12 +262,21 @@ namespace GeenNaam
         {
             switch (e.Key)
             {
+<<<<<<< HEAD
                 case Key.Escape: log.Info("application exited with escape"); this.Close(); break;
                 case Key.A: moveMap(stepMapMove, zeroMapMove); log.Info("map moved left"); break;
                 case Key.D: moveMap(-stepMapMove, zeroMapMove); log.Info("map moved right"); break;
                 case Key.W: moveMap(zeroMapMove, stepMapMove); log.Info("map moved up"); break;
                 case Key.S: moveMap(zeroMapMove, -stepMapMove); log.Info("map moved down"); break;
                 default: Visualizer.KeyListener.keyPress(sender, e); break;
+=======
+                case Key.Escape: this.Close(); break;
+                case Key.A: moveMap(stepMapMove, zeroMapMove); break;
+                case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
+                case Key.W: moveMap(zeroMapMove, stepMapMove); break;
+                case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
+                default: Visualizer.KeyListener.KeyPress(sender, e); break;
+>>>>>>> factoryBranch
             }
         }
 
