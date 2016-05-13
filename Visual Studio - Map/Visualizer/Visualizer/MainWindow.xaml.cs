@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,8 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
-using System.Threading;
+using Visualizer;
+using Visualizer.Furniture;
 
 namespace GeenNaam
 {
@@ -21,24 +24,32 @@ namespace GeenNaam
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Fields
+
         public static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
+        public static Patient patient;
         public Double height, width;
 
-        private Visualizer.FactoryPatient patientFactory = new Visualizer.FactoryPatient();
-        private Visualizer.FactorySurrounding surroundingFactory = new Visualizer.FactorySurrounding();
-        private Visualizer.CharacterFactory characterFactory = new Visualizer.CharacterFactory();
-        public static Visualizer.Patient patient;
-
         private static readonly int stepMapMove = 100, zeroMapMove = 0;
+        private Logger log = Logger.GetInstance();
+        private PatientFactory patientFactory = new PatientFactory();
+        private SurroundingFactory surroundingFactory = new SurroundingFactory();
+        private CharacterFactory characterFactory = new CharacterFactory();
+        private CarFactory carFactory = new CarFactory();
+        private TVFactory tvFactory = new TVFactory();
+        private BenchFactory benchFactory = new BenchFactory();
+
+        #endregion Fields
+
+        #region Constructors
 
         //static String AbsolutePath = @"..\..\resources\";
         public MainWindow()
         {
             init();
 
-            patient = patientFactory.createPatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
+            patient = patientFactory.CreatePatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
             map.Children.Add(patient);
-
 
             addSurrounding();
 
@@ -48,6 +59,10 @@ namespace GeenNaam
             addTVs();
             addSeats();
         }
+
+        #endregion Constructors
+
+        #region Methods
 
         public void init()
         {
@@ -61,58 +76,43 @@ namespace GeenNaam
             map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             map.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             map.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            map.Margin = patientFactory.setMargin(map.Margin, 0, 0);
+            map.Margin = patientFactory.SetMargin(map.Margin, 0, 0);
         }
 
         // method to add all the surroundings to the environment
         public void addSurrounding()
         {
-            Brush color;
             // add walls
-            color = Brushes.LightGray;
-            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.05), h2p(1.00), 0,         0,         color));
-            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.35), h2p(0.15), w2p(0.25), 0,         color));
-            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.35), h2p(0.15), w2p(0.75), 0,         color));
-            map.Children.Add(surroundingFactory.createSurrounding(w2p(0.75), h2p(0.15), w2p(0.25), h2p(0.85), color));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.05), h2p(1.00), 0, 0));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.35), h2p(0.15), w2p(0.25), 0));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.35), h2p(0.15), w2p(0.75), 0));
+            map.Children.Add(surroundingFactory.CreateSurrounding(1, w2p(0.75), h2p(0.15), w2p(0.25), h2p(0.85)));
+
             // adds trees to the environment
-            color = Brushes.LightGreen;
-            map.Children.Add(surroundingFactory.createSurrounding(h2p(0.15), h2p(0.15), w2p(0.30), h2p(0.67), color));
-            map.Children.Add(surroundingFactory.createSurrounding(h2p(0.15), h2p(0.15), w2p(0.50), h2p(0.67), color));
+            map.Children.Add(surroundingFactory.CreateSurrounding(0, h2p(0.15), h2p(0.15), w2p(0.30), h2p(0.67)));
+            map.Children.Add(surroundingFactory.CreateSurrounding(0, h2p(0.15), h2p(0.15), w2p(0.50), h2p(0.67)));
         }
 
-        public int w2p(double perc) { return (int)Math.Round(perc * width); }
-        public int h2p(double perc) { return (int)Math.Round(perc * height); }
+        public int w2p(double perc)
+        {
+            return (int)Math.Round(perc * width);
+        }
+
+        public int h2p(double perc)
+        {
+            return (int)Math.Round(perc * height);
+        }
 
         // method to place all seats
         public void addSeats()
         {
-            Brush color = Brushes.Brown;
-            addSquare(210, 70, 1100, 620, color);
-            addSeat(1110, 630);
-            addSeat(1180, 630);
-            addSeat(1250, 630);
-        }
+            map.Children.Add(benchFactory.CreateBench("v", 8, 70, 100));
 
-        //method to add a square to the environment
-        private void addSquare(int w, int h, int mx, int my, System.Windows.Media.Brush color)
-        {
-            System.Windows.Shapes.Rectangle rect;
-            rect = new System.Windows.Shapes.Rectangle();
-            rect = new Rectangle
-            {
-                Fill = color
-            };
-            rect.Width = w;
-            rect.Height = h;
-
-            Thickness margin = rect.Margin;
-            margin.Left = mx;
-            margin.Top = my;
-            rect.Margin = margin;
-            rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-
-            map.Children.Add(rect);
+            //Brush color = Brushes.Brown;
+            //addSquare(210, 70, 1100, 620, color);
+            //addSeat(1110, 630);
+            //addSeat(1180, 630);
+            //addSeat(1250, 630);
         }
 
         //method to add all characters
@@ -125,8 +125,7 @@ namespace GeenNaam
         //method to add a character
         public void addCharacter(int x, int y, int ID, int emoji)
         {
-            
-            map.Children.Add(characterFactory.createCharacter(x, y, ID, emoji));
+            map.Children.Add(characterFactory.CreateCharacter(x, y, ID, emoji));
         }
 
         // method to place all lights
@@ -169,24 +168,7 @@ namespace GeenNaam
         // Method to add a light to the environment
         public void addTV(int x, int y)
         {
-            StackPanel panel;
-            panel = new StackPanel();
-            panel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = panel.Margin;
-            margin.Left = x;
-            margin.Top = y;
-            panel.Margin = margin;
-
-            Image Mole = new Image();
-            Mole.Width = 50;
-            Mole.Height = 50;
-            String location = AbsolutePath + "icon_tv.PNG";
-            ImageSource MoleImage = new BitmapImage(new Uri(location));
-            Mole.Source = MoleImage;
-
-            panel.Children.Add(Mole);
-            map.Children.Add(panel);
+            map.Children.Add(tvFactory.CreateTvScreen(x, y));
         }
 
         // method to set the cars in the environment
@@ -195,42 +177,15 @@ namespace GeenNaam
             addCar(150, 20, 0);
         }
 
-        // method to set a car within the map
+        /// <summary>
+        /// Adds the car.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="rotation">The rotation.</param>
         public void addCar(int x, int y, int rotation)
         {
-            StackPanel panel;
-            panel = new StackPanel();
-            panel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            Thickness margin = panel.Margin;
-            margin.Left = x;
-            margin.Top = y;
-            panel.Margin = margin;
-
-            Image Mole = new Image();
-            Mole.Width = 125;
-            Mole.Height = 250;
-            String ImgNameMole = AbsolutePath + "image_police_car.PNG";
-            ImageSource MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
-            panel.Children.Add(Mole);
-
-            Mole = new Image();
-            Mole.Width = 50;
-            Mole.Height = 50;
-            ImgNameMole = AbsolutePath + "icon_police.PNG";
-            MoleImage = new BitmapImage(new Uri(ImgNameMole));
-            Mole.Source = MoleImage;
-            margin = Mole.Margin;
-            margin.Left = 0;
-            margin.Top = -300;
-            Mole.Margin = margin;
-            panel.Children.Add(Mole);
-
-            RotateTransform rotateTransform1 = new RotateTransform(rotation, 65, 125);
-            panel.RenderTransform = rotateTransform1;
-
-            map.Children.Add(panel);
+            map.Children.Add(carFactory.CreateCar(0, x, y, rotation));
         }
 
         // Method to add a light to the environment
@@ -256,36 +211,11 @@ namespace GeenNaam
             map.Children.Add(panel);
         }
 
-        private void keyPress(object sender, KeyEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case Key.Escape: this.Close(); break;
-                case Key.A: moveMap(stepMapMove, zeroMapMove); break;
-                case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
-                case Key.W: moveMap(zeroMapMove, stepMapMove); break;
-                case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
-                default: Visualizer.KeyListener.keyPress(sender, e); break;
-            }
-        }
-
-        private void toggleMenu(object sender, RoutedEventArgs e)
-        {
-            if(menu.Visibility==System.Windows.Visibility.Collapsed){
-                menu.Visibility = System.Windows.Visibility.Visible;
-            } else {
-                menu.Visibility = System.Windows.Visibility.Collapsed;
-            }
-        }
-
-        private void close(object sender, RoutedEventArgs e){
-            this.Close();
-        }
-
         public void OnMouseEnterHandler(object sender, MouseEventArgs e)
         {
             Console.WriteLine("hovering on: ");
         }
+
         public void OnMouseLeaveHandler(object sender, MouseEventArgs e)
         {
             Console.WriteLine("hovering off ");
@@ -304,5 +234,58 @@ namespace GeenNaam
             map.Margin = m;
         }
 
+        //method to add a square to the environment
+        private void addSquare(int w, int h, int mx, int my, System.Windows.Media.Brush color)
+        {
+            System.Windows.Shapes.Rectangle rect;
+            rect = new System.Windows.Shapes.Rectangle();
+            rect = new Rectangle
+            {
+                Fill = color
+            };
+            rect.Width = w;
+            rect.Height = h;
+
+            Thickness margin = rect.Margin;
+            margin.Left = mx;
+            margin.Top = my;
+            rect.Margin = margin;
+            rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+
+            map.Children.Add(rect);
+        }
+
+        private void keyPress(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Escape: log.Info("application exited with escape"); this.Close(); break;
+                case Key.A: moveMap(stepMapMove, zeroMapMove); log.Info("map moved left"); break;
+                case Key.D: moveMap(-stepMapMove, zeroMapMove); log.Info("map moved right"); break;
+                case Key.W: moveMap(zeroMapMove, stepMapMove); log.Info("map moved up"); break;
+                case Key.S: moveMap(zeroMapMove, -stepMapMove); log.Info("map moved down"); break;
+                default: Visualizer.KeyListener.KeyPress(sender, e); break;
+            }
+        }
+
+        private void toggleMenu(object sender, RoutedEventArgs e)
+        {
+            if (menu.Visibility == System.Windows.Visibility.Collapsed)
+            {
+                menu.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                menu.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
+        private void close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion Methods
     }
 }
