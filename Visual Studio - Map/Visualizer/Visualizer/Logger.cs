@@ -34,14 +34,14 @@ namespace Visualizer
         private static readonly int LogFiles = 101;
 
         /// <summary>
-        /// The relative path to store the log files
-        /// </summary>
-        private static readonly string Path = Directory.GetParent(@"..\..\..\..\").ToString() + @"\logger\";
-
-        /// <summary>
         /// Singleton instance
         /// </summary>
-        private static Logger Instance = new Logger();
+        private static readonly Logger Instance = new Logger();
+
+        /// <summary>
+        /// The relative path to store the log files
+        /// </summary>
+        private static string path;
 
         /// <summary>
         /// Writers to use
@@ -58,10 +58,11 @@ namespace Visualizer
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Logger"/> class.
+        /// Prevents a default instance of the <see cref="Logger"/> class from being created.
         /// </summary>
         private Logger()
         {
+            path = GetPath();
             this.CreateFiles();
         }
 
@@ -70,11 +71,9 @@ namespace Visualizer
         #region Methods
 
         /// <summary>
-        /// Gets the instance of the Singleton
+        /// Gets the Singleton instance of the Logger class.
         /// </summary>
-        /// <returns>
-        /// Singleton instance
-        /// </returns>
+        /// <returns> Singleton instance of the Logger </returns>
         public static Logger GetInstance()
         {
             return Instance;
@@ -124,7 +123,7 @@ namespace Visualizer
         /// Sets the log all.
         /// </summary>
         /// <param name="state">if set to <c>true</c> [state].</param>
-        public void setLogAll(bool state)
+        public void SetLogAll(bool state)
         {
             this.logAll = state;
         }
@@ -133,7 +132,7 @@ namespace Visualizer
         /// Sets the log backup.
         /// </summary>
         /// <param name="state">if set to <c>true</c> [state].</param>
-        public void setLogBackup(bool state)
+        public void SetLogBackup(bool state)
         {
             this.logBackup = state;
         }
@@ -142,7 +141,7 @@ namespace Visualizer
         /// Sets to console.
         /// </summary>
         /// <param name="state">if set to <c>true</c> [state].</param>
-        public void setToConsole(bool state)
+        public void SetToConsole(bool state)
         {
             this.toConsole = state;
         }
@@ -151,7 +150,7 @@ namespace Visualizer
         /// Gets the log all.
         /// </summary>
         /// <returns>boolean logAll</returns>
-        public bool getLogAll()
+        public bool GetLogAll()
         {
             return this.logAll;
         }
@@ -160,7 +159,7 @@ namespace Visualizer
         /// Gets the log backup.
         /// </summary>
         /// <returns>boolean logBackup</returns>
-        public bool getLogBackup()
+        public bool GetLogBackup()
         {
             return this.logBackup;
         }
@@ -169,9 +168,28 @@ namespace Visualizer
         /// Gets to console.
         /// </summary>
         /// <returns>boolean toConsole</returns>
-        public bool getToConsole()
+        public bool GetToConsole()
         {
             return this.toConsole;
+        }
+
+        /// <summary>
+        /// Creates the right path the logger map
+        /// </summary>
+        /// <returns> string with the path to the logger map </returns>
+        private static string GetPath()
+        {
+            string path = System.IO.Path.GetDirectoryName(
+              System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            string newPath = string.Empty;
+            string[] paths = path.Split('\\');
+            for (int i = 1; i < paths.Length - 4; i++)
+            {
+                newPath = newPath + "\\" + paths[i];
+            }
+
+            newPath = newPath.Substring(1);
+            return newPath + @"\logger\";
         }
 
         /// <summary>
@@ -217,22 +235,19 @@ namespace Visualizer
         /// </summary>
         private void CreateFiles()
         {
-            Console.WriteLine("path is " + Path);
-
-            //Logger.GetInstance().Info("path is " + Path);
             if (this.logAll)
             {
-                Directory.CreateDirectory(Path);
+                Directory.CreateDirectory(path);
                 string time = DateTime.Now.ToString("MM-dd-yy HH_mm_ss");
-                this.writerCurrent = new StreamWriter(Path + @"\current.html");
+                this.writerCurrent = new StreamWriter(path + @"\current.html");
                 this.WriteStart(this.writerCurrent);
                 if (this.logBackup)
                 {
-                    this.writerStore = new StreamWriter(Path + @"\" + time + ".html");
+                    this.writerStore = new StreamWriter(path + @"\" + time + ".html");
                     this.WriteStart(this.writerStore);
                 }
 
-                foreach (var file in new DirectoryInfo(Path).GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(LogFiles))
+                foreach (var file in new DirectoryInfo(path).GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(LogFiles))
                 {
                     file.Delete();
                 }
