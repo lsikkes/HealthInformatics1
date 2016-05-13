@@ -6,7 +6,7 @@ using System.Windows.Media.Imaging;
 
 namespace Visualizer
 {
-    internal class Car : VRObject
+    public class Car : MovableObject
     {
         #region Constructors
 

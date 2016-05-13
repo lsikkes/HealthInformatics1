@@ -7,7 +7,7 @@ namespace Visualizer
     /// Class CharacterFactory.
     /// </summary>
     /// <seealso cref="Visualizer.Factory" />
-    internal class CharacterFactory : Factory
+    public class CharacterFactory : Factory
     {
         #region Methods
 

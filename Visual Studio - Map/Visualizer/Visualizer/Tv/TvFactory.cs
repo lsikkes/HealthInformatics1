@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Controls;
 
-namespace Visualizer.Tv
+namespace Visualizer
 {
-    internal class TvFactory : Factory
+    public class TvFactory : Factory
     {
         #region Methods
 

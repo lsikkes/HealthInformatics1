@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Visualizer.Furniture
 {
-    internal class FurnitureFactory : Factory
+    public class FurnitureFactory : Factory
     {
         #region Constructors
 

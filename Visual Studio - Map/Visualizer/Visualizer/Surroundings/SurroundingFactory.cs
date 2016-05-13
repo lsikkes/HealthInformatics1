@@ -26,8 +26,6 @@ namespace Visualizer
 
         /// <summary>
         /// Creates the surrounding.
-        /// type 0 = tree
-        /// type 1 = wall
         /// </summary>
         /// <param name="type">The type.</param>
         /// <param name="w">The w.</param>
@@ -35,7 +33,7 @@ namespace Visualizer
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <returns>Surrounding.</returns>
-        public Shape createSurrounding(int type, int w, int h, int x, int y)
+        public Surrounding createSurrounding(int type, int w, int h, int x, int y)
         {
             Surrounding surrounding;
             switch (type)
@@ -52,9 +50,9 @@ namespace Visualizer
                     surrounding = new Surrounding();
                     break;
             }
-            Rectangle rect = surrounding.getRect();
+            surrounding.Children.Add(surrounding.getRect());
 
-            return rect;
+            return surrounding;
         }
 
         #endregion Methods

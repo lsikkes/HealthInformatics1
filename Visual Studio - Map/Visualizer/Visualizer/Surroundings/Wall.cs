@@ -11,7 +11,7 @@ namespace Visualizer.Surroundings
     /// Class Wall.
     /// </summary>
     /// <seealso cref="Visualizer.Surroundings.Surrounding" />
-    internal class Wall : Surrounding
+    public class Wall : Surrounding
     {
         #region Fields
 
