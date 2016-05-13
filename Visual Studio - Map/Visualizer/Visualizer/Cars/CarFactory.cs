@@ -7,6 +7,15 @@ namespace Visualizer
 {
     public class CarFactory : Factory
     {
+        #region Constructors
+
+        public CarFactory()
+        {
+            Logger.GetInstance().Info("carfacotr creatr");
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         /// <summary>

@@ -31,14 +31,13 @@ namespace GeenNaam
         public Double height, width;
 
         private static readonly int stepMapMove = 100, zeroMapMove = 0;
+        private Logger log = Logger.GetInstance();
         private PatientFactory patientFactory = new PatientFactory();
         private SurroundingFactory surroundingFactory = new SurroundingFactory();
         private CharacterFactory characterFactory = new CharacterFactory();
         private CarFactory carFactory = new CarFactory();
         private TvFactory tvFactory = new TvFactory();
         private BenchFactory benchFactory = new BenchFactory();
-
-        private Logger log = Logger.GetInstance();
 
         #endregion Fields
 

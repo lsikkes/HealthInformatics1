@@ -36,7 +36,7 @@ namespace Visualizer
         /// <summary>
         /// The relative path to store the log files
         /// </summary>
-        private static readonly string Path = Directory.GetParent(@"..\..\..\..\").ToString() + @"\logger\";
+        private static string Path;
 
         /// <summary>
         /// Singleton instance
@@ -62,12 +62,18 @@ namespace Visualizer
         /// </summary>
         private Logger()
         {
-            this.CreateFiles();
+            Path = getPath();
+            CreateFiles();
         }
 
         #endregion Constructors
 
         #region Methods
+
+        public static Logger GetInstance()
+        {
+            return Instance;
+        }
 
         /// <summary>
         /// Gets the instance of the Singleton
@@ -75,7 +81,7 @@ namespace Visualizer
         /// <returns>
         /// Singleton instance
         /// </returns>
-        public static Logger GetInstance()
+        public static Logger GetInstance(string path)
         {
             return Instance;
         }
@@ -175,6 +181,24 @@ namespace Visualizer
         }
 
         /// <summary>
+        /// Creates the right path the logger map
+        /// </summary>
+        /// <returns> string with the path to the logger map </returns>
+        private static string getPath()
+        {
+            string path = System.IO.Path.GetDirectoryName(
+              System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            string newPath = "";
+            string[] paths = path.Split('\\');
+            for (int i = 1; i < paths.Length - 4; i++)
+            {
+                newPath = newPath + "\\" + paths[i];
+            }
+            newPath = newPath.Substring(1);
+            return newPath + @"\logger\";
+        }
+
+        /// <summary>
         /// Writes the line to both writes and console
         /// If those are active
         /// </summary>
@@ -206,6 +230,7 @@ namespace Visualizer
         /// <param name="message"> message to be written</param>
         private void WriteLine(StreamWriter writer, string message)
         {
+            Console.WriteLine(writer == null);
             writer.WriteLine(message);
             writer.Flush();
         }
