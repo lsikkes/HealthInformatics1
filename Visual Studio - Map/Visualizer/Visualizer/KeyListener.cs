@@ -1,32 +1,4 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace Visualizer
-{
-    internal class KeyListener
-    {
-        #region Fields
-
-        private static Logger log = Logger.GetInstance();
-
-        #endregion Fields
-
-=======
-﻿// <copyright file="KeyListener.cs" company="HI1">
+// <copyright file="KeyListener.cs" company="HI1">
 //     Copyright ©  2016
 // </copyright>
 // <summary></summary>
@@ -53,9 +25,8 @@ namespace Visualizer
     /// <summary>
     /// Class KeyListener.
     /// </summary>
-    internal class KeyListener
+    public class KeyListener
     {
->>>>>>> factoryBranch
         #region Methods
 
         /// <summary>
@@ -67,13 +38,6 @@ namespace Visualizer
         {
             switch (e.Key)
             {
-<<<<<<< HEAD
-                case Key.Up: GeenNaam.MainWindow.patient.walkUp(); break;
-                case Key.Down: GeenNaam.MainWindow.patient.walkDown(); break;
-                case Key.Left: GeenNaam.MainWindow.patient.walkLeft(); break;
-                case Key.Right: GeenNaam.MainWindow.patient.walkRight(); break;
-                default: log.Warning("Unknown key input " + e.Key); break;
-=======
                 case Key.Up:
                     GeenNaam.MainWindow.patient.WalkUp();
                     break;
@@ -93,7 +57,6 @@ namespace Visualizer
                 default:
                     Console.WriteLine("Unknow key input " + e.Key);
                     break;
->>>>>>> factoryBranch
             }
         }
 

@@ -262,21 +262,12 @@ namespace GeenNaam
         {
             switch (e.Key)
             {
-<<<<<<< HEAD
                 case Key.Escape: log.Info("application exited with escape"); this.Close(); break;
                 case Key.A: moveMap(stepMapMove, zeroMapMove); log.Info("map moved left"); break;
                 case Key.D: moveMap(-stepMapMove, zeroMapMove); log.Info("map moved right"); break;
                 case Key.W: moveMap(zeroMapMove, stepMapMove); log.Info("map moved up"); break;
                 case Key.S: moveMap(zeroMapMove, -stepMapMove); log.Info("map moved down"); break;
-                default: Visualizer.KeyListener.keyPress(sender, e); break;
-=======
-                case Key.Escape: this.Close(); break;
-                case Key.A: moveMap(stepMapMove, zeroMapMove); break;
-                case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
-                case Key.W: moveMap(zeroMapMove, stepMapMove); break;
-                case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
                 default: Visualizer.KeyListener.KeyPress(sender, e); break;
->>>>>>> factoryBranch
             }
         }
 
