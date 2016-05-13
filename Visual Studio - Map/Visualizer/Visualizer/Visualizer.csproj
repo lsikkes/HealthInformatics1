@@ -79,8 +79,8 @@
     <Compile Include="Surroundings\Surrounding.cs" />
     <Compile Include="Surroundings\Tree.cs" />
     <Compile Include="Surroundings\Wall.cs" />
-    <Compile Include="Tv\TvFactory.cs" />
-    <Compile Include="Tv\TvScreen.cs" />
+    <Compile Include="Tv\TVFactory.cs" />
+    <Compile Include="Tv\TVScreen.cs" />
     <Compile Include="VRObject.cs" />
     <Compile Include="Patient\Patient.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -106,7 +106,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

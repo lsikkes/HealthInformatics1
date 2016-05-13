@@ -16,7 +16,7 @@ namespace VisualizerUnitTest
         [Test]
         public void creatTvFactoryTest()
         {
-            TvFactory tvFactory = new TvFactory();
+            TVFactory tvFactory = new TVFactory();
             Assert.IsNotNull(tvFactory);
         }
 

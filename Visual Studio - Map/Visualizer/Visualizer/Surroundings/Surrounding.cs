@@ -1,11 +1,19 @@
-﻿using System.Windows;
-using System.Windows.Shapes;
+﻿// <copyright file="Surrounding.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer.Surroundings
 {
+    using System.Windows;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
     /// <summary>
     /// Class Surrounding.
     /// </summary>
+    /// <seealso cref="Visualizer.ImmovableObject" />
     public class Surrounding : ImmovableObject
     {
         #region Methods
@@ -14,19 +22,30 @@ namespace Visualizer.Surroundings
         /// Gets the rectangle.
         /// </summary>
         /// <returns>Rectangle.</returns>
-        public virtual Rectangle getRect()
+        public virtual Rectangle GetRect()
         {
             Rectangle rect = new Rectangle();
             return rect;
         }
 
         /// <summary>
-        /// Makes the rectangle.
+        /// Makes the rectangle for the surrounding.
         /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <param name="w">The width.</param>
+        /// <param name="h">The height.</param>
         /// <returns>Rectangle.</returns>
-        public virtual Rectangle makeRect()
+        public virtual Rectangle MakeRect(int x, int y, int w, int h)
         {
             Rectangle rect = new Rectangle();
+            rect.Fill = new SolidColorBrush(Colors.Brown);
+            rect.Width = w;
+            rect.Height = h;
+
+            rect.Margin = this.SetMargin(rect.Margin, x, y);
+            rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             return rect;
         }
 
@@ -37,7 +56,7 @@ namespace Visualizer.Surroundings
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
         /// <returns>Thickness.</returns>
-        public Thickness setMargin(Thickness margin, int x, int y)
+        public Thickness SetMargin(Thickness margin, int x, int y)
         {
             margin.Left = x;
             margin.Top = y;

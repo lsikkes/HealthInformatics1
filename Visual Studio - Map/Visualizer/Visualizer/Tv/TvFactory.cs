@@ -1,26 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Controls;
+﻿// <copyright file="TvFactory.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer
 {
-    public class TvFactory : Factory
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Controls;
+
+    /// <summary>
+    /// Class TVFactory.
+    /// </summary>
+    /// <seealso cref="Visualizer.Factory" />
+    public class TVFactory : Factory
     {
         #region Methods
 
-        public TvScreen createTvScreen(int x, int y)
+        /// <summary>
+        /// Creates the TV screen.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns>TVScreen.</returns>
+        public TVScreen CreateTvScreen(int x, int y)
         {
-            TvScreen tv = new TvScreen();
+            TVScreen tv = new TVScreen();
 
             tv.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             tv.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            tv.Margin = setMargin(tv.Margin, x, y);
+            tv.Margin = this.SetMargin(tv.Margin, x, y);
 
-            Image tvImg = getImage("icon_tv.PNG", 50, 50);
+            Image imageTV = this.GetImage("icon_tv.PNG", 50, 50);
 
-            tv.Children.Add(tvImg);
+            tv.Children.Add(imageTV);
 
             return tv;
         }
