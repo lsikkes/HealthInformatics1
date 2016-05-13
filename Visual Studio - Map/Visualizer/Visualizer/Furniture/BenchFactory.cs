@@ -1,75 +1,131 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
+﻿// <copyright file="BenchFactory.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer.Furniture
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
+    /// <summary>
+    /// Class BenchFactory.
+    /// </summary>
+    /// <seealso cref="Visualizer.Furniture.FurnitureFactory" />
     public class BenchFactory : FurnitureFactory
     {
         #region Fields
 
-        private int rectangleHeight = 0, rectangleWidth = 0, startPositionX = 0, startPositionY = 0, offset = 70;
+        /// <summary>
+        /// The rectangle height
+        /// </summary>
+        private int rectangleHeight = 0,
+
+            /// <summary>
+            /// The rectangle width
+            /// </summary>
+        rectangleWidth = 0,
+
+            /// <summary>
+            /// The start position x
+            /// </summary>
+        startPositionX = 0,
+
+            /// <summary>
+            /// The start position y
+            /// </summary>
+        startPositionY = 0,
+
+            /// <summary>
+            /// The offset between seats
+            /// </summary>
+        offset = 70;
 
         #endregion Fields
 
         #region Methods
 
-        public Bench createBench(String orientation, int amountSeats, int x, int y)
+        /// <summary>
+        /// Creates the bench.
+        /// </summary>
+        /// <param name="orientation">The orientation.</param>
+        /// <param name="amountSeats">The amount seats.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns>Bench.</returns>
+        public Bench CreateBench(string orientation, int amountSeats, int x, int y)
         {
             Bench bench = new Bench();
-            DetermineParameters(orientation, amountSeats, x, y);
-            bench.Children.Add(createBenchRectangle(orientation, amountSeats, x, y));
+            this.DetermineParameters(orientation, amountSeats, x, y);
+            bench.Children.Add(this.CreateBenchRectangle(orientation, amountSeats, x, y));
             for (int i = 0; i < amountSeats; i++)
             {
                 Seat seat = new Seat();
-                Image seatImg = seat.getImage();
+                Image seatImg = seat.GetImage();
                 seatImg.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 seatImg.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
-                seatImg.Margin = setMargin(seat.Margin, startPositionX, -10);
+                seatImg.Margin = this.SetMargin(seat.Margin, this.startPositionX, -10);
 
                 bench.Children.Add(seatImg);
                 if (orientation == "h")
                 {
-                    x += offset;
+                    x += this.offset;
                 }
                 else
                 {
-                    y += offset;
+                    y += this.offset;
                 }
             }
 
             return bench;
         }
 
-        public void DetermineParameters(String orientation, int amountSeats, int x, int y)
+        /// <summary>
+        /// Determines the parameters.
+        /// </summary>
+        /// <param name="orientation">The orientation.</param>
+        /// <param name="amountSeats">The amount seats.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        public void DetermineParameters(string orientation, int amountSeats, int x, int y)
         {
             if (orientation.Equals("h"))
             {
-                rectangleWidth = 70 * amountSeats;
-                rectangleHeight = 70;
+                this.rectangleWidth = 70 * amountSeats;
+                this.rectangleHeight = 70;
             }
             else if (orientation.Equals("v"))
             {
-                rectangleWidth = 70;
-                rectangleHeight = 70 * amountSeats;
-                startPositionX = rectangleWidth + 10;
-                startPositionY = -y - 1000;
+                this.rectangleWidth = 70;
+                this.rectangleHeight = 70 * amountSeats;
+                this.startPositionX = this.rectangleWidth + 10;
+                this.startPositionY = -y - 1000;
             }
         }
 
-        public Rectangle createBenchRectangle(String orientation, int amountSeats, int x, int y)
+        /// <summary>
+        /// Creates the bench rectangle.
+        /// </summary>
+        /// <param name="orientation">The orientation.</param>
+        /// <param name="amountSeats">The amount seats.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns>Rectangle.</returns>
+        public Rectangle CreateBenchRectangle(string orientation, int amountSeats, int x, int y)
         {
             Rectangle rect = new Rectangle();
             rect.Fill = new SolidColorBrush(Colors.Pink);
-            rect.Height = rectangleHeight;
-            rect.Width = rectangleWidth;
+            rect.Height = this.rectangleHeight;
+            rect.Width = this.rectangleWidth;
 
-            rect.Margin = setMargin(rect.Margin, x, y);
+            rect.Margin = this.SetMargin(rect.Margin, x, y);
             rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             return rect;
