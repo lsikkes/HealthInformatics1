@@ -72,7 +72,6 @@ namespace GeenNaam
             width = System.Windows.SystemParameters.PrimaryScreenWidth;
             height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Console.WriteLine("window size is " + width + "x" + height);
-            Console.WriteLine("test");
 
             map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             map.VerticalAlignment = System.Windows.VerticalAlignment.Top;

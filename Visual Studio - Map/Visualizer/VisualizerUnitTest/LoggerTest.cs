@@ -17,10 +17,8 @@ namespace VisualizerUnitTest
         [Test]
         public void GetInstanceTest()
         {
-            //Logger log = Logger.GetInstance(getPath());
-            //Assert.NotNull(log);
-            //log.setUp();
-            //Assert.NotNull(log);
+            Logger log = Logger.GetInstance();
+            Assert.NotNull(log);
         }
 
         /// <summary>

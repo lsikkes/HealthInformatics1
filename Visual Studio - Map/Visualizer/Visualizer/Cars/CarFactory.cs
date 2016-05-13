@@ -11,7 +11,7 @@ namespace Visualizer
 
         public CarFactory()
         {
-            Logger.GetInstance().Info("carfacotr creatr");
+            Logger.GetInstance().Info("CarFactory created");
         }
 
         #endregion Constructors
