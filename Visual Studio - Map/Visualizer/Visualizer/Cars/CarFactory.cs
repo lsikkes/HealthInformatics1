@@ -23,6 +23,7 @@ namespace Visualizer
         /// </summary>
         public CarFactory()
         {
+            Logger.GetInstance().Info("CarFactory created");
         }
 
         #endregion Constructors

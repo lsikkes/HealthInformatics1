@@ -31,6 +31,7 @@ namespace GeenNaam
         public Double height, width;
 
         private static readonly int stepMapMove = 100, zeroMapMove = 0;
+        private Logger log = Logger.GetInstance();
         private PatientFactory patientFactory = new PatientFactory();
         private SurroundingFactory surroundingFactory = new SurroundingFactory();
         private CharacterFactory characterFactory = new CharacterFactory();
@@ -71,7 +72,6 @@ namespace GeenNaam
             width = System.Windows.SystemParameters.PrimaryScreenWidth;
             height = System.Windows.SystemParameters.PrimaryScreenHeight;
             Console.WriteLine("window size is " + width + "x" + height);
-            Console.WriteLine("test");
 
             map.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             map.VerticalAlignment = System.Windows.VerticalAlignment.Top;
@@ -260,11 +260,11 @@ namespace GeenNaam
         {
             switch (e.Key)
             {
-                case Key.Escape: this.Close(); break;
-                case Key.A: moveMap(stepMapMove, zeroMapMove); break;
-                case Key.D: moveMap(-stepMapMove, zeroMapMove); break;
-                case Key.W: moveMap(zeroMapMove, stepMapMove); break;
-                case Key.S: moveMap(zeroMapMove, -stepMapMove); break;
+                case Key.Escape: log.Info("application exited with escape"); this.Close(); break;
+                case Key.A: moveMap(stepMapMove, zeroMapMove); log.Info("map moved left"); break;
+                case Key.D: moveMap(-stepMapMove, zeroMapMove); log.Info("map moved right"); break;
+                case Key.W: moveMap(zeroMapMove, stepMapMove); log.Info("map moved up"); break;
+                case Key.S: moveMap(zeroMapMove, -stepMapMove); log.Info("map moved down"); break;
                 default: Visualizer.KeyListener.KeyPress(sender, e); break;
             }
         }

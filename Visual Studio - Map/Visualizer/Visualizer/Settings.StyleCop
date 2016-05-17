@@ -75,6 +75,8 @@
         </CollectionProperty>
       </AnalyzerSettings>
     </Analyzer>
+<<<<<<< HEAD
+=======
     <Analyzer AnalyzerId="StyleCop.CSharp.DocumentationRules">
       <Rules>
         <Rule Name="DocumentationTextMustContainWhitespace">
@@ -85,5 +87,6 @@
       </Rules>
       <AnalyzerSettings />
     </Analyzer>
+>>>>>>> factoryBranch
   </Analyzers>
 </StyleCopSettings>

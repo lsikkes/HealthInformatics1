@@ -1,4 +1,4 @@
-﻿// <copyright file="KeyListener.cs" company="HI1">
+// <copyright file="KeyListener.cs" company="HI1">
 //     Copyright ©  2016
 // </copyright>
 // <summary></summary>
@@ -25,7 +25,7 @@ namespace Visualizer
     /// <summary>
     /// Class KeyListener.
     /// </summary>
-    internal class KeyListener
+    public class KeyListener
     {
         #region Methods
 
