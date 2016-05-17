@@ -26,7 +26,7 @@ namespace GeenNaam
     {
         #region Fields
 
-        public static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
+        public static String AbsolutePath;
         public static Patient patient;
         public Double height, width;
 
@@ -66,6 +66,7 @@ namespace GeenNaam
 
         public void init()
         {
+            AbsolutePath = this.getPath();
             InitializeComponent();
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
             this.Icon = BitmapFrame.Create(iconUri);
@@ -232,6 +233,25 @@ namespace GeenNaam
             m.Left = m.Left + dx;
             m.Top = m.Top + dy;
             map.Margin = m;
+        }
+
+        /// <summary>
+        /// Gets the path to the current recourses map.
+        /// </summary>
+        /// <returns> path to the current resources map </returns>
+        private string getPath()
+        {
+            string path = System.IO.Path.GetDirectoryName(
+             System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            string newPath = string.Empty;
+            string[] paths = path.Split('\\');
+            for (int i = 1; i < paths.Length - 4; i++)
+            {
+                newPath = newPath + "\\" + paths[i];
+            }
+
+            newPath = newPath.Substring(1);
+            return newPath + @"\resources\";
         }
 
         //method to add a square to the environment
