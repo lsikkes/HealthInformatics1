@@ -26,7 +26,7 @@ namespace Visualizer.Cars
         /// <returns>Image.</returns>
         public override Image GetCarImage()
         {
-            Image carImage = GetImage(ImageEnum.NormalCar.ToString(), 125, 250);
+            Image carImage = GetImage("image_police_car", 125, 250);
             return carImage;
         }
 
@@ -36,7 +36,7 @@ namespace Visualizer.Cars
         /// <returns>Image.</returns>
         public override Image GetIconImage()
         {
-            Image carIcon = GetImage(ImageEnum.NormalCarIcon.ToString(), 50, 50, 0, -300);
+            Image carIcon = GetImage("icon_police", 50, 50, 0, -300);
             return carIcon;
         }
 

@@ -67,22 +67,13 @@ namespace Visualizer
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
         /// <returns> Image of from the requested path </returns>
-        public Image GetImage(string path, int width, int height)
+        public Image GetImage(string key, int width, int height)
         {
             Image carImage = new Image();
+            carImage.Source = ImageMap.getImage(key);
             carImage.Width = width;
             carImage.Height = height;
-            if (File.Exists(path))
-            {
-                ImageSource carImageSource = new BitmapImage(new Uri(path));
-                carImage.Source = carImageSource;
-                return carImage;
-            }
-            else
-            {
-                logger.Error("No image found with path: " + path);
-                throw new System.InvalidOperationException("Invalid path requested");
-            }
+            return carImage;
         }
 
         /// <summary>

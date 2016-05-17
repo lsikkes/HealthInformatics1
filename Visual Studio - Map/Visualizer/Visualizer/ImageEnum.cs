@@ -9,28 +9,28 @@ namespace Visualizer
     {
         #region Fields
 
-        public static ImageEnum AmbulanceCar = new ImageEnum("image_police_car.PNG");
-        public static ImageEnum AmbulanceCarIcon = new ImageEnum("icon_police.PNG");
-        public static ImageEnum PoliceCar = new ImageEnum("image_police_car.PNG");
-        public static ImageEnum PoliceCarIcon = new ImageEnum("icon_police.PNG");
-        public static ImageEnum FireFighterCar = new ImageEnum("image_police_car.PNG");
-        public static ImageEnum FireFighterCarIcon = new ImageEnum("icon_police.PNG");
-        public static ImageEnum NormalCar = new ImageEnum("image_police_car.PNG");
-        public static ImageEnum NormalCarIcon = new ImageEnum("icon_police.PNG");
-        private readonly string link;
+        public static ImageEnum AmbulanceCar = new ImageEnum("image_police_car.png");
+        public static ImageEnum AmbulanceCarIcon = new ImageEnum("icon_police.png");
+        public static ImageEnum PoliceCar = new ImageEnum("image_police_car.png");
+        public static ImageEnum PoliceCarIcon = new ImageEnum("icon_police.png");
+        public static ImageEnum FireFighterCar = new ImageEnum("image_police_car.png");
+        public static ImageEnum FireFighterCarIcon = new ImageEnum("icon_police.png");
+        public static ImageEnum NormalCar = new ImageEnum("image_police_car.png");
+        public static ImageEnum NormalCarIcon = new ImageEnum("icon_police.png");
+        private readonly string name;
 
         #endregion Fields
 
         #region Constructors
 
-        public ImageEnum(string link)
+        public ImageEnum(string name)
         {
-            this.link = GeenNaam.MainWindow.AbsolutePath + link;
+            this.name = name;
         }
 
         public override string ToString()
         {
-            return this.link;
+            return this.name;
         }
 
         #endregion Constructors

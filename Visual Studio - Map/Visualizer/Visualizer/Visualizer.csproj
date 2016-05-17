@@ -71,6 +71,7 @@
     <Compile Include="Furniture\FurnitureFactory.cs" />
     <Compile Include="Furniture\Seat.cs" />
     <Compile Include="ImageEnum.cs" />
+    <Compile Include="ImageMap.cs" />
     <Compile Include="ImmovableObject.cs" />
     <Compile Include="MovableObject.cs" />
     <Compile Include="Surroundings\SurroundingFactory.cs" />

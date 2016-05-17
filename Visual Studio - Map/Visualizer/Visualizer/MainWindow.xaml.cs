@@ -67,6 +67,7 @@ namespace GeenNaam
         public void init()
         {
             AbsolutePath = this.getPath();
+            ImageMap.loadImages();
             InitializeComponent();
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
             this.Icon = BitmapFrame.Create(iconUri);
@@ -176,6 +177,7 @@ namespace GeenNaam
         public void addCars()
         {
             addCar(150, 20, 0);
+            addCar(300, 500, 180);
         }
 
         /// <summary>
