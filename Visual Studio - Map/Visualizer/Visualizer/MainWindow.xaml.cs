@@ -64,9 +64,27 @@ namespace GeenNaam
 
         #region Methods
 
+        /// <summary>
+        /// Gets the path to the current recourses map.
+        /// </summary>
+        /// <returns> path to the current resources map </returns>
+        public static string getPath()
+        {
+            string path = System.IO.Path.GetDirectoryName(
+             System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            string newPath = string.Empty;
+            string[] paths = path.Split('\\');
+            for (int i = 1; i < paths.Length - 4; i++)
+            {
+                newPath = newPath + "\\" + paths[i];
+            }
+
+            return newPath = newPath.Substring(1);
+        }
+
         public void init()
         {
-            AbsolutePath = this.getPath();
+            AbsolutePath = MainWindow.getPath() + @"\resources\";
             ImageMap.loadImages();
             InitializeComponent();
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
@@ -235,25 +253,6 @@ namespace GeenNaam
             m.Left = m.Left + dx;
             m.Top = m.Top + dy;
             map.Margin = m;
-        }
-
-        /// <summary>
-        /// Gets the path to the current recourses map.
-        /// </summary>
-        /// <returns> path to the current resources map </returns>
-        private string getPath()
-        {
-            string path = System.IO.Path.GetDirectoryName(
-             System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-            string newPath = string.Empty;
-            string[] paths = path.Split('\\');
-            for (int i = 1; i < paths.Length - 4; i++)
-            {
-                newPath = newPath + "\\" + paths[i];
-            }
-
-            newPath = newPath.Substring(1);
-            return newPath + @"\resources\";
         }
 
         //method to add a square to the environment

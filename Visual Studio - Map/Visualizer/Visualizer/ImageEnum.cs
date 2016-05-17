@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Visualizer
 {
-    internal class ImageEnum
+    public class ImageEnum
     {
         #region Fields
 

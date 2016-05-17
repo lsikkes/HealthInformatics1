@@ -43,6 +43,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageEnumTest.cs" />
     <Compile Include="LoggerTest.cs" />
     <Compile Include="TvFactoryTest.cs" />
     <Compile Include="PatientFactoryTest.cs" />

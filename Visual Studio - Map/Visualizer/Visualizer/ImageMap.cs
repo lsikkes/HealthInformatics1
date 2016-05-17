@@ -15,7 +15,6 @@
     {
         #region Fields
 
-        private static readonly string path = MainWindow.AbsolutePath;
         private static Dictionary<string, BitmapImage> images = new Dictionary<string, BitmapImage>();
 
         private static Logger logger = Logger.GetInstance();
@@ -26,6 +25,7 @@
 
         public static void loadImages()
         {
+            string path = MainWindow.getPath() + @"\resources\";
             if (String.IsNullOrEmpty(path))
             {
                 logger.Error("path for loading images is empty");
