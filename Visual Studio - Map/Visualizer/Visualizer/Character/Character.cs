@@ -30,7 +30,7 @@ namespace Visualizer.Character
         #region Constructors
 
         /// <summary>
-        /// Constructor of Character
+        /// Initializes a new instance of the <see cref="Character"/> class.
         /// </summary>
         /// <param name="x">x position</param>
         /// <param name="y">y position</param>
@@ -42,6 +42,8 @@ namespace Visualizer.Character
         {
             this.CharEmotion = CharacterEmotion.Neutral;
         }
+
+        #endregion Constructors
 
         #region Properties
 
@@ -57,7 +59,17 @@ namespace Visualizer.Character
         /// <value>The character emotion.</value>
         public CharacterEmotion CharEmotion { get; private set; }
 
+        ////TODO: Create set method
+
+        /// <summary>
+        /// Gets a value indicating whether the character is sitting.
+        /// </summary>
+        /// <value> Character is Sitting</value>s
+        public bool IsSitting { get; private set; }
+
         #endregion Properties
+
+        #region Methods
 
         /// <summary>
         /// Gets the image resource.
@@ -74,9 +86,9 @@ namespace Visualizer.Character
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>string resource of emotion</returns>
-        public string GetImageEmojiResource(int id)
+        public string GetImageEmotionResource(int id)
         {
-            return ImageEnum.GetCharacterEmoji(id);
+            return ImageEnum.GetCharacterEmotion(id);
         }
 
         /// <summary>
@@ -103,14 +115,14 @@ namespace Visualizer.Character
         /// <param name="newAction">The new action.</param>
         public void ActionUpdatedTo(int newAction)
         {
-            if (this.IsValid((CharacterEmotion)newAction))
+            if (this.IsValid((CharacterAction)newAction))
             {
-                this.CharEmotion = (CharacterEmotion)newAction;
-                this.logger.Info("Object " + this.name + " id " + this.id + " action updated to " + this.CharEmotion.ToString());
+                this.CharAction = (CharacterAction)newAction;
+                this.logger.Info("Object " + this.name + " id " + this.id + " action updated to " + this.CharAction.ToString());
             }
             else
             {
-                this.logger.Warning("Object " + this.name + " id " + this.id + " action could not update to " + (CharacterEmotion)newAction);
+                this.logger.Warning("Object " + this.name + " id " + this.id + " action could not update to " + (CharacterAction)newAction);
             }
         }
 
@@ -125,6 +137,6 @@ namespace Visualizer.Character
             return !int.TryParse(emotion.ToString(), out temp);
         }
 
-        #endregion Constructors
+        #endregion Methods
     }
 }

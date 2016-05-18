@@ -26,7 +26,7 @@ namespace Visualizer
             FireFighterCarIcon = new ImageEnum("icon_police.png"),
             NormalCar = new ImageEnum("image_police_car.png"),
             NormalCarIcon = new ImageEnum("icon_police.png"),
-            CharacterEmoji = new ImageEnum("character_emoji_"),
+            CharacterEmotion = new ImageEnum("character_emoji_"),
             ChairIcon = new ImageEnum("icon_chair.png"),
             LightIconOn = new ImageEnum("icon_light_on.png"),
             LightIconOff = new ImageEnum("icon_light_off.png"),
@@ -74,9 +74,9 @@ namespace Visualizer
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>string of character emotion image.</returns>
-        public static string GetCharacterEmoji(int id)
+        public static string GetCharacterEmotion(int id)
         {
-            return ImageEnum.CharacterEmoji.ToString() + id + ".png";
+            return ImageEnum.CharacterEmotion.ToString() + id + ".png";
         }
 
         /// <summary>

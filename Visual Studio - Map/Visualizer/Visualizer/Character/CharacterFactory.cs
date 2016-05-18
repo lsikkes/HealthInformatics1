@@ -54,7 +54,7 @@ namespace Visualizer.Character
             panel.Children.Add(charImage);
             character.Children.Add(panel);
 
-            Image charEmotionImage = this.GetImage(character.GetImageEmojiResource(emoteID), 25, 25, 45, -105);
+            Image charEmotionImage = this.GetImage(character.GetImageEmotionResource(emoteID), 25, 25, 45, -105);
             character.Children.Add(charEmotionImage);
 
             return character;
