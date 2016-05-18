@@ -48,6 +48,15 @@ namespace GeenNaam
         {
             init();
 
+            try
+            {
+                Client2 client = new Client2();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace.ToString());
+            }
+
             patient = patientFactory.CreatePatient((int)Math.Round(0.55 * width), (int)Math.Round(0.35 * height), 0);
             map.Children.Add(patient);
 
