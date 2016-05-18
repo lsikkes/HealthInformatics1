@@ -17,8 +17,15 @@ namespace VisualizerUnitTest
         [Test]
         public void GetImageTest()
         {
-            ImageMap.loadImages();
-            Assert.NotNull(ImageMap.getImage(ImageEnum.PoliceCar.ToString()));
+            ImageMap.LoadImages();
+            Assert.NotNull(ImageMap.GetImage(ImageEnum.PoliceCar.ToString()));
+        }
+
+        [Test]
+        public void GetImageFailTest()
+        {
+            ImageMap.LoadImages();
+            Assert.Throws<FileNotFoundException>(() => ImageMap.GetImage("invalidkey.png"));
         }
 
         #endregion Methods
