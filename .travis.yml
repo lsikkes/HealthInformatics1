@@ -1,5 +1,7 @@
 language: csharp
 solution: \Visual Studio - Map\Visualizer\Visualizer.sln
+script:
+  - xbuild /p:Configuration=Debug Visualizer.sln
 before_install:
   - sudo apt-get install nunit-console
 before_script:
