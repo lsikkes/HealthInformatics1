@@ -24,7 +24,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreatePoliceCarTest()
         {
-            Car car = new PoliceCar();
+            Car car = new PoliceCar(0, 0, 0, 0, "police");
             Assert.IsNotNull(car);
         }
 
@@ -34,7 +34,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateNormalCarTest()
         {
-            Car car = new NormalCar();
+            Car car = new NormalCar(0, 0, 0, 0, "normal");
             Assert.IsNotNull(car);
         }
 
@@ -44,7 +44,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateAmbulanceCarTest()
         {
-            Car car = new AmbulanceCar();
+            Car car = new AmbulanceCar(0, 0, 0, 0, "ambulance");
             Assert.IsNotNull(car);
         }
 
@@ -54,7 +54,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateFirefighterCarTest()
         {
-            Car car = new FirefighterCar();
+            Car car = new FirefighterCar(0, 0, 0, 0, "fireFighter");
             Assert.IsNotNull(car);
         }
 

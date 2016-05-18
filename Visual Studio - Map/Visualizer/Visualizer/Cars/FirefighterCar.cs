@@ -42,7 +42,7 @@ namespace Visualizer.Cars
             return carIcon;
         }
 
-        private override string GetCarImageResource()
+        public override string GetCarImageResource()
         {
             string carImage = ImageEnum.FireFighterCar.ToString();
             this.logger.Info("Creating car image resource for FireFighter");

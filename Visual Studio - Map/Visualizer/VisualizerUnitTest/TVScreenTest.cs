@@ -29,7 +29,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateTVSCreenTest()
         {
-            TVScreen tv = new TVScreen();
+            TVScreen tv = new TVScreen(0, 0, 0, 0, "TV Screen");
             Assert.IsNotNull(tv);
         }
 

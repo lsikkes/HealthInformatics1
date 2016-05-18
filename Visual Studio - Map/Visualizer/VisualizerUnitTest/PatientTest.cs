@@ -28,7 +28,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreatePatientTest()
         {
-            Patient patient = new Patient();
+            Patient patient = new Patient(0, 0, 0, 0, "patient");
             Assert.IsNotNull(patient);
         }
 

@@ -24,7 +24,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateCharacterTest()
         {
-            Character character = new Character();
+            Character character = new Character(0, 0, 0, 0, "character");
             Assert.IsNotNull(character);
         }
 
