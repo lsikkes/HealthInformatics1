@@ -1,5 +1,5 @@
 language: csharp
-solution: \Visual Studio - Map\Visualizer\Visualizer.sln
+solution: \Visual\ Studio\ -\ Map\Visualizer\Visualizer.sln
 script:
   - xbuild /p:Configuration=Debug Visualizer.sln
 before_install:
