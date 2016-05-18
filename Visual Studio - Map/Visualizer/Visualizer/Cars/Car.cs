@@ -70,7 +70,7 @@ namespace Visualizer
         public Image GetImage(string key, int width, int height)
         {
             Image carImage = new Image();
-            carImage.Source = ImageMap.getImage(key);
+            carImage.Source = ImageMap.GetImage(key);
             carImage.Width = width;
             carImage.Height = height;
             return carImage;

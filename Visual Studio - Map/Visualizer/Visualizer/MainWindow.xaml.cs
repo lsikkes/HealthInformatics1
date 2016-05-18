@@ -85,7 +85,7 @@ namespace GeenNaam
         public void init()
         {
             AbsolutePath = MainWindow.getPath() + @"\resources\";
-            ImageMap.loadImages();
+            ImageMap.LoadImages();
             InitializeComponent();
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
             this.Icon = BitmapFrame.Create(iconUri);
