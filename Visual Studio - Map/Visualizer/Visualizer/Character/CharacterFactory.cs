@@ -38,7 +38,7 @@ namespace Visualizer
         /// <returns>Character.</returns>
         public Character CreateCharacter(int x, int y, int charID, int emoteID)
         {
-            Character character = new Character();
+            Character character = new Character(0, 0, 0, 1, "character");
             character.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             character.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             character.Margin = this.SetMargin(character.Margin, x, y);

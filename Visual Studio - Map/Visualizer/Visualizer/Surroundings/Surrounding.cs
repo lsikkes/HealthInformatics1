@@ -16,6 +16,15 @@ namespace Visualizer.Surroundings
     /// <seealso cref="Visualizer.ImmovableObject" />
     public class Surrounding : ImmovableObject
     {
+        #region Constructors
+
+        public Surrounding(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         /// <summary>

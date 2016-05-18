@@ -23,7 +23,8 @@ namespace Visualizer
         /// <summary>
         /// Initializes a new instance of the <see cref="Character" /> class.
         /// </summary>
-        public Character()
+        public Character(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 

@@ -19,6 +19,15 @@ namespace Visualizer.Cars
     /// <seealso cref="Visualizer.Car" />
     public class AmbulanceCar : Car
     {
+        #region Constructors
+
+        public AmbulanceCar(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]

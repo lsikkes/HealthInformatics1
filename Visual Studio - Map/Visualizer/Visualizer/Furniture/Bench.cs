@@ -27,7 +27,8 @@ namespace Visualizer.Furniture
         /// <summary>
         /// Initializes a new instance of the <see cref="Bench" /> class.
         /// </summary>
-        public Bench()
+        public Bench(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 

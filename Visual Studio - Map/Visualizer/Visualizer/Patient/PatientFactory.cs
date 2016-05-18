@@ -49,7 +49,7 @@ namespace Visualizer
         /// <returns>Patient.</returns>
         public Patient CreatePatient(int x, int y, int rotation)
         {
-            Patient patient = new Patient();
+            Patient patient = new Patient(0, 0, 0, 0, "patient");
             patient.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             patient.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             patient.Margin = this.SetMargin(patient.Margin, x, y);

@@ -17,6 +17,15 @@ namespace Visualizer.Cars
     /// <seealso cref="Visualizer.Car" />
     public class FirefighterCar : Car
     {
+        #region Constructors
+
+        public FirefighterCar(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         /// <summary>

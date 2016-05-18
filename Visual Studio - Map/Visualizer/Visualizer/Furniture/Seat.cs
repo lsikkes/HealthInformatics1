@@ -25,7 +25,8 @@ namespace Visualizer.Furniture
         /// <summary>
         /// Initializes a new instance of the <see cref="Seat" /> class.
         /// </summary>
-        public Seat()
+        public Seat(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 

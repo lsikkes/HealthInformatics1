@@ -17,6 +17,15 @@ namespace Visualizer
     /// <seealso cref="Visualizer.ImmovableObject" />
     public class TVScreen : ImmovableObject
     {
+        #region Constructors
+
+        public TVScreen(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         /// <summary>

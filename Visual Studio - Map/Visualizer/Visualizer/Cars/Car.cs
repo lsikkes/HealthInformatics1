@@ -30,7 +30,8 @@ namespace Visualizer
         /// <summary>
         /// Initializes a new instance of the <see cref="Car" /> class.
         /// </summary>
-        public Car()
+        public Car(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 

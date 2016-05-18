@@ -56,11 +56,11 @@ namespace Visualizer
             switch (type)
             {
                 case 0:
-                    surrounding = new Tree(w, h, x, y);
+                    surrounding = new Tree(0, 0, 0, 0, "tree", w, h, x, y);
                     break;
 
                 case 1:
-                    surrounding = new Wall(w, h, x, y);
+                    surrounding = new Wall(0, 0, 0, 0, "building", w, h, x, y);
                     break;
 
                 default:

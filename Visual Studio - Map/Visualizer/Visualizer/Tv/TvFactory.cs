@@ -28,7 +28,7 @@ namespace Visualizer
         /// <returns>TVScreen.</returns>
         public TVScreen CreateTvScreen(int x, int y)
         {
-            TVScreen tv = new TVScreen();
+            TVScreen tv = new TVScreen(0, 0, 0, 0, "TVscreen");
 
             tv.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             tv.VerticalAlignment = System.Windows.VerticalAlignment.Top;

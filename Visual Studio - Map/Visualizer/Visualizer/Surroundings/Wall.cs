@@ -57,12 +57,13 @@ namespace Visualizer.Surroundings
         /// <param name="height">The height.</param>
         /// <param name="marginX">The margin x.</param>
         /// <param name="marginY">The margin y.</param>
-        public Wall(int width, int height, int marginX, int marginY)
+        public Wall(int x, int y, int rotation, int id, string name, int w, int h, int mx, int my)
+            : base(x, y, rotation, id, name)
         {
-            this.w = width;
-            this.h = height;
-            this.x = marginX;
-            this.y = marginY;
+            this.w = w;
+            this.h = h;
+            this.x = mx;
+            this.y = my;
         }
 
         #endregion Constructors

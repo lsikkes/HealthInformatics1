@@ -28,12 +28,25 @@ namespace Visualizer
     /// <seealso cref="Visualizer.MovableObject" />
     public class Patient : MovableObject
     {
+        #region Fields
+
+        /// <summary>
+        /// The logger instance
+        /// </summary>
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Patient" /> class.
+        /// Initializes a new instance of the <see cref="Patient"/> class.
         /// </summary>
-        public Patient()
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="rotation">The rotation.</param>
+        public Patient(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 
@@ -75,6 +88,20 @@ namespace Visualizer
         {
             this.Walk(-50, 0);
             this.RenderTransform = new RotateTransform(180, 10, 190);
+        }
+
+        /// <summary>
+        /// Walks the patient to the given position.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="rotation">The rotation.</param>
+        public void WalkTo(int x, int y, int rotation)
+        {
+            this.MoveTo(x, y);
+            this.RenderTransform = new RotateTransform(rotation, 10, 190);
+            updatePosition(x, y, rotation);
+            this.logger.Info("patient moved to position " + x + ", " + y + " with rotation " + rotation);
         }
 
         #endregion Methods

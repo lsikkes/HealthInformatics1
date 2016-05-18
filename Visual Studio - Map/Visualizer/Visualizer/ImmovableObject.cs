@@ -17,5 +17,13 @@ namespace Visualizer
     /// <seealso cref="Visualizer.VRObject" />
     public class ImmovableObject : VRObject
     {
+        #region Constructors
+
+        public ImmovableObject(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
+        #endregion Constructors
     }
 }

@@ -20,6 +20,11 @@ namespace Visualizer
     {
         #region Methods
 
+        public MovableObject(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
         /// <summary>
         /// Moves to.
         /// </summary>

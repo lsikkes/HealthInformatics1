@@ -46,19 +46,13 @@ namespace Visualizer.Surroundings
 
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Tree" /> class.
-        /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
-        /// <param name="marginX">The margin x.</param>
-        /// <param name="marginY">The margin y.</param>
-        public Tree(int width, int height, int marginX, int marginY)
+        public Tree(int x, int y, int rotation, int id, string name, int w, int h, int mx, int my)
+            : base(x, y, rotation, id, name)
         {
-            this.w = width;
-            this.h = height;
-            this.x = marginX;
-            this.y = marginY;
+            this.w = w;
+            this.h = h;
+            this.x = mx;
+            this.y = my;
         }
 
         #endregion Constructors
