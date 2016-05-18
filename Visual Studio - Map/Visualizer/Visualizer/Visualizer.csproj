@@ -65,6 +65,8 @@
     <Compile Include="Cars\FirefighterCar.cs" />
     <Compile Include="Cars\PoliceCar.cs" />
     <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\CharacterAction.cs" />
+    <Compile Include="Character\CharacterEmotion.cs" />
     <Compile Include="Character\CharacterFactory.cs" />
     <Compile Include="Furniture\Bench.cs" />
     <Compile Include="Furniture\BenchFactory.cs" />

@@ -30,19 +30,19 @@ namespace Visualizer
         #region Fields
 
         /// <summary>
-        /// position of the object
-        /// </summary>
-        private int positionX, positionY, rotation;
-
-        /// <summary>
         /// id of the object
         /// </summary>
-        private int id;
+        protected int id;
 
         /// <summary>
         /// name of the object
         /// </summary>
-        private string name;
+        protected string name;
+
+        /// <summary>
+        /// position of the object
+        /// </summary>
+        private int positionX, positionY, rotation;
 
         /// <summary>
         /// logger instance

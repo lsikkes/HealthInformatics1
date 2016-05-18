@@ -40,13 +40,13 @@ namespace Visualizer.Patient
         #region Constructors
 
         /// <summary>
-        /// Constructor of class Patient
+        /// Constructor of MovableObject
         /// </summary>
-        /// <param name="x"> x position </param>
-        /// <param name="y"> y position </param>
-        /// <param name="rotation"> rotation position </param>
-        /// <param name="id"> id of the object</param>
-        /// <param name="name">name of the object</param>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <param name="rotation">rotation of object</param>
+        /// <param name="id">id of object</param>
+        /// <param name="name">name of object</param>
         public Patient(int x, int y, int rotation, int id, string name)
             : base(x, y, rotation, id, name)
         {
@@ -106,10 +106,10 @@ namespace Visualizer.Patient
             this.logger.Info("patient moved to position " + x + ", " + y + " with rotation " + rotation);
         }
 
-        /// <summary
+        /// <summary>
         /// Gets the image resource.
         /// </summary>
-        /// <returns>string patient image</returns>
+        /// <returns> string of the image </returns>
         public string GetImageResource()
         {
             return ImageEnum.PatientImage.ToString();
