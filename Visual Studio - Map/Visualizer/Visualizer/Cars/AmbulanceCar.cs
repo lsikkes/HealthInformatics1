@@ -19,8 +19,22 @@ namespace Visualizer.Cars
     /// <seealso cref="Visualizer.Car" />
     public class AmbulanceCar : Car
     {
+        #region Fields
+
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
         #region Constructors
 
+        /// <summary>
+        /// Constructor of class Ambulance car
+        /// </summary>
+        /// <param name="x"> x position </param>
+        /// <param name="y"> y position </param>
+        /// <param name="rotation"> rotation position </param>
+        /// <param name="id"> id of the object</param>
+        /// <param name="name">name of the object</param>
         public AmbulanceCar(int x, int y, int rotation, int id, string name)
             : base(x, y, rotation, id, name)
         {
@@ -30,27 +44,25 @@ namespace Visualizer.Cars
 
         #region Methods
 
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
-
         /// <summary>
-        /// Gets the car image.
+        /// Gets the car image resource.
         /// </summary>
-        /// <returns> Image. </returns>
-        public override Image GetCarImage()
+        /// <returns>Image string.</returns>
+        public override string GetCarImageResource()
         {
-            Image carImage = GetImage(ImageEnum.AmbulanceCar.ToString(), 125, 250);
+            string carImage = ImageEnum.AmbulanceCar.ToString();
+            this.logger.Info("Creating car image resource for Ambulance");
             return carImage;
         }
 
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
-
         /// <summary>
-        /// Gets the icon image.
+        /// Gets the icon image resource.
         /// </summary>
-        /// <returns> Image. </returns>
-        public override Image GetIconImage()
+        /// <returns>Image string.</returns>
+        public override string GetIconImageResource()
         {
-            Image carIcon = GetImage(ImageEnum.AmbulanceCarIcon.ToString(), 50, 50, 0, -300);
+            string carIcon = ImageEnum.AmbulanceCarIcon.ToString();
+            this.logger.Info("Creating car image icon resource for Ambulance");
             return carIcon;
         }
 

@@ -18,6 +18,15 @@ namespace Visualizer.Cars
     /// <seealso cref="Visualizer.Car" />
     public class NormalCar : Car
     {
+        #region Fields
+
+        /// <summary>
+        /// The logger
+        /// </summary>
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
         #region Constructors
 
         public NormalCar(int x, int y, int rotation, int id, string name)
@@ -30,22 +39,24 @@ namespace Visualizer.Cars
         #region Methods
 
         /// <summary>
-        /// Gets the car image.
+        /// Gets the car image resource.
         /// </summary>
-        /// <returns>Image.</returns>
-        public override Image GetCarImage()
+        /// <returns>Image string.</returns>
+        public override string GetCarImageResource()
         {
-            Image carImage = GetImage("image_police_car", 125, 250);
+            string carImage = ImageEnum.NormalCar.ToString();
+            this.logger.Info("Creating car image resource for NormalCar");
             return carImage;
         }
 
         /// <summary>
-        /// Gets the icon image.
+        /// Gets the icon image resource.
         /// </summary>
-        /// <returns>Image.</returns>
-        public override Image GetIconImage()
+        /// <returns>Image string.</returns>
+        public override string GetIconImageResource()
         {
-            Image carIcon = GetImage("icon_police", 50, 50, 0, -300);
+            string carIcon = ImageEnum.NormalCarIcon.ToString();
+            this.logger.Info("Creating car icon image resource for NormalCar");
             return carIcon;
         }
 

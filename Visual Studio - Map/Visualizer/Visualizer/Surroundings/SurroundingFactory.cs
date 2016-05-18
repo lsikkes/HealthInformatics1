@@ -3,7 +3,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace Visualizer
+namespace Visualizer.Surroundings
 {
     using System;
     using System.Collections.Generic;
@@ -48,7 +48,7 @@ namespace Visualizer
         /// <param name="h">The h.</param>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        /// <returns>Surrounding.</returns>
+        /// <returns>Surrounding object.</returns>
         /// <exception cref="System.NullReferenceException">surrounding type not specified correctly</exception>
         public Surrounding CreateSurrounding(int type, int w, int h, int x, int y)
         {

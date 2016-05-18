@@ -49,6 +49,20 @@ namespace Visualizer
 
         #region Methods
 
+        /// <summary>
+        /// Sets the margin.
+        /// </summary>
+        /// <param name="margin">The margin.</param>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns> Thickness. </returns>
+        public Thickness SetMargin(Thickness margin, int x, int y)
+        {
+            margin.Left = x;
+            margin.Top = y;
+            return margin;
+        }
+
         protected virtual void updatePosition(int x, int y, int rotation)
         {
             this.positionX = x;

@@ -5,18 +5,21 @@
 // ***********************************************************************
 namespace Visualizer.Cars
 {
-    using System;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-
     /// <summary>
     /// Class FirefighterCar.
     /// </summary>
     /// <seealso cref="Visualizer.Car" />
     public class FirefighterCar : Car
     {
+        #region Fields
+
+        /// <summary>
+        /// The logger
+        /// </summary>
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
         #region Constructors
 
         public FirefighterCar(int x, int y, int rotation, int id, string name)
@@ -29,23 +32,21 @@ namespace Visualizer.Cars
         #region Methods
 
         /// <summary>
-        /// Gets the car image.
+        /// Gets the icon image resource.
         /// </summary>
-        /// <returns>Image.</returns>
-        public override Image GetCarImage()
+        /// <returns>Image string.</returns>
+        public override string GetIconImageResource()
         {
-            Image carImage = GetImage(ImageEnum.FireFighterCar.ToString(), 125, 250);
-            return carImage;
+            string carIcon = ImageEnum.FireFighterCarIcon.ToString();
+            this.logger.Info("Creating car icon image resource for FireFighter");
+            return carIcon;
         }
 
-        /// <summary>
-        /// Gets the icon image.
-        /// </summary>
-        /// <returns>Image.</returns>
-        public override Image GetIconImage()
+        private override string GetCarImageResource()
         {
-            Image carIcon = GetImage(ImageEnum.FireFighterCarIcon.ToString(), 50, 50, 0, -300);
-            return carIcon;
+            string carImage = ImageEnum.FireFighterCar.ToString();
+            this.logger.Info("Creating car image resource for FireFighter");
+            return carImage;
         }
 
         #endregion Methods

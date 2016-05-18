@@ -30,7 +30,7 @@ namespace Visualizer.Surroundings
         /// <summary>
         /// Gets the rectangle.
         /// </summary>
-        /// <returns>Rectangle.</returns>
+        /// <returns>Rectangle object.</returns>
         public virtual Rectangle GetRect()
         {
             Rectangle rect = new Rectangle();
@@ -44,7 +44,7 @@ namespace Visualizer.Surroundings
         /// <param name="y">The y coordinate.</param>
         /// <param name="w">The width.</param>
         /// <param name="h">The height.</param>
-        /// <returns>Rectangle.</returns>
+        /// <returns>Rectangle object.</returns>
         public virtual Rectangle MakeRect(int x, int y, int w, int h)
         {
             Rectangle rect = new Rectangle();
@@ -56,20 +56,6 @@ namespace Visualizer.Surroundings
             rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             return rect;
-        }
-
-        /// <summary>
-        /// Sets the margin.
-        /// </summary>
-        /// <param name="margin">The margin.</param>
-        /// <param name="x">The x coordinate.</param>
-        /// <param name="y">The y coordinate.</param>
-        /// <returns>Thickness.</returns>
-        public Thickness SetMargin(Thickness margin, int x, int y)
-        {
-            margin.Left = x;
-            margin.Top = y;
-            return margin;
         }
 
         #endregion Methods

@@ -15,7 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Visualizer;
+using Visualizer.Cars;
+using Visualizer.Character;
 using Visualizer.Furniture;
+using Visualizer.Patient;
+using Visualizer.Surroundings;
+using Visualizer.Tv;
 
 namespace GeenNaam
 {
