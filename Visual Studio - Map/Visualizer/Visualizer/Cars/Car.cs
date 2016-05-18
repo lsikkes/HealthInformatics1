@@ -7,6 +7,7 @@
 namespace Visualizer
 {
     using System;
+    using System.IO;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
@@ -18,6 +19,12 @@ namespace Visualizer
     /// <seealso cref="Visualizer.MovableObject" />
     public class Car : MovableObject
     {
+        #region Fields
+
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
         #region Constructors
 
         /// <summary>
@@ -33,19 +40,23 @@ namespace Visualizer
 
         /// <summary>
         /// Gets the car image.
+        /// should not be called
         /// </summary>
-        /// <returns> Image. </returns>
+        /// <returns> Image of the car </returns>
         public virtual Image GetCarImage()
         {
+            logger.Warning("GetCarImage called while it should not be called");
             return null;
         }
 
         /// <summary>
         /// Gets the icon image.
+        /// should not be called
         /// </summary>
-        /// <returns> Image. </returns>
+        /// <returns> Icon of the car </returns>
         public virtual Image GetIconImage()
         {
+            logger.Warning("GetIconImage called while it should not be called");
             return null;
         }
 
@@ -55,18 +66,13 @@ namespace Visualizer
         /// <param name="path">The path.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        /// <returns> Image. </returns>
-        public Image GetImage(string path, int width, int height)
+        /// <returns> Image of from the requested path </returns>
+        public Image GetImage(string key, int width, int height)
         {
             Image carImage = new Image();
+            carImage.Source = ImageMap.getImage(key);
             carImage.Width = width;
             carImage.Height = height;
-
-            string carImagePath = GeenNaam.MainWindow.AbsolutePath + path;
-
-            ImageSource carImageSource = new BitmapImage(new Uri(carImagePath));
-            carImage.Source = carImageSource;
-
             return carImage;
         }
 
