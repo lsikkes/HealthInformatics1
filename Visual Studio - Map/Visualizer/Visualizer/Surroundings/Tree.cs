@@ -46,6 +46,18 @@ namespace Visualizer.Surroundings
 
         #region Constructors
 
+        /// <summary>
+        /// Constructor of Tree
+        /// </summary>
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
+        /// <param name="w"> width of tree</param>
+        /// <param name="h"> height of tree</param>
+        /// <param name="mx"> margin x of tree</param>
+        /// <param name="my"> margin y of tree</param>
         public Tree(int x, int y, int rotation, int id, string name, int w, int h, int mx, int my)
             : base(x, y, rotation, id, name)
         {

@@ -21,6 +21,9 @@ namespace Visualizer.Cars
     {
         #region Fields
 
+        /// <summary>
+        /// Instance of the logger
+        /// </summary>
         private Logger logger = Logger.GetInstance();
 
         #endregion Fields

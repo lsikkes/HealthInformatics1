@@ -23,8 +23,13 @@ namespace Visualizer.Furniture
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Seat" /> class.
+        /// Constructor of class Seat
         /// </summary>
+        /// <param name="x"> x position </param>
+        /// <param name="y"> y position </param>
+        /// <param name="rotation"> rotation position </param>
+        /// <param name="id"> id of the object</param>
+        /// <param name="name">name of the object</param>
         public Seat(int x, int y, int rotation, int id, string name)
             : base(x, y, rotation, id, name)
         {

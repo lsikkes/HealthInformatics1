@@ -22,6 +22,14 @@ namespace Visualizer.Cars
 
         #region Constructors
 
+        /// <summary>
+        /// Constructor of FireFighterCar
+        /// </summary>
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
         public FirefighterCar(int x, int y, int rotation, int id, string name)
             : base(x, y, rotation, id, name)
         {
@@ -42,6 +50,10 @@ namespace Visualizer.Cars
             return carIcon;
         }
 
+        /// <summary>
+        /// Gets the recourse image
+        /// </summary>
+        /// <returns>Image string.</returns>
         public override string GetCarImageResource()
         {
             string carImage = ImageEnum.FireFighterCar.ToString();

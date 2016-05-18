@@ -29,18 +29,41 @@ namespace Visualizer
     {
         #region Fields
 
+        /// <summary>
+        /// position of the object
+        /// </summary>
         private int positionX, positionY, rotation;
+
+        /// <summary>
+        /// id of the object
+        /// </summary>
         private int id;
+
+        /// <summary>
+        /// name of the object
+        /// </summary>
         private string name;
+
+        /// <summary>
+        /// logger instance
+        /// </summary>
         private Logger logger = Logger.GetInstance();
 
         #endregion Fields
 
         #region Constructors
 
+        /// <summary>
+        /// Constructor of VRObject
+        /// </summary>
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
         public VRObject(int x, int y, int rotation, int id, string name)
         {
-            updatePosition(x, y, rotation);
+            this.UpdatePosition(x, y, rotation);
             this.id = id;
             this.name = name;
         }
@@ -63,12 +86,18 @@ namespace Visualizer
             return margin;
         }
 
-        protected virtual void updatePosition(int x, int y, int rotation)
+        /// <summary>
+        /// Updates the position of the object
+        /// </summary>
+        /// <param name="x"> new x position</param>
+        /// <param name="y"> new y position</param>
+        /// <param name="rotation"> new rotation</param>
+        protected virtual void UpdatePosition(int x, int y, int rotation)
         {
             this.positionX = x;
             this.positionY = y;
             this.rotation = rotation;
-            logger.Info("Object " + name + " with id " + id + " updated to position " + x + ", " + y + ", " + rotation);
+            this.logger.Info("Object " + this.name + " with id " + this.id + " updated to position " + x + ", " + y + ", " + rotation);
         }
 
         #endregion Methods
