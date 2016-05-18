@@ -1,6 +1,8 @@
-﻿// <copyright file="Logger.cs" company="HI1 aka Geen naam">
-//     Copyright (c) HI1 aka Geen naam. All rights reserved.
+﻿// <copyright file="Logger.cs" company="HI1">
+//     Copyright ©  2016
 // </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace Visualizer
 {
     using GeenNaam;

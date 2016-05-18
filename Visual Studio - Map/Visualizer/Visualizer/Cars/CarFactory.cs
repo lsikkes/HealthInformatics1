@@ -3,7 +3,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace Visualizer
+namespace Visualizer.Cars
 {
     using System;
     using System.Windows.Controls;
@@ -16,6 +16,40 @@ namespace Visualizer
     /// <seealso cref="Visualizer.Factory" />
     public class CarFactory : Factory
     {
+        #region Fields
+
+        /// <summary>
+        /// The image width
+        /// </summary>
+        private int imageWidth = 125;
+
+        /// <summary>
+        /// The image height
+        /// </summary>
+        private int imageHeight = 250;
+
+        /// <summary>
+        /// The image icon width
+        /// </summary>
+        private int imageIconWidth = 50;
+
+        /// <summary>
+        /// The image icon height
+        /// </summary>
+        private int imageIconHeight = 50;
+
+        /// <summary>
+        /// The image icon x
+        /// </summary>
+        private int imageIconX = 0;
+
+        /// <summary>
+        /// The image icon y
+        /// </summary>
+        private int imageIconY = -300;
+
+        #endregion Fields
+
         #region Constructors
 
         /// <summary>
@@ -34,15 +68,15 @@ namespace Visualizer
         /// Creates the car.
         /// </summary>
         /// <param name="type">The type.</param>
-        /// <param name="x">The x coordinate.</param>
-        /// <param name="y">The y coordinate.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
         /// <param name="rotation">The rotation.</param>
-        /// <returns>Car.</returns>
+        /// <returns>Car object.</returns>
         /// <exception cref="System.NullReferenceException">carType not specified correctly</exception>
-        /// <exception cref="System.Exception">carType not specified correctly</exception>
         public Car CreateCar(int type, int x, int y, int rotation)
         {
             Car car;
+
             switch (type)
             {
                 case 0:
@@ -71,8 +105,10 @@ namespace Visualizer
                 throw new NullReferenceException("carType not specified correctly");
             }
 
-            Image carImage = car.GetCarImage();
-            Image carIconImage = car.GetIconImage();
+            string imageKey = car.GetCarImageResource();
+            string imageIconKey = car.GetIconImageResource();
+            Image carImage = this.GetImage(imageKey, this.imageWidth, this.imageHeight);
+            Image carIconImage = this.GetImage(imageIconKey, this.imageIconWidth, this.imageIconHeight, this.imageIconX, this.imageIconY);
             car.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             car.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             car.Margin = this.SetMargin(car.Margin, x, y);

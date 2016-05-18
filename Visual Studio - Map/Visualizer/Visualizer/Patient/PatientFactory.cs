@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Patient
 {
     using System;
     using System.Collections.Generic;
@@ -46,7 +46,7 @@ namespace Visualizer
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
         /// <param name="rotation">The rotation.</param>
-        /// <returns>Patient.</returns>
+        /// <returns>Patient object.</returns>
         public Patient CreatePatient(int x, int y, int rotation)
         {
             Patient patient = new Patient();
@@ -54,8 +54,8 @@ namespace Visualizer
             patient.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             patient.Margin = this.SetMargin(patient.Margin, x, y);
 
-            patient.Children.Add(this.GetImage("image_player_scoope.PNG", 400, 400));
-            patient.Children.Add(this.GetImage("image_player.PNG", 50, 50, -380, -410));
+            patient.Children.Add(this.GetImage(patient.GetImageScopeResource(), 400, 400));
+            patient.Children.Add(this.GetImage(patient.GetImageResource(), 50, 50, -380, -410));
 
             RotateTransform rotateTransform1 = new RotateTransform(rotation, 10, 190);
             patient.RenderTransform = rotateTransform1;

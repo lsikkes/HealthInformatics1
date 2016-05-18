@@ -7,12 +7,7 @@
 namespace VisualizerUnitTest
 {
     using NUnit.Framework;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading;
-    using Visualizer;
+    using Visualizer.Cars;
 
     /// <summary>
     /// Class CarFactoryTest.
@@ -26,7 +21,7 @@ namespace VisualizerUnitTest
         /// Creates the car factory test.
         /// </summary>
         [Test]
-        public void createCarFactoryTest()
+        public void CreateCarFactoryTest()
         {
             CarFactory carFactory = new CarFactory();
             Assert.IsNotNull(carFactory);

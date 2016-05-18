@@ -72,7 +72,7 @@ namespace Visualizer.Surroundings
         /// <summary>
         /// Makes a rectangle for a wall object.
         /// </summary>
-        /// <returns>Rectangle.</returns>
+        /// <returns>Rectangle object.</returns>
         public override Rectangle GetRect()
         {
             Rectangle rect = MakeRect(this.x, this.y, this.w, this.h);

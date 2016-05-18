@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Patient
 {
     using System;
     using System.Collections.Generic;
@@ -75,6 +75,24 @@ namespace Visualizer
         {
             this.Walk(-50, 0);
             this.RenderTransform = new RotateTransform(180, 10, 190);
+        }
+
+        /// <summary>
+        /// Gets the image resource.
+        /// </summary>
+        /// <returns>string patient image</returns>
+        public string GetImageResource()
+        {
+            return ImageEnum.PatientImage.ToString();
+        }
+
+        /// <summary>
+        /// Gets the image scope resource.
+        /// </summary>
+        /// <returns>string image of the scope</returns>
+        public string GetImageScopeResource()
+        {
+            return ImageEnum.PatientScope.ToString();
         }
 
         #endregion Methods

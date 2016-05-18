@@ -26,18 +26,16 @@ namespace Visualizer
             FireFighterCarIcon = new ImageEnum("icon_police.png"),
             NormalCar = new ImageEnum("image_police_car.png"),
             NormalCarIcon = new ImageEnum("icon_police.png"),
-            CharacterEmoji0 = new ImageEnum("character_emoji_0.png"),
-            CharacterEmoji1 = new ImageEnum("character_emoji_1.png"),
+            CharacterEmoji = new ImageEnum("character_emoji_"),
             ChairIcon = new ImageEnum("icon_chair.png"),
             LightIconOn = new ImageEnum("icon_light_on.png"),
             LightIconOff = new ImageEnum("icon_light_off.png"),
             PoliceIcon = new ImageEnum("icon_police.png"),
             TvIcon = new ImageEnum("icon_tv.png"),
-            PlayerImage = new ImageEnum("image_player.png"),
-            PlayerScope = new ImageEnum("image_player_scope.png"),
+            PatientImage = new ImageEnum("image_player.png"),
+            PatientScope = new ImageEnum("image_player_scope.png"),
             Logo = new ImageEnum("logo.png"),
-            CharacterImage0 = new ImageEnum("image_character_0.png"),
-            CharacterImage1 = new ImageEnum("image_character_1.png");
+            CharacterImage = new ImageEnum("image_character_");
 
         /// <summary>
         /// The name of the class
@@ -57,6 +55,30 @@ namespace Visualizer
             this.name = name;
         }
 
+        #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// Gets the character.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>string of character image</returns>
+        public static string GetCharacter(int id)
+        {
+            return ImageEnum.CharacterImage.ToString() + id + ".png";
+        }
+
+        /// <summary>
+        /// Gets the character emotion.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>string of character emotion image.</returns>
+        public static string GetCharacterEmoji(int id)
+        {
+            return ImageEnum.CharacterEmoji.ToString() + id + ".png";
+        }
+
         /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
@@ -68,6 +90,6 @@ namespace Visualizer
             return this.name;
         }
 
-        #endregion Constructors
+        #endregion Methods
     }
 }
