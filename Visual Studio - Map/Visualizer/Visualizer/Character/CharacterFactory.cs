@@ -38,7 +38,7 @@ namespace Visualizer.Character
         /// <returns>Character object.</returns>
         public Character CreateCharacter(int x, int y, int charID, int emoteID)
         {
-            Character character = new Character();
+            Character character = new Character(0, 0, 0, 1, "character");
             character.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             character.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             character.Margin = this.SetMargin(character.Margin, x, y);
@@ -54,7 +54,7 @@ namespace Visualizer.Character
             panel.Children.Add(charImage);
             character.Children.Add(panel);
 
-            Image charEmotionImage = this.GetImage(character.GetImageEmojiResource(emoteID), 25, 25, 45, -105);
+            Image charEmotionImage = this.GetImage(character.GetImageEmotionResource(emoteID), 25, 25, 45, -105);
             character.Children.Add(charEmotionImage);
 
             return character;

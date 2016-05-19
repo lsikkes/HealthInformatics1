@@ -5,12 +5,6 @@
 // ***********************************************************************
 namespace Visualizer.Cars
 {
-    using System;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-
     /// <summary>
     /// Class FirefighterCar.
     /// </summary>
@@ -29,26 +23,21 @@ namespace Visualizer.Cars
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FirefighterCar"/> class.
+        /// Constructor of FireFighterCar
         /// </summary>
-        public FirefighterCar()
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
+        public FirefighterCar(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 
         #endregion Constructors
 
         #region Methods
-
-        /// <summary>
-        /// Gets the car image resource.
-        /// </summary>
-        /// <returns>Image string.</returns>
-        public override string GetCarImageResource()
-        {
-            string carImage = ImageEnum.FireFighterCar.ToString();
-            this.logger.Info("Creating car image resource for FireFighter");
-            return carImage;
-        }
 
         /// <summary>
         /// Gets the icon image resource.
@@ -59,6 +48,17 @@ namespace Visualizer.Cars
             string carIcon = ImageEnum.FireFighterCarIcon.ToString();
             this.logger.Info("Creating car icon image resource for FireFighter");
             return carIcon;
+        }
+
+        /// <summary>
+        /// Gets the recourse image
+        /// </summary>
+        /// <returns>Image string.</returns>
+        public override string GetCarImageResource()
+        {
+            string carImage = ImageEnum.FireFighterCar.ToString();
+            this.logger.Info("Creating car image resource for FireFighter");
+            return carImage;
         }
 
         #endregion Methods

@@ -30,9 +30,15 @@ namespace Visualizer.Cars
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NormalCar"/> class.
+        /// Constructor of NormalCar
         /// </summary>
-        public NormalCar()
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
+        public NormalCar(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 

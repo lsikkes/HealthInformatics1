@@ -93,6 +93,26 @@ namespace Visualizer
         }
 
         /// <summary>
+        /// Information log for the VR object.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="message">The message.</param>
+        public void InfoVRObject(VRObject obj, string message)
+        {
+            this.Info(this.GetStartString(obj) + message);
+        }
+
+        /// <summary>
+        /// Warning log for the VR object.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="message">The message.</param>
+        public void WarningVRObject(VRObject obj, string message)
+        {
+            this.Warning(this.GetStartString(obj) + message);
+        }
+
+        /// <summary>
         /// Logs all the debug messages
         /// Should be used for debug purpose only
         /// </summary>
@@ -174,6 +194,16 @@ namespace Visualizer
         public bool GetToConsole()
         {
             return this.toConsole;
+        }
+
+        /// <summary>
+        /// Gets the start string for a log sentence.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <returns>string with the standard sentence</returns>
+        private string GetStartString(VRObject obj)
+        {
+            return "Object " + obj.ObjectName + " with id " + obj.Identifier + " ";
         }
 
         /// <summary>

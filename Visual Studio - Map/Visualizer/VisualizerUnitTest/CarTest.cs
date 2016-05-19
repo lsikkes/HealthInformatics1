@@ -24,7 +24,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreatePoliceCarTest()
         {
-            Car car = new PoliceCar();
+            Car car = new PoliceCar(0, 0, 0, 0, "police");
             Assert.IsNotNull(car);
         }
 
@@ -34,7 +34,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateNormalCarTest()
         {
-            Car car = new NormalCar();
+            Car car = new NormalCar(0, 0, 0, 0, "normal");
             Assert.IsNotNull(car);
         }
 
@@ -44,7 +44,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateAmbulanceCarTest()
         {
-            Car car = new AmbulanceCar();
+            Car car = new AmbulanceCar(0, 0, 0, 0, "ambulance");
             Assert.IsNotNull(car);
         }
 
@@ -54,7 +54,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateFirefighterCarTest()
         {
-            Car car = new FirefighterCar();
+            Car car = new FirefighterCar(0, 0, 0, 0, "fireFighter");
             Assert.IsNotNull(car);
         }
 
@@ -64,7 +64,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetFirefighterCarResourceTest()
         {
-            Car car = new FirefighterCar();
+            Car car = new FirefighterCar(0, 0, 0, 0, "fireFighter");
             string actualString = car.GetCarImageResource();
             string shouldBeString = "image_police_car.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -76,7 +76,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetFirefighterCarIconResourceTest()
         {
-            Car car = new FirefighterCar();
+            Car car = new FirefighterCar(0, 0, 0, 0, "fireFighter");
             string actualString = car.GetIconImageResource();
             string shouldBeString = "icon_police.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -88,7 +88,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetAmbulanceCarResourceTest()
         {
-            Car car = new AmbulanceCar();
+            Car car = new AmbulanceCar(0, 0, 0, 0, "ambulance");
             string actualString = car.GetCarImageResource();
             string shouldBeString = "image_police_car.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -100,7 +100,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetAmbulanceCarIconResourceTest()
         {
-            Car car = new AmbulanceCar();
+            Car car = new AmbulanceCar(0, 0, 0, 0, "ambulance");
             string actualString = car.GetIconImageResource();
             string shouldBeString = "icon_police.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -112,7 +112,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetNormalCarResourceTest()
         {
-            Car car = new NormalCar();
+            Car car = new NormalCar(0, 0, 0, 0, "normal");
             string actualString = car.GetCarImageResource();
             string shouldBeString = "image_police_car.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -124,7 +124,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetNormalCarIconResourceTest()
         {
-            Car car = new NormalCar();
+            Car car = new NormalCar(0, 0, 0, 0, "normal");
             string actualString = car.GetIconImageResource();
             string shouldBeString = "icon_police.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -136,7 +136,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetPoliceCarResourceTest()
         {
-            Car car = new PoliceCar();
+            Car car = new PoliceCar(0, 0, 0, 0, "police");
             string actualString = car.GetCarImageResource();
             string shouldBeString = "image_police_car.png";
             Assert.AreEqual(shouldBeString, actualString);
@@ -148,7 +148,7 @@ namespace VisualizerUnitTest
         [Test]
         public void GetPoliceCarIconResourceTest()
         {
-            Car car = new PoliceCar();
+            Car car = new PoliceCar(0, 0, 0, 0, "police");
             string actualString = car.GetIconImageResource();
             string shouldBeString = "icon_police.png";
             Assert.AreEqual(shouldBeString, actualString);

@@ -80,19 +80,19 @@ namespace Visualizer.Cars
             switch (type)
             {
                 case 0:
-                    car = new PoliceCar();
+                    car = new PoliceCar(0, 0, 0, 0, "PoliceCar");
                     break;
 
                 case 1:
-                    car = new NormalCar();
+                    car = new NormalCar(0, 0, 0, 0, "NormalCar");
                     break;
 
                 case 2:
-                    car = new FirefighterCar();
+                    car = new FirefighterCar(0, 0, 0, 0, "FireFighterCar");
                     break;
 
                 case 3:
-                    car = new AmbulanceCar();
+                    car = new AmbulanceCar(0, 0, 0, 0, "AmbulanceCar");
                     break;
 
                 default:

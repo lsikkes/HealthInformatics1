@@ -62,12 +62,12 @@ namespace Visualizer.Furniture
         /// <returns>Bench.</returns>
         public Bench CreateBench(string orientation, int amountSeats, int x, int y)
         {
-            Bench bench = new Bench();
+            Bench bench = new Bench(0, 0, 0, 10, "bench");
             this.DetermineParameters(orientation, amountSeats, x, y);
             bench.Children.Add(this.CreateBenchRectangle(orientation, amountSeats, x, y));
             for (int i = 0; i < amountSeats; i++)
             {
-                Seat seat = new Seat();
+                Seat seat = new Seat(0, 0, 0, 0, "seat");
                 Image seatImg = seat.GetImage();
                 seatImg.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 seatImg.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;

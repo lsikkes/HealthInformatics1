@@ -30,7 +30,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateWallTest()
         {
-            Surrounding wall = new Wall(5, 5, 5, 5);
+            Surrounding wall = new Wall(0, 0, 0, 0, "wall", 5, 5, 5, 5);
             Rectangle wallRectange = wall.GetRect();
             double actualWidth = wallRectange.Width;
             double actualHeight = wallRectange.Height;
@@ -54,7 +54,7 @@ namespace VisualizerUnitTest
         [Test]
         public void CreateTreeTest()
         {
-            Surrounding tree = new Tree(5, 5, 5, 5);
+            Surrounding tree = new Tree(0, 0, 0, 0, "tree", 5, 5, 5, 5);
             Rectangle treeRectange = tree.GetRect();
             double actualWidth = treeRectange.Width;
             double actualHeight = treeRectange.Height;

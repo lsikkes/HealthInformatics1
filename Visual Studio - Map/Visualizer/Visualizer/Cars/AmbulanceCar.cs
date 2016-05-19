@@ -22,7 +22,7 @@ namespace Visualizer.Cars
         #region Fields
 
         /// <summary>
-        /// The logger
+        /// Instance of the logger
         /// </summary>
         private Logger logger = Logger.GetInstance();
 
@@ -31,9 +31,15 @@ namespace Visualizer.Cars
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmbulanceCar"/> class.
+        /// Constructor of class Ambulance car
         /// </summary>
-        public AmbulanceCar()
+        /// <param name="x"> x position </param>
+        /// <param name="y"> y position </param>
+        /// <param name="rotation"> rotation position </param>
+        /// <param name="id"> id of the object</param>
+        /// <param name="name">name of the object</param>
+        public AmbulanceCar(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 

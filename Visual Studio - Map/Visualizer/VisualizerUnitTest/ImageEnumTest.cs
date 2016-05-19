@@ -44,21 +44,21 @@ namespace VisualizerUnitTest
         }
 
         /// <summary>
-        /// Gets the character emoji test.
+        /// Gets the character emotion test.
         /// </summary>
         [Test]
         public void GetCharacterEmojiTest()
         {
-            Assert.NotNull(ImageEnum.GetCharacterEmoji(0));
+            Assert.NotNull(ImageEnum.GetCharacterEmotion(0));
         }
 
         /// <summary>
-        /// Gets the character emoji string test.
+        /// Gets the character emotion string test.
         /// </summary>
         [Test]
         public void GetCharacterEmojiStringTest()
         {
-            string actualString = ImageEnum.GetCharacterEmoji(0);
+            string actualString = ImageEnum.GetCharacterEmotion(0);
             string shouldBeString = "character_emoji_0.png";
             Assert.AreEqual(shouldBeString, actualString);
         }

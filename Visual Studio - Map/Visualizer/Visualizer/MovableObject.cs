@@ -21,6 +21,19 @@ namespace Visualizer
         #region Methods
 
         /// <summary>
+        /// Constructor of MovableObject
+        /// </summary>
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
+        public MovableObject(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
+        {
+        }
+
+        /// <summary>
         /// Moves to.
         /// </summary>
         /// <param name="x">The x.</param>
