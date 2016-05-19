@@ -30,16 +30,6 @@ namespace Visualizer
         #region Fields
 
         /// <summary>
-        /// id of the object
-        /// </summary>
-        protected int id;
-
-        /// <summary>
-        /// name of the object
-        /// </summary>
-        protected string name;
-
-        /// <summary>
         /// position of the object
         /// </summary>
         private int positionX, positionY, rotation;
@@ -54,7 +44,7 @@ namespace Visualizer
         #region Constructors
 
         /// <summary>
-        /// Constructor of VRObject
+        /// Initializes a new instance of the <see cref="VRObject"/> class.
         /// </summary>
         /// <param name="x"> x position</param>
         /// <param name="y"> y position</param>
@@ -63,12 +53,26 @@ namespace Visualizer
         /// <param name="name">name of object</param>
         public VRObject(int x, int y, int rotation, int id, string name)
         {
+            this.Identifier = id;
+            this.ObjectName = name;
             this.UpdatePosition(x, y, rotation);
-            this.id = id;
-            this.name = name;
         }
 
         #endregion Constructors
+
+        #region Properties
+
+        /// <summary>
+        /// Gets id of the object
+        /// </summary>
+        public int Identifier { get; private set; }
+
+        /// <summary>
+        /// Gets name of the object
+        /// </summary>
+        public string ObjectName { get; private set; }
+
+        #endregion Properties
 
         #region Methods
 
@@ -78,7 +82,7 @@ namespace Visualizer
         /// <param name="margin">The margin.</param>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        /// <returns> Thickness. </returns>
+        /// <returns> Thickness of the object </returns>
         public Thickness SetMargin(Thickness margin, int x, int y)
         {
             margin.Left = x;
@@ -97,7 +101,7 @@ namespace Visualizer
             this.positionX = x;
             this.positionY = y;
             this.rotation = rotation;
-            this.logger.Info("Object " + this.name + " with id " + this.id + " updated to position " + x + ", " + y + ", " + rotation);
+            this.logger.InfoVRObject(this, "position is set to " + x + ", " + y + ", " + rotation);
         }
 
         #endregion Methods

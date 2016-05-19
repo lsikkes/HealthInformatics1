@@ -101,11 +101,11 @@ namespace Visualizer.Character
             if (this.IsValid((CharacterEmotion)newEmotion))
             {
                 this.CharEmotion = (CharacterEmotion)newEmotion;
-                this.logger.Info("Object " + this.name + " id " + this.id + " emotion updated to " + this.CharEmotion.ToString());
+                this.logger.InfoVRObject(this, "emotion updated to " + this.CharEmotion.ToString());
             }
             else
             {
-                this.logger.Warning("Object " + this.name + " id " + this.id + " emotion could not update to " + (CharacterEmotion)newEmotion);
+                this.logger.WarningVRObject(this, "emotion could not update to " + (CharacterEmotion)newEmotion);
             }
         }
 
@@ -118,11 +118,11 @@ namespace Visualizer.Character
             if (this.IsValid((CharacterAction)newAction))
             {
                 this.CharAction = (CharacterAction)newAction;
-                this.logger.Info("Object " + this.name + " id " + this.id + " action updated to " + this.CharAction.ToString());
+                this.logger.InfoVRObject(this, "action updated to " + this.CharAction.ToString());
             }
             else
             {
-                this.logger.Warning("Object " + this.name + " id " + this.id + " action could not update to " + (CharacterAction)newAction);
+                this.logger.WarningVRObject(this, "action could not update to " + (CharacterAction)newAction);
             }
         }
 
