@@ -68,6 +68,7 @@
     <Compile Include="Character\CharacterAction.cs" />
     <Compile Include="Character\CharacterEmotion.cs" />
     <Compile Include="Character\CharacterFactory.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Furniture\Bench.cs" />
     <Compile Include="Furniture\BenchFactory.cs" />
     <Compile Include="Furniture\FurnitureFactory.cs" />
