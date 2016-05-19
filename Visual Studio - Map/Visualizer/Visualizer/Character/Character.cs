@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Character
 {
     using System;
     using System.Collections.Generic;
@@ -25,6 +25,26 @@ namespace Visualizer
         /// </summary>
         public Character()
         {
+        }
+
+        /// <summary>
+        /// Gets the image resource.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>string resource of image</returns>
+        public string GetImageResource(int id)
+        {
+            return ImageEnum.GetCharacter(id);
+        }
+
+        /// <summary>
+        /// Gets the image emotion resource.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>string resource of emotion</returns>
+        public string GetImageEmojiResource(int id)
+        {
+            return ImageEnum.GetCharacterEmoji(id);
         }
 
         #endregion Constructors

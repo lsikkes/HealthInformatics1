@@ -15,7 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Visualizer;
+using Visualizer.Cars;
+using Visualizer.Character;
 using Visualizer.Furniture;
+using Visualizer.Patient;
+using Visualizer.Surroundings;
+using Visualizer.Tv;
 
 namespace GeenNaam
 {
@@ -26,7 +31,7 @@ namespace GeenNaam
     {
         #region Fields
 
-        public static String AbsolutePath = Directory.GetParent(@"..\..\..\..\").ToString() + @"\resources\";
+        public static String AbsolutePath;
         public static Patient patient;
         public Double height, width;
 
@@ -64,8 +69,28 @@ namespace GeenNaam
 
         #region Methods
 
+        /// <summary>
+        /// Gets the path to the current recourses map.
+        /// </summary>
+        /// <returns> path to the current resources map </returns>
+        public static string getPath()
+        {
+            string path = System.IO.Path.GetDirectoryName(
+             System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            string newPath = string.Empty;
+            string[] paths = path.Split('\\');
+            for (int i = 1; i < paths.Length - 4; i++)
+            {
+                newPath = newPath + "\\" + paths[i];
+            }
+
+            return newPath = newPath.Substring(1);
+        }
+
         public void init()
         {
+            AbsolutePath = MainWindow.getPath() + @"\resources\";
+            ImageMap.LoadImages();
             InitializeComponent();
             Uri iconUri = new Uri(AbsolutePath + "logo.PNG");
             this.Icon = BitmapFrame.Create(iconUri);
@@ -175,6 +200,7 @@ namespace GeenNaam
         public void addCars()
         {
             addCar(150, 20, 0);
+            addCar(300, 500, 180);
         }
 
         /// <summary>

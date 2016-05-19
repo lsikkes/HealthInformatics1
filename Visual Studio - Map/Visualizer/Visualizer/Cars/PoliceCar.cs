@@ -18,25 +18,47 @@ namespace Visualizer.Cars
     /// <seealso cref="Visualizer.Car" />
     public class PoliceCar : Car
     {
+        #region Fields
+
+        /// <summary>
+        /// The logger
+        /// </summary>
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PoliceCar"/> class.
+        /// </summary>
+        public PoliceCar()
+        {
+        }
+
+        #endregion Constructors
+
         #region Methods
 
         /// <summary>
-        /// Gets the car image.
+        /// Gets the car image resource.
         /// </summary>
-        /// <returns>Image.</returns>
-        public override Image GetCarImage()
+        /// <returns>Image string.</returns>
+        public override string GetCarImageResource()
         {
-            Image carImage = GetImage("image_police_car.PNG", 125, 250);
+            string carImage = ImageEnum.PoliceCar.ToString();
+            this.logger.Info("Creating car image resource for Police");
             return carImage;
         }
 
         /// <summary>
-        /// Gets the icon image.
+        /// Gets the icon image resource.
         /// </summary>
-        /// <returns>Image.</returns>
-        public override Image GetIconImage()
+        /// <returns>Image string.</returns>
+        public override string GetIconImageResource()
         {
-            Image carIcon = GetImage("icon_police.PNG", 50, 50, 0, -300);
+            string carIcon = ImageEnum.PoliceCarIcon.ToString();
+            this.logger.Info("Creating car icon image resource for Police");
             return carIcon;
         }
 

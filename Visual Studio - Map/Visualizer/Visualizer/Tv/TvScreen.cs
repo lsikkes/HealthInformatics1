@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Tv
 {
     using System;
     using System.Collections.Generic;
@@ -25,6 +25,15 @@ namespace Visualizer
         /// <param name="text">The text.</param>
         public void SetTextOnTV(string text)
         {
+        }
+
+        /// <summary>
+        /// Gets the image resource.
+        /// </summary>
+        /// <returns>string of TVScreen</returns>
+        public string GetImageResource()
+        {
+            return ImageEnum.TvIcon.ToString();
         }
 
         #endregion Methods
