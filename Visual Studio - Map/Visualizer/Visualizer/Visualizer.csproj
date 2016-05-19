@@ -66,7 +66,6 @@
     <Compile Include="Cars\PoliceCar.cs" />
     <Compile Include="Character\Character.cs" />
     <Compile Include="Character\CharacterFactory.cs" />
-    <Compile Include="Client2.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Furniture\Bench.cs" />
     <Compile Include="Furniture\BenchFactory.cs" />
