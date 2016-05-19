@@ -33,6 +33,18 @@ namespace VisualizerUnitTest
             Assert.IsNotNull(tv);
         }
 
+        /// <summary>
+        /// Gets the TV screen resource test.
+        /// </summary>
+        [Test]
+        public void GetTVScreenResourceTest()
+        {
+            TVScreen tv = new TVScreen();
+            string actualString = tv.GetImageResource();
+            string shouldBeString = ImageEnum.TvIcon.ToString();
+            Assert.AreEqual(shouldBeString, actualString);
+        }
+
         #endregion Methods
     }
 }
