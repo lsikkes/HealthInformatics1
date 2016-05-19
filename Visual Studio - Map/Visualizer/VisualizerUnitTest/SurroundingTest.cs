@@ -12,7 +12,6 @@ namespace VisualizerUnitTest
     using System.Linq;
     using System.Text;
     using System.Threading;
-    using System.Windows.Shapes;
     using Visualizer;
     using Visualizer.Surroundings;
 
@@ -31,21 +30,7 @@ namespace VisualizerUnitTest
         public void CreateWallTest()
         {
             Surrounding wall = new Wall(5, 5, 5, 5);
-            Rectangle wallRectange = wall.GetRect();
-            double actualWidth = wallRectange.Width;
-            double actualHeight = wallRectange.Height;
-            double actualX = wallRectange.Margin.Left;
-            double actualY = wallRectange.Margin.Top;
-
-            double expectedWidth = 5;
-            double expectedHeight = 5;
-            double expectedX = 5;
-            double expectedY = 5;
-
-            Assert.AreEqual(expectedHeight, actualHeight);
-            Assert.AreEqual(expectedWidth, actualWidth);
-            Assert.AreEqual(expectedX, actualX);
-            Assert.AreEqual(expectedY, actualY);
+            Assert.IsNotNull(wall);
         }
 
         /// <summary>
@@ -55,21 +40,7 @@ namespace VisualizerUnitTest
         public void CreateTreeTest()
         {
             Surrounding tree = new Tree(5, 5, 5, 5);
-            Rectangle treeRectange = tree.GetRect();
-            double actualWidth = treeRectange.Width;
-            double actualHeight = treeRectange.Height;
-            double actualX = treeRectange.Margin.Left;
-            double actualY = treeRectange.Margin.Top;
-
-            double expectedWidth = 5;
-            double expectedHeight = 5;
-            double expectedX = 5;
-            double expectedY = 5;
-
-            Assert.AreEqual(expectedHeight, actualHeight);
-            Assert.AreEqual(expectedWidth, actualWidth);
-            Assert.AreEqual(expectedX, actualX);
-            Assert.AreEqual(expectedY, actualY);
+            Assert.IsNotNull(tree);
         }
 
         #endregion Methods

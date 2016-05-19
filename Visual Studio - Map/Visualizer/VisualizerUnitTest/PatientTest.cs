@@ -32,30 +32,6 @@ namespace VisualizerUnitTest
             Assert.IsNotNull(patient);
         }
 
-        /// <summary>
-        /// Gets the patient resource test.
-        /// </summary>
-        [Test]
-        public void GetPatientResourceTest()
-        {
-            Patient patient = new Patient();
-            string actualString = patient.GetImageResource();
-            string expectedString = ImageEnum.PatientImage.ToString();
-            Assert.AreEqual(expectedString, actualString);
-        }
-
-        /// <summary>
-        /// Gets the patient scope resource test.
-        /// </summary>
-        [Test]
-        public void GetPatientScopeResourceTest()
-        {
-            Patient patient = new Patient();
-            string actualString = patient.GetImageScopeResource();
-            string expectedString = ImageEnum.PatientScope.ToString();
-            Assert.AreEqual(expectedString, actualString);
-        }
-
         #endregion Methods
     }
 }

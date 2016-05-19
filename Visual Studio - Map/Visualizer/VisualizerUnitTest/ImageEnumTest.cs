@@ -14,9 +14,6 @@ namespace VisualizerUnitTest
     {
         #region Methods
 
-        /// <summary>
-        /// Gets the image test.
-        /// </summary>
         [Test]
         public void GetImageTest()
         {
@@ -24,54 +21,11 @@ namespace VisualizerUnitTest
             Assert.NotNull(ImageMap.GetImage(ImageEnum.PoliceCar.ToString()));
         }
 
-        /// <summary>
-        /// Gets the image fail test.
-        /// </summary>
         [Test]
         public void GetImageFailTest()
         {
             ImageMap.LoadImages();
             Assert.Throws<FileNotFoundException>(() => ImageMap.GetImage("invalidkey.png"));
-        }
-
-        /// <summary>
-        /// Gets the character test.
-        /// </summary>
-        [Test]
-        public void GetCharacterTest()
-        {
-            Assert.NotNull(ImageEnum.GetCharacter(0));
-        }
-
-        /// <summary>
-        /// Gets the character emoji test.
-        /// </summary>
-        [Test]
-        public void GetCharacterEmojiTest()
-        {
-            Assert.NotNull(ImageEnum.GetCharacterEmoji(0));
-        }
-
-        /// <summary>
-        /// Gets the character emoji string test.
-        /// </summary>
-        [Test]
-        public void GetCharacterEmojiStringTest()
-        {
-            string actualString = ImageEnum.GetCharacterEmoji(0);
-            string shouldBeString = "character_emoji_0.png";
-            Assert.AreEqual(shouldBeString, actualString);
-        }
-
-        /// <summary>
-        /// Gets the character string test.
-        /// </summary>
-        [Test]
-        public void GetCharacterStringTest()
-        {
-            string actualString = ImageEnum.GetCharacter(0);
-            string shouldBeString = "image_character_0.png";
-            Assert.AreEqual(shouldBeString, actualString);
         }
 
         #endregion Methods
