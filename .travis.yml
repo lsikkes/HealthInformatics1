@@ -1,0 +1,10 @@
+language: csharp
+solution: Visualizer.sln
+script:
+  - xbuild /p:Configuration=Debug Visualizer.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore Visualizer.sln
+after_script:
+  - nunit-console Tests/bin/Release/Tests.dll
