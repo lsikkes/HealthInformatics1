@@ -8,6 +8,7 @@ namespace VisualizerUnitTest
 {
     using NUnit.Framework;
     using System.Threading;
+    using Visualizer;
     using Visualizer.Character;
 
     /// <summary>
@@ -69,6 +70,29 @@ namespace VisualizerUnitTest
             Assert.AreEqual(CharacterAction.CallingPhone, character.CharAction);
             character.ActionUpdatedTo(0);
             Assert.AreEqual(CharacterAction.CallingPhone, character.CharAction);
+        }
+
+        /// <summary>
+        /// Gets the character resource test.
+        /// </summary>
+        [Test]
+        public void GetCharacterResourceTest()
+        {
+            string actualString = character.GetImageResource(0);
+            string shouldBeString = ImageEnum.GetCharacter(0);
+            Assert.AreEqual(shouldBeString, actualString);
+        }
+
+        /// <summary>
+        /// Gets the character emotion resource test.
+        /// </summary>
+        ///
+        [Test]
+        public void GetCharacterEmotionResourceTest()
+        {
+            string actualString = character.GetImageEmotionResource(0);
+            string shouldBeString = ImageEnum.GetCharacterEmotion(0);
+            Assert.AreEqual(shouldBeString, actualString);
         }
 
         #endregion Methods

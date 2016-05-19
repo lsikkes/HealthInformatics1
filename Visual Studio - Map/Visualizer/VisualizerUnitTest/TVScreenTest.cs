@@ -84,6 +84,17 @@ namespace VisualizerUnitTest
             Assert.AreEqual(movie, tv.Movie);
         }
 
+        /// <summary>
+        /// Gets the TV screen resource test.
+        /// </summary>
+
+        public void GetTVScreenResourceTest()
+        {
+            string actualString = tv.GetImageResource();
+            string shouldBeString = ImageEnum.TvIcon.ToString();
+            Assert.AreEqual(shouldBeString, actualString);
+        }
+
         #endregion Methods
     }
 }

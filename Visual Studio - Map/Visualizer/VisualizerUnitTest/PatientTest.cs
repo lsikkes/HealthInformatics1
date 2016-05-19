@@ -20,7 +20,19 @@ namespace VisualizerUnitTest
     [TestFixture, Apartment(ApartmentState.STA)]
     public class PatientTest
     {
+        #region Fields
+
+        private Patient patient;
+
+        #endregion Fields
+
         #region Methods
+
+        [SetUp]
+        public void setUp()
+        {
+            patient = new Patient(0, 0, 0, 0, "patient");
+        }
 
         /// <summary>
         /// Creates the patient test.
@@ -28,8 +40,29 @@ namespace VisualizerUnitTest
         [Test]
         public void CreatePatientTest()
         {
-            Patient patient = new Patient(0, 0, 0, 0, "patient");
             Assert.IsNotNull(patient);
+        }
+
+        /// <summary>
+        /// Gets the patient resource test.
+        /// </summary>
+        [Test]
+        public void GetPatientResourceTest()
+        {
+            string actualString = patient.GetImageResource();
+            string expectedString = ImageEnum.PatientImage.ToString();
+            Assert.AreEqual(expectedString, actualString);
+        }
+
+        /// <summary>
+        /// Gets the patient scope resource test.
+        /// </summary>
+        [Test]
+        public void GetPatientScopeResourceTest()
+        {
+            string actualString = patient.GetImageScopeResource();
+            string expectedString = ImageEnum.PatientScope.ToString();
+            Assert.AreEqual(expectedString, actualString);
         }
 
         #endregion Methods
