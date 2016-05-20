@@ -19,29 +19,53 @@ namespace Visualizer.Cars
     /// <seealso cref="Visualizer.Car" />
     public class AmbulanceCar : Car
     {
-        #region Methods
-
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
+        #region Fields
 
         /// <summary>
-        /// Gets the car image.
+        /// Instance of the logger
         /// </summary>
-        /// <returns> Image. </returns>
-        public override Image GetCarImage()
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// Constructor of class Ambulance car
+        /// </summary>
+        /// <param name="x"> x position </param>
+        /// <param name="y"> y position </param>
+        /// <param name="rotation"> rotation position </param>
+        /// <param name="id"> id of the object</param>
+        /// <param name="name">name of the object</param>
+        public AmbulanceCar(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
-            Image carImage = GetImage("image_police_car.PNG", 125, 250);
+        }
+
+        #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// Gets the car image resource.
+        /// </summary>
+        /// <returns>Image string.</returns>
+        public override string GetCarImageResource()
+        {
+            string carImage = ImageEnum.AmbulanceCar.ToString();
+            this.logger.Info("Creating car image resource for Ambulance");
             return carImage;
         }
 
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1630:DocumentationTextMustContainWhitespace", Justification = "Reviewed.")]
-
         /// <summary>
-        /// Gets the icon image.
+        /// Gets the icon image resource.
         /// </summary>
-        /// <returns> Image. </returns>
-        public override Image GetIconImage()
+        /// <returns>Image string.</returns>
+        public override string GetIconImageResource()
         {
-            Image carIcon = GetImage("icon_police.PNG", 50, 50, 0, -300);
+            string carIcon = ImageEnum.AmbulanceCarIcon.ToString();
+            this.logger.Info("Creating car image icon resource for Ambulance");
             return carIcon;
         }
 

@@ -45,7 +45,7 @@ namespace Visualizer
         /// <param name="margin">The margin.</param>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        /// <returns>Thickness.</returns>
+        /// <returns>Thickness of the margin.</returns>
         public Thickness SetMargin(Thickness margin, int x, int y)
         {
             margin.Left = x;
@@ -54,21 +54,19 @@ namespace Visualizer
         }
 
         /// <summary>
-        /// Gets the image.
+        /// Gets the image of any string.
         /// </summary>
-        /// <param name="path">The path.</param>
+        /// <param name="key">The name of image.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        /// <returns>Image.</returns>
-        public Image GetImage(string path, int width, int height)
+        /// <returns>image object.</returns>
+        public Image GetImage(string key, int width, int height)
         {
             Image image = new Image();
             image.Width = width;
             image.Height = height;
 
-            string imageName = GeenNaam.MainWindow.AbsolutePath + path;
-
-            ImageSource imageSource = new BitmapImage(new Uri(imageName));
+            ImageSource imageSource = ImageMap.GetImage(key);
             image.Source = imageSource;
 
             return image;
@@ -82,7 +80,7 @@ namespace Visualizer
         /// <param name="height">The height.</param>
         /// <param name="x">The x coordinate.</param>
         /// <param name="y">The y coordinate.</param>
-        /// <returns>Image.</returns>
+        /// <returns>Image object.</returns>
         public Image GetImage(string path, int width, int height, int x, int y)
         {
             Image image = this.GetImage(path, width, height);

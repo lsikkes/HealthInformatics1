@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Tv
 {
     using System;
     using System.Collections.Generic;
@@ -25,16 +25,16 @@ namespace Visualizer
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        /// <returns>TVScreen.</returns>
+        /// <returns>TVScreen object.</returns>
         public TVScreen CreateTvScreen(int x, int y)
         {
-            TVScreen tv = new TVScreen();
+            TVScreen tv = new TVScreen(0, 0, 0, 0, "TVscreen");
 
             tv.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             tv.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             tv.Margin = this.SetMargin(tv.Margin, x, y);
 
-            Image imageTV = this.GetImage("icon_tv.PNG", 50, 50);
+            Image imageTV = this.GetImage(tv.GetImageResource(), 50, 50);
 
             tv.Children.Add(imageTV);
 

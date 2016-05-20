@@ -65,11 +65,18 @@
     <Compile Include="Cars\FirefighterCar.cs" />
     <Compile Include="Cars\PoliceCar.cs" />
     <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\CharacterAction.cs" />
+    <Compile Include="Character\CharacterEmotion.cs" />
     <Compile Include="Character\CharacterFactory.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Furniture\Bench.cs" />
     <Compile Include="Furniture\BenchFactory.cs" />
     <Compile Include="Furniture\FurnitureFactory.cs" />
     <Compile Include="Furniture\Seat.cs" />
+    <Compile Include="ImageEnum.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="ImageMap.cs" />
     <Compile Include="ImmovableObject.cs" />
     <Compile Include="MovableObject.cs" />
     <Compile Include="Surroundings\SurroundingFactory.cs" />

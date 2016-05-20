@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Character
 {
     using System;
     using System.Windows.Controls;
@@ -35,10 +35,10 @@ namespace Visualizer
         /// <param name="y">The y coordinate.</param>
         /// <param name="charID">The character identifier.</param>
         /// <param name="emoteID">The emote identifier.</param>
-        /// <returns>Character.</returns>
+        /// <returns>Character object.</returns>
         public Character CreateCharacter(int x, int y, int charID, int emoteID)
         {
-            Character character = new Character();
+            Character character = new Character(0, 0, 0, 1, "character");
             character.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             character.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             character.Margin = this.SetMargin(character.Margin, x, y);
@@ -49,14 +49,12 @@ namespace Visualizer
             panel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             panel.Margin = this.SetMargin(panel.Margin, 0, 0);
 
-            string imgPath = "image_character_" + charID.ToString() + ".PNG";
-            Image charImage = this.GetImage(imgPath, 60, 60);
+            Image charImage = this.GetImage(character.GetImageResource(charID), 60, 60);
 
             panel.Children.Add(charImage);
             character.Children.Add(panel);
 
-            imgPath = "character_emoji_" + emoteID.ToString() + ".PNG";
-            Image charEmotionImage = this.GetImage(imgPath, 25, 25, 45, -105);
+            Image charEmotionImage = this.GetImage(character.GetImageEmotionResource(emoteID), 25, 25, 45, -105);
             character.Children.Add(charEmotionImage);
 
             return character;

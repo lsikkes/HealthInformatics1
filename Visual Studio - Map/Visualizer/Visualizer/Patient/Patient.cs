@@ -4,7 +4,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace Visualizer
+namespace Visualizer.Patient
 {
     using System;
     using System.Collections.Generic;
@@ -28,12 +28,27 @@ namespace Visualizer
     /// <seealso cref="Visualizer.MovableObject" />
     public class Patient : MovableObject
     {
+        #region Fields
+
+        /// <summary>
+        /// The logger instance
+        /// </summary>
+        private Logger logger = Logger.GetInstance();
+
+        #endregion Fields
+
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Patient" /> class.
+        /// Constructor of MovableObject
         /// </summary>
-        public Patient()
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <param name="rotation">rotation of object</param>
+        /// <param name="id">id of object</param>
+        /// <param name="name">name of object</param>
+        public Patient(int x, int y, int rotation, int id, string name)
+            : base(x, y, rotation, id, name)
         {
         }
 
@@ -75,6 +90,38 @@ namespace Visualizer
         {
             this.Walk(-50, 0);
             this.RenderTransform = new RotateTransform(180, 10, 190);
+        }
+
+        /// <summary>
+        /// Walks the patient to the given position.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="rotation">The rotation.</param>
+        public void WalkTo(int x, int y, int rotation)
+        {
+            this.MoveTo(x, y);
+            this.RenderTransform = new RotateTransform(rotation, 10, 190);
+            this.UpdatePosition(x, y, rotation);
+            this.logger.InfoVRObject(this, "moved to position " + x + ", " + y + " with rotation " + rotation);
+        }
+
+        /// <summary>
+        /// Gets the image resource.
+        /// </summary>
+        /// <returns> string of the image </returns>
+        public string GetImageResource()
+        {
+            return ImageEnum.PatientImage.ToString();
+        }
+
+        /// <summary>
+        /// Gets the image scope resource.
+        /// </summary>
+        /// <returns>string image of the scope</returns>
+        public string GetImageScopeResource()
+        {
+            return ImageEnum.PatientScope.ToString();
         }
 
         #endregion Methods

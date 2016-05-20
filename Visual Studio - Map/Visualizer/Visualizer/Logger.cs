@@ -1,8 +1,11 @@
-﻿// <copyright file="Logger.cs" company="HI1 aka Geen naam">
-//     Copyright (c) HI1 aka Geen naam. All rights reserved.
+﻿// <copyright file="Logger.cs" company="HI1">
+//     Copyright ©  2016
 // </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace Visualizer
 {
+    using GeenNaam;
     using System;
     using System.IO;
     using System.Linq;
@@ -62,7 +65,7 @@ namespace Visualizer
         /// </summary>
         private Logger()
         {
-            path = GetPath();
+            path = MainWindow.getPath() + @"\logger\";
             this.CreateFiles();
         }
 
@@ -87,6 +90,26 @@ namespace Visualizer
         public void Info(string message)
         {
             this.WriteLine(Black, InfoS, message);
+        }
+
+        /// <summary>
+        /// Information log for the VR object.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="message">The message.</param>
+        public void InfoVRObject(VRObject obj, string message)
+        {
+            this.Info(this.GetStartString(obj) + message);
+        }
+
+        /// <summary>
+        /// Warning log for the VR object.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="message">The message.</param>
+        public void WarningVRObject(VRObject obj, string message)
+        {
+            this.Warning(this.GetStartString(obj) + message);
         }
 
         /// <summary>
@@ -174,22 +197,13 @@ namespace Visualizer
         }
 
         /// <summary>
-        /// Creates the right path the logger map
+        /// Gets the start string for a log sentence.
         /// </summary>
-        /// <returns> string with the path to the logger map </returns>
-        private static string GetPath()
+        /// <param name="obj">The object.</param>
+        /// <returns>string with the standard sentence</returns>
+        private string GetStartString(VRObject obj)
         {
-            string path = System.IO.Path.GetDirectoryName(
-              System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-            string newPath = string.Empty;
-            string[] paths = path.Split('\\');
-            for (int i = 1; i < paths.Length - 4; i++)
-            {
-                newPath = newPath + "\\" + paths[i];
-            }
-
-            newPath = newPath.Substring(1);
-            return newPath + @"\logger\";
+            return "Object " + obj.ObjectName + " with id " + obj.Identifier + " ";
         }
 
         /// <summary>

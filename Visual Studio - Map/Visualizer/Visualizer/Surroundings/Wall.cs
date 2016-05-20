@@ -51,18 +51,24 @@ namespace Visualizer.Surroundings
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Wall" /> class.
+        /// Constructor of Tree
         /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
-        /// <param name="marginX">The margin x.</param>
-        /// <param name="marginY">The margin y.</param>
-        public Wall(int width, int height, int marginX, int marginY)
+        /// <param name="x"> x position</param>
+        /// <param name="y"> y position</param>
+        /// <param name="rotation"> rotation of object</param>
+        /// <param name="id"> id of object</param>
+        /// <param name="name">name of object</param>
+        /// <param name="w"> width of wall</param>
+        /// <param name="h"> height of wall</param>
+        /// <param name="mx"> margin x of wall</param>
+        /// <param name="my"> margin y of wall</param>
+        public Wall(int x, int y, int rotation, int id, string name, int w, int h, int mx, int my)
+            : base(x, y, rotation, id, name)
         {
-            this.w = width;
-            this.h = height;
-            this.x = marginX;
-            this.y = marginY;
+            this.w = w;
+            this.h = h;
+            this.x = mx;
+            this.y = my;
         }
 
         #endregion Constructors
@@ -72,7 +78,7 @@ namespace Visualizer.Surroundings
         /// <summary>
         /// Makes a rectangle for a wall object.
         /// </summary>
-        /// <returns>Rectangle.</returns>
+        /// <returns>Rectangle object.</returns>
         public override Rectangle GetRect()
         {
             Rectangle rect = MakeRect(this.x, this.y, this.w, this.h);
