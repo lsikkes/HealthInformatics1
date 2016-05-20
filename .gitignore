@@ -3,6 +3,7 @@
 
 # Log ignore
 Visual Studio - Map/logger/
+CleVRMap/Library/metadata/
 
 # User-specific files
 *.suo
