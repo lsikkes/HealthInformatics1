@@ -55,7 +55,7 @@ namespace GeenNaam
 
             try
             {
-                Client client = new Client();
+                Client client = new Client(25000);
             }
             catch (Exception e)
             {
