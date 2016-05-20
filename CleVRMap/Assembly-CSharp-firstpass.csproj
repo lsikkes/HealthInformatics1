@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FCD5FE08-3C51-6A3E-D73B-B8BF64B2A04C}</ProjectGuid>
+    <ProjectGuid>{2F4489E7-2A23-4AA7-CD7E-811C38E0506E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -45,40 +45,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Model\BaseModel.cs" />
-     <Compile Include="Assets\Model\Bench.cs" />
-     <Compile Include="Assets\Model\Building.cs" />
-     <Compile Include="Assets\Model\Car.cs" />
-     <Compile Include="Assets\Model\CarType.cs" />
-     <Compile Include="Assets\Model\Character.cs" />
-     <Compile Include="Assets\Model\CharacterAction.cs" />
-     <Compile Include="Assets\Model\CharacterEmotion.cs" />
-     <Compile Include="Assets\Model\CharacterProfile.cs" />
-     <Compile Include="Assets\Model\Controller.cs" />
-     <Compile Include="Assets\Model\Ethnicity.cs" />
-     <Compile Include="Assets\Model\Factories\BenchFactory.cs" />
-     <Compile Include="Assets\Model\Factories\CarFactory.cs" />
-     <Compile Include="Assets\Model\Factories\CharacterFactory.cs" />
-     <Compile Include="Assets\Model\Factories\SeatFactory.cs" />
-     <Compile Include="Assets\Model\Factories\TVFactory.cs" />
-     <Compile Include="Assets\Model\Factories\TreeGardenFactory.cs" />
-     <Compile Include="Assets\Model\Gender.cs" />
-     <Compile Include="Assets\Model\HeadGear.cs" />
-     <Compile Include="Assets\Model\Seat.cs" />
-     <Compile Include="Assets\Model\TV.cs" />
-     <Compile Include="Assets\Model\TVState.cs" />
-     <Compile Include="Assets\Model\TreeGarden.cs" />
-     <Compile Include="Assets\Network\Sender.cs" />
-     <Compile Include="Assets\Network\UDPInitReceiver.cs" />
-     <Compile Include="Assets\ViewModel\BaseViewModel.cs" />
-     <Compile Include="Assets\ViewModel\BenchViewModel.cs" />
-     <Compile Include="Assets\ViewModel\BuildingViewModel.cs" />
-     <Compile Include="Assets\ViewModel\CarViewModel.cs" />
-     <Compile Include="Assets\ViewModel\CharacterViewModel.cs" />
-     <Compile Include="Assets\ViewModel\ControllerViewModel.cs" />
-     <Compile Include="Assets\ViewModel\StaticObjectViewModel.cs" />
-     <Compile Include="Assets\ViewModel\TVViewModel.cs" />
-     <Compile Include="Assets\ViewModel\TreeGardenViewModel.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\Joystick.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
+     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\ActivateTrigger.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\AutoMobileShaderSwitch.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\AutoMoveAndRotate.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\CameraRefocus.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\CurveControlledBob.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\DragRigidbody.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\DynamicShadowSettings.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\EventSystemChecker.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\FOVKick.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\FPSCounter.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\FollowTarget.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\ForcedReset.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\LerpControlledBob.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\ObjectResetter.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\ParticleSystemDestroyer.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\PlatformSpecificContent.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\SimpleActivatorMenu.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\SimpleMouseRotator.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\SmoothFollow.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\TimedObjectActivator.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\TimedObjectDestructor.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\WaypointCircuit.cs" />
+     <Compile Include="Assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
@@ -90,10 +94,6 @@
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/louis/Documents/CleVR Map Test test/Assets/plugin/Newtonsoft.Json.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{2F4489E7-2A23-4AA7-CD7E-811C38E0506E}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
