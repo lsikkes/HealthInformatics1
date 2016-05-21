@@ -246,3 +246,5 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+!nunit.framework.dll
