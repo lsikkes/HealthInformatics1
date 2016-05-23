@@ -4,6 +4,9 @@
 # Log ignore
 Visual Studio - Map/logger/
 
+# ignore metadata unity
+CleVRMap/Library/metadata
+
 # User-specific files
 *.suo
 *.user
