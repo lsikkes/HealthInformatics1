@@ -80,7 +80,7 @@ namespace Visualizer.Tv
         public void SetText(string text)
         {
             this.Text = text;
-            this.logger.InfoVRObject(this, "Text is set to " + text);
+            this.logger.Info(this, "Text is set to " + text);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Visualizer.Tv
         public void SetTvOn(bool state)
         {
             this.IsOn = state;
-            this.logger.InfoVRObject(this, "IsOn is set to " + state);
+            this.logger.Info(this, "IsOn is set to " + state);
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Visualizer.Tv
         public void SetMovie(string movie)
         {
             this.Movie = movie;
-            this.logger.InfoVRObject(this, "Movie is set to " + movie);
+            this.logger.Info(this, "Movie is set to " + movie);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace Visualizer.Tv
         public void SetShowText(bool state)
         {
             this.ShowText = state;
-            this.logger.InfoVRObject(this, "ShowText is set to " + state);
+            this.logger.Info(this, "ShowText is set to " + state);
         }
 
         /// <summary>
