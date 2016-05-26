@@ -1,10 +1,11 @@
-﻿// <copyright file="PatientViewModel.cs" company="HI1">
+﻿// <copyright file="AbstractViewModel.cs" company="HI1">
 //     Copyright ©  2016
 // </copyright>
-// <summary>PatientViewModel class</summary>
+// <summary>AbstractViewModel class</summary>
 // ***********************************************************************
 namespace Visualizer.ViewModels
 {
+    using MVVM;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,16 +13,13 @@ namespace Visualizer.ViewModels
     using System.Threading.Tasks;
     using System.Windows;
     using Visualizer.Models;
-    using MVVM;
     using Visualizer.Utilities;
 
-    [Obsolete]
-
     /// <summary>
-    /// Class PatientViewModel.
+    /// Class AbstractViewModel.
     /// </summary>
     /// <seealso cref="Visualizer.MVVM.ObservableObject" />
-    public class PatientViewModel : ObservableObject
+    public abstract class AbstractViewModel : ObservableObject
     {
         #region Fields
 
@@ -30,29 +28,29 @@ namespace Visualizer.ViewModels
         /// </summary>
         private Thickness margin;
 
+        /// <summary>
+        /// The model
+        /// </summary>
+        private AbstractVRObject model;
+
         #endregion Fields
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PatientViewModel"/> class.
+        /// Initializes a new instance of the <see cref="AbstractViewModel"/> class.
         /// </summary>
         /// <param name="pos">The position.</param>
-        /// <param name="id">The identifier.</param>
-        public PatientViewModel(VRPosition pos, int id)
+        public AbstractViewModel(VRPosition pos)
         {
-            this.Model = new PatientModel(pos, id);
+            this.model = this.GetModel();
+            this.Logger = Logger.GetInstance();
+            this.SetInitialPosition(pos);
         }
 
         #endregion Constructors
 
         #region Properties
-
-        /// <summary>
-        /// Gets or sets the model.
-        /// </summary>
-        /// <value>The model.</value>
-        public PatientModel Model { get; set; }
 
         /// <summary>
         /// Gets or sets the margin.
@@ -75,21 +73,41 @@ namespace Visualizer.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the logger.
+        /// </summary>
+        /// <value>The logger.</value>
+        protected Logger Logger { get; private set; }
+
         #endregion Properties
 
         #region Methods
 
         /// <summary>
-        /// Moves the object to the given x and y.
+        /// Gets the model.
         /// </summary>
-        /// <param name="x">The x.</param>
-        /// <param name="y">The y.</param>
-        public void MoveObject(int x, int y)
+        /// <returns>returns the model of the ViewModel.</returns>
+        public abstract AbstractVRObject GetModel();
+
+        /// <summary>
+        /// Moves the object.
+        /// </summary>
+        /// <param name="pos">The position.</param>
+        public virtual void MoveObject(VRPosition pos)
         {
-            this.Model.Position.Move(x, y);
+            this.SetInitialPosition(pos);
+        }
+
+        /// <summary>
+        /// Sets the initial position.
+        /// </summary>
+        /// <param name="pos">The position.</param>
+        private void SetInitialPosition(VRPosition pos)
+        {
+            this.model.Position.Move(pos.X, pos.Y);
             Thickness margin = this.Margin;
-            margin.Left = this.Model.Position.X;
-            margin.Top = this.Model.Position.Y;
+            margin.Left = this.model.Position.X;
+            margin.Top = this.model.Position.Y;
             this.Margin = margin;
         }
 

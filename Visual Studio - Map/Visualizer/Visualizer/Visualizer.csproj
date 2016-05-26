@@ -110,6 +110,7 @@
     <Compile Include="Surroundings\Wall.cs" />
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
+    <Compile Include="ViewModels\AbstractViewModel.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
