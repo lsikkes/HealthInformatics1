@@ -80,6 +80,17 @@ namespace Visualizer.Utilities
         }
 
         /// <summary>
+        /// Gets the character action.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>string of character action image.</returns>
+        //TODO change it to the action images
+        public static string GetCharacterAction(int id)
+        {
+            return ImageEnum.CharacterEmotion.ToString() + id + ".png";
+        }
+
+        /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
         /// <returns>

@@ -28,11 +28,6 @@ namespace Visualizer.ViewModels
         /// </summary>
         private Thickness margin;
 
-        /// <summary>
-        /// The model
-        /// </summary>
-        private AbstractVRObject model;
-
         #endregion Fields
 
         #region Constructors
@@ -43,9 +38,7 @@ namespace Visualizer.ViewModels
         /// <param name="pos">The position.</param>
         public AbstractViewModel(VRPosition pos)
         {
-            this.model = this.GetModel();
             this.Logger = Logger.GetInstance();
-            this.SetInitialPosition(pos);
         }
 
         #endregion Constructors
@@ -79,35 +72,26 @@ namespace Visualizer.ViewModels
         /// <value>The logger.</value>
         protected Logger Logger { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>The model.</value>
+        protected AbstractVRObject Model { private get; set; }
+
         #endregion Properties
 
         #region Methods
 
         /// <summary>
-        /// Gets the model.
-        /// </summary>
-        /// <returns>returns the model of the ViewModel.</returns>
-        public abstract AbstractVRObject GetModel();
-
-        /// <summary>
-        /// Moves the object.
-        /// </summary>
-        /// <param name="pos">The position.</param>
-        public virtual void MoveObject(VRPosition pos)
-        {
-            this.SetInitialPosition(pos);
-        }
-
-        /// <summary>
         /// Sets the initial position.
         /// </summary>
         /// <param name="pos">The position.</param>
-        private void SetInitialPosition(VRPosition pos)
+        public void SetPosition(VRPosition pos)
         {
-            this.model.Position.Move(pos.X, pos.Y);
+            this.Model.Position.Move(pos.X, pos.Y);
             Thickness margin = this.Margin;
-            margin.Left = this.model.Position.X;
-            margin.Top = this.model.Position.Y;
+            margin.Left = this.Model.Position.X;
+            margin.Top = this.Model.Position.Y;
             this.Margin = margin;
         }
 

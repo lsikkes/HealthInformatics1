@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using Visualizer.Factories;
+using Visualizer.Utilities;
 using Visualizer.ViewModels;
 
 namespace Visualizer
@@ -12,7 +13,7 @@ namespace Visualizer
     {
         #region Fields
 
-        private Collection<PatientViewModel> _objects = new Collection<PatientViewModel>();
+        private Collection<CharacterViewModel> _objects = new Collection<CharacterViewModel>();
         private MainWindow _main;
 
         #endregion Fields
@@ -35,7 +36,7 @@ namespace Visualizer
         public void moveObject(int id, int x, int y)
         {
             Console.WriteLine("setting x and y");
-            _objects[id].MoveObject(x, y);
+            _objects[id].SetPosition(new VRPosition(x, y, 0));
         }
 
         public void addObject(int x, int y)

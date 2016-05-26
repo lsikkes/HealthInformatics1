@@ -66,6 +66,10 @@ namespace Visualizer.Utilities
         /// <exception cref="System.IO.FileNotFoundException">image isn't loaded</exception>
         public static BitmapImage GetImage(string key)
         {
+            if (images.Count == 0)
+            {
+                ImageMap.LoadImages();
+            }
             BitmapImage image;
             if (images.TryGetValue(key, out image))
             {

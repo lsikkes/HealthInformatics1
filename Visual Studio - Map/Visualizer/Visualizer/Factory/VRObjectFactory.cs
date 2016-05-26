@@ -13,11 +13,11 @@ namespace Visualizer.Factories
     {
         #region Methods
 
-        public static PatientViewModel newVRObject(int x, int y, MainWindow main)
+        public static CharacterViewModel newVRObject(int x, int y, MainWindow main)
         {
-            VRObjectView view = new VRObjectView();
-            PatientViewModel viewModel = new PatientViewModel(new VRPosition(x, y, 0), 0);
-            view.SetDataContext(viewModel);
+            CharacterView view = new CharacterView();
+            CharacterViewModel viewModel = new CharacterViewModel(new VRPosition(x, y, 0), 0, 1, 0);
+            view.DataContext = viewModel;
             main.addView(view, x, y);
             return viewModel;
         }
