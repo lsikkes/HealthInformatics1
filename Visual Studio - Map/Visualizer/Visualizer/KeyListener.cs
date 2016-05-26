@@ -38,21 +38,21 @@ namespace Visualizer
         {
             switch (e.Key)
             {
-                case Key.Up:
-                    GeenNaam.MainWindow.patient.WalkUp();
-                    break;
+                //case Key.Up:
+                //    GeenNaam.MainWindow.patient.WalkUp();
+                //    break;
 
-                case Key.Down:
-                    GeenNaam.MainWindow.patient.WalkDown();
-                    break;
+                //case Key.Down:
+                //    GeenNaam.MainWindow.patient.WalkDown();
+                //    break;
 
-                case Key.Left:
-                    GeenNaam.MainWindow.patient.WalkLeft();
-                    break;
+                //case Key.Left:
+                //    GeenNaam.MainWindow.patient.WalkLeft();
+                //    break;
 
-                case Key.Right:
-                    GeenNaam.MainWindow.patient.WalkRight();
-                    break;
+                //case Key.Right:
+                //    GeenNaam.MainWindow.patient.WalkRight();
+                //    break;
 
                 default:
                     Console.WriteLine("Unknow key input " + e.Key);

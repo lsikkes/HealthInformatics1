@@ -9,7 +9,7 @@ using Visualizer;
 
 namespace VisualizerUnitTest
 {
-    [TestFixture]
+    //[TestFixture]
     public class ImageEnumTest
     {
         #region Methods
@@ -17,7 +17,7 @@ namespace VisualizerUnitTest
         /// <summary>
         /// Gets the image test.
         /// </summary>
-        [Test]
+        //[Test]
         public void GetImageTest()
         {
             ImageMap.LoadImages();
@@ -27,7 +27,7 @@ namespace VisualizerUnitTest
         /// <summary>
         /// Gets the image fail test.
         /// </summary>
-        [Test]
+        //[Test]
         public void GetImageFailTest()
         {
             ImageMap.LoadImages();

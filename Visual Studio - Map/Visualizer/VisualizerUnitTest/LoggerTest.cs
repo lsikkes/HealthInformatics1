@@ -9,7 +9,7 @@ using Visualizer;
 
 namespace VisualizerUnitTest
 {
-    [TestFixture]
+    //[TestFixture]
     public class LoggerTest
     {
         #region Methods

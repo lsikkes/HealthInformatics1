@@ -10,6 +10,7 @@ namespace Visualizer.Character
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Utilities.Character;
 
     /// <summary>
     /// Class Character.
@@ -101,11 +102,12 @@ namespace Visualizer.Character
             if (this.IsValid((CharacterEmotion)newEmotion))
             {
                 this.CharEmotion = (CharacterEmotion)newEmotion;
-                this.logger.Info(this, "emotion updated to " + this.CharEmotion.ToString());
+
+                //this.logger.Info(this, "emotion updated to " + this.CharEmotion.ToString());
             }
             else
             {
-                this.logger.Warning(this, "emotion could not update to " + (CharacterEmotion)newEmotion);
+                //this.logger.Warning(this, "emotion could not update to " + (CharacterEmotion)newEmotion);
             }
         }
 
@@ -118,11 +120,12 @@ namespace Visualizer.Character
             if (this.IsValid((CharacterAction)newAction))
             {
                 this.CharAction = (CharacterAction)newAction;
-                this.logger.Info(this, "action updated to " + this.CharAction.ToString());
+
+                //this.logger.Info(this, "action updated to " + this.CharAction.ToString());
             }
             else
             {
-                this.logger.Warning(this, "action could not update to " + (CharacterAction)newAction);
+                //this.logger.Warning(this, "action could not update to " + (CharacterAction)newAction);
             }
         }
 

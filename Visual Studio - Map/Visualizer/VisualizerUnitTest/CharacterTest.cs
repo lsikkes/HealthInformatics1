@@ -10,6 +10,7 @@ namespace VisualizerUnitTest
     using System.Threading;
     using Visualizer;
     using Visualizer.Character;
+    using Visualizer.Utilities.Character;
 
     /// <summary>
     /// Class CharacterTest.

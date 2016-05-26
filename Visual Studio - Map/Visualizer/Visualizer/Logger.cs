@@ -5,10 +5,11 @@
 // ***********************************************************************
 namespace Visualizer
 {
-    using GeenNaam;
     using System;
     using System.IO;
     using System.Linq;
+    using Visualizer.Models;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// The logger class is a singleton that manages logging.
@@ -60,7 +61,7 @@ namespace Visualizer
         /// </summary>
         private Logger()
         {
-            path = MainWindow.getPath() + @"\logger\";
+            path = PathGetter.GetLoggerPath() + @"\logger\";
             this.CreateFiles();
         }
 
@@ -92,7 +93,7 @@ namespace Visualizer
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <param name="message">The message.</param>
-        public void Info(VRObject obj, string message)
+        public void Info(AbstractVRObject obj, string message)
         {
             this.Info(this.GetStartString(obj) + message);
         }
@@ -102,7 +103,7 @@ namespace Visualizer
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <param name="message">The message.</param>
-        public void Warning(VRObject obj, string message)
+        public void Warning(AbstractVRObject obj, string message)
         {
             this.Warning(this.GetStartString(obj) + message);
         }
@@ -142,9 +143,9 @@ namespace Visualizer
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <returns>string with the standard sentence</returns>
-        private string GetStartString(VRObject obj)
+        private string GetStartString(AbstractVRObject obj)
         {
-            return "Object " + obj.ObjectName + " with id " + obj.Identifier + " ";
+            return "Object " + obj.GetType().Name + " with id " + obj.Id + " ";
         }
 
         /// <summary>

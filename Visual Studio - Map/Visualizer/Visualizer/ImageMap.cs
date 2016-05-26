@@ -5,7 +5,6 @@
 // ***********************************************************************
 namespace Visualizer
 {
-    using GeenNaam;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;

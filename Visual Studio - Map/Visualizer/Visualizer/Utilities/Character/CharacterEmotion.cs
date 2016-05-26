@@ -1,7 +1,7 @@
-﻿// <copyright file="Emotion.cs" company="CleVR B.V.">
+﻿// <copyright file="CharacterEmotion.cs" company="CleVR B.V.">
 //     CleVR B.V. All rights reserved.
 // </copyright>
-namespace Visualizer.Character
+namespace Visualizer.Utilities.Character
 {
     using System;
     using System.Collections.Generic;

@@ -48,7 +48,7 @@ namespace Visualizer.Furniture
             Image seatImg = new Image();
             seatImg.Width = 50;
             seatImg.Height = 50;
-            string location = GeenNaam.MainWindow.AbsolutePath + "icon_chair.PNG";
+            string location = Visualizer.MainWindow.getPath() + "icon_chair.PNG";
             ImageSource seatImgSource = new BitmapImage(new Uri(location));
             seatImg.Source = seatImgSource;
             return seatImg;

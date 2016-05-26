@@ -12,7 +12,7 @@ namespace Visualizer.Character
     /// <summary>
     /// Class CharacterFactory.
     /// </summary>
-    /// <seealso cref="Visualizer.Factory" />
+    /// <seealso cref="Visualizer.Factories" />
     public class CharacterFactory : Factory
     {
         #region Constructors

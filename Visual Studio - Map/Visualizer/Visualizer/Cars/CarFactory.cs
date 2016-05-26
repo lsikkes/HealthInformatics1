@@ -13,7 +13,7 @@ namespace Visualizer.Cars
     /// <summary>
     /// Class CarFactory.
     /// </summary>
-    /// <seealso cref="Visualizer.Factory" />
+    /// <seealso cref="Visualizer.Factories" />
     public class CarFactory : Factory
     {
         #region Fields

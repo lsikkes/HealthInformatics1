@@ -24,7 +24,7 @@ namespace Visualizer.Surroundings
     /// <summary>
     /// Class SurroundingFactory.
     /// </summary>
-    /// <seealso cref="Visualizer.Factory" />
+    /// <seealso cref="Visualizer.Factories" />
     public class SurroundingFactory : Factory
     {
         #region Constructors

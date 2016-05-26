@@ -15,7 +15,7 @@ namespace Visualizer.Tv
     /// <summary>
     /// Class TVFactory.
     /// </summary>
-    /// <seealso cref="Visualizer.Factory" />
+    /// <seealso cref="Visualizer.Factories" />
     public class TVFactory : Factory
     {
         #region Methods

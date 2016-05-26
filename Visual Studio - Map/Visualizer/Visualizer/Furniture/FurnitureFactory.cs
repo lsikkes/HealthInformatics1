@@ -14,7 +14,7 @@ namespace Visualizer.Furniture
     /// <summary>
     /// Class FurnitureFactory.
     /// </summary>
-    /// <seealso cref="Visualizer.Factory" />
+    /// <seealso cref="Visualizer.Factories" />
     public class FurnitureFactory : Factory
     {
         #region Constructors
