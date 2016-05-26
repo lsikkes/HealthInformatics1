@@ -11,6 +11,7 @@ namespace Visualizer.Character
     using System.Linq;
     using System.Text;
     using Utilities.Character;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// Class Character.

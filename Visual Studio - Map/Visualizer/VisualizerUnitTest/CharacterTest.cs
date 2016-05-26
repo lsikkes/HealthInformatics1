@@ -11,6 +11,8 @@ namespace VisualizerUnitTest
     using Visualizer;
     using Visualizer.Character;
     using Visualizer.Utilities.Character;
+    using Visualizer.Utilities;
+
 
     /// <summary>
     /// Class CharacterTest.

@@ -89,10 +89,10 @@
     <Compile Include="Furniture\FurnitureFactory.cs" />
     <Compile Include="Furniture\Seat.cs" />
     <Compile Include="Handler.cs" />
-    <Compile Include="ImageEnum.cs">
+    <Compile Include="Utilities\ImageEnum.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="ImageMap.cs" />
+    <Compile Include="Utilities\ImageMap.cs" />
     <Compile Include="ImmovableObject.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
@@ -101,9 +101,6 @@
     <Compile Include="Utilities\VRPosition.cs" />
     <Compile Include="Models\AbstractVRObject.cs" />
     <Compile Include="MovableObject.cs" />
-    <Compile Include="MVVM\ObservableObject.cs" />
-    <Compile Include="MVVM\PropertySupport.cs" />
-    <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="Surroundings\SurroundingFactory.cs" />
     <Compile Include="Patient\PatientFactory.cs" />
     <Compile Include="Factory.cs" />
@@ -159,6 +156,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVVM\MVVM.csproj">
+      <Project>{21159742-18b9-4381-a182-f70c3bc084a2}</Project>
+      <Name>MVVM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

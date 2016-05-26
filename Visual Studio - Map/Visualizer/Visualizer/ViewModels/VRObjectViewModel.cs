@@ -6,7 +6,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using Visualizer.Models;
-using Visualizer.MVVM;
+using MVVM;
 
 namespace Visualizer.ViewModels
 {

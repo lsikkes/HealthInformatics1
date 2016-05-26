@@ -3,7 +3,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace Visualizer
+namespace Visualizer.Utilities
 {
     using System.Diagnostics.CodeAnalysis;
 

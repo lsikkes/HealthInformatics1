@@ -10,6 +10,7 @@ namespace Visualizer.Tv
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// Class TVScreen.

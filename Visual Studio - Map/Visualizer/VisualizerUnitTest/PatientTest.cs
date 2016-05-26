@@ -13,6 +13,8 @@ namespace VisualizerUnitTest
     using System.Threading;
     using Visualizer;
     using Visualizer.Patient;
+    using Visualizer.Utilities;
+
 
     /// <summary>
     /// Class PatientTest.

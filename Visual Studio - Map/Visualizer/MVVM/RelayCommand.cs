@@ -6,11 +6,8 @@ using System;
 using System.Diagnostics;
 using System.Windows.Input;
 
-
 //  Original author - Josh Smith - http://msdn.microsoft.com/en-us/magazine/dd419663.aspx#id0090030
-
-
-namespace Visualizer.MVVM
+namespace MVVM
 {
     /// <summary>
     /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the CanExecute method is 'true'.

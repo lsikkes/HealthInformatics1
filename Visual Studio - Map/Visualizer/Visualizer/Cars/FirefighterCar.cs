@@ -5,6 +5,8 @@
 // ***********************************************************************
 namespace Visualizer.Cars
 {
+    using Visualizer.Utilities;
+
     /// <summary>
     /// Class FirefighterCar.
     /// </summary>

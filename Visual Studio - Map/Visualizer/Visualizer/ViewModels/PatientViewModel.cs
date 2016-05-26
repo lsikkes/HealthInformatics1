@@ -12,7 +12,7 @@ namespace Visualizer.ViewModels
     using System.Threading.Tasks;
     using System.Windows;
     using Visualizer.Models;
-    using Visualizer.MVVM;
+    using MVVM;
     using Visualizer.Utilities;
 
     /// <summary>

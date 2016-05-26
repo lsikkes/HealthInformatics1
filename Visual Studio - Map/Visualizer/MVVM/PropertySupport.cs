@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Visualizer.MVVM
+namespace MVVM
 {
     public static class PropertySupport
     {

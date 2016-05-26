@@ -24,8 +24,26 @@ namespace Visualizer.Utilities
         /// <summary>
         /// Gets the logger path.
         /// </summary>
-        /// <returns>the path to the root folder</returns>
+        /// <returns>path to the logger map</returns>
         public static string GetLoggerPath()
+        {
+            return GetAtbolutePath() + @"\logger\";
+        }
+
+        /// <summary>
+        /// Gets the resource path.
+        /// </summary>
+        /// <returns>path to the recourse map</returns>
+        public static string GetResourcePath()
+        {
+            return GetAtbolutePath() + @"\Resources\";
+        }
+
+        /// <summary>
+        /// Gets the logger path.
+        /// </summary>
+        /// <returns>the path to the root folder</returns>
+        private static string GetAtbolutePath()
         {
             string path = System.IO.Path.GetDirectoryName(
             System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);

@@ -3,7 +3,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace Visualizer
+namespace Visualizer.Utilities
 {
     using System;
     using System.Collections.Generic;
@@ -39,7 +39,7 @@ namespace Visualizer
         /// </summary>
         public static void LoadImages()
         {
-            string path = MainWindow.getPath() + @"\resources\";
+            string path = PathGetter.GetResourcePath();
 
             string[] filePaths = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
                 .Where(s => s.EndsWith(".png") || s.EndsWith(".jpg") || s.EndsWith(".jpeg")).ToArray();

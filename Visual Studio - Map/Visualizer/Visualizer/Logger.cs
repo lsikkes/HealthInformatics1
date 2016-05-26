@@ -61,7 +61,7 @@ namespace Visualizer
         /// </summary>
         private Logger()
         {
-            path = PathGetter.GetLoggerPath() + @"\logger\";
+            path = PathGetter.GetLoggerPath();
             this.CreateFiles();
         }
 

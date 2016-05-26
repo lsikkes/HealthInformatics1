@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 //Event Design: http://msdn.microsoft.com/en-us/library/ms229011.aspx
 
-namespace Visualizer.MVVM
+namespace MVVM
 {
     [Serializable]
     public abstract class ObservableObject : INotifyPropertyChanged
