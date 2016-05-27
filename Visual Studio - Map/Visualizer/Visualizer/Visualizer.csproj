@@ -72,7 +72,7 @@
     <Compile Include="Cars\NormalCar.cs" />
     <Compile Include="Cars\FirefighterCar.cs" />
     <Compile Include="Cars\PoliceCar.cs" />
-    <Compile Include="Character\Character.cs" />
+    <Compile Include="Factory\CharacterFactory.cs" />
     <Compile Include="Models\Cars\CarModel.cs" />
     <Compile Include="Models\Cars\EmergencyCarModel.cs" />
     <Compile Include="Models\Furniture\BenchModel.cs" />
@@ -81,9 +81,7 @@
     <Compile Include="Models\TvModel.cs" />
     <Compile Include="Utilities\Character\CharacterAction.cs" />
     <Compile Include="Utilities\Character\CharacterEmotion.cs" />
-    <Compile Include="Character\CharacterFactory.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Factory\VRObjectFactory.cs" />
     <Compile Include="Furniture\Bench.cs" />
     <Compile Include="Furniture\BenchFactory.cs" />
     <Compile Include="Furniture\FurnitureFactory.cs" />
@@ -96,7 +94,6 @@
     <Compile Include="ImmovableObject.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
-    <Compile Include="Models\VRModel.cs" />
     <Compile Include="Utilities\PathGetter.cs" />
     <Compile Include="Utilities\VRPosition.cs" />
     <Compile Include="Models\AbstractVRObject.cs" />
@@ -115,12 +112,8 @@
     <Compile Include="ViewModels\PatientViewModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="ViewModels\VRObjectViewModel.cs" />
     <Compile Include="Views\CharacterView.xaml.cs">
       <DependentUpon>CharacterView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\VRObjectView.xaml.cs">
-      <DependentUpon>VRObjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VRObject.cs" />
     <Compile Include="Logger.cs">
@@ -134,10 +127,6 @@
     <Page Include="Views\CharacterView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\VRObjectView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

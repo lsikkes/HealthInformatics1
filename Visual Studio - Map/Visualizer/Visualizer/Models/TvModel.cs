@@ -8,13 +8,18 @@ namespace Visualizer.Models
     using Visualizer.Utilities;
 
     /// <summary>
-    /// Class TvModel.
+    /// Class TVModel.
     /// </summary>
     /// <seealso cref="Visualizer.Models.AbstractVRObject" />
     public class TvModel : AbstractVRObject
     {
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TvModel"/> class.
+        /// </summary>
+        /// <param name="pos">The position.</param>
+        /// <param name="id">The identifier.</param>
         public TvModel(VRPosition pos, int id)
             : base(pos, id)
         {

@@ -70,6 +70,7 @@ namespace Visualizer.Utilities
             {
                 ImageMap.LoadImages();
             }
+
             BitmapImage image;
             if (images.TryGetValue(key, out image))
             {

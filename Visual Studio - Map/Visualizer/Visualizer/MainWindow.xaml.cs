@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Visualizer.Views;
 
@@ -39,6 +40,15 @@ namespace Visualizer
         public void StartMain()
         {
             _handler = new Handler(this);
+        }
+
+        /// <summary>
+        /// Adds the user control to the map
+        /// </summary>
+        /// <param name="view"></param>
+        public void addControl(UserControl view)
+        {
+            canvas.Children.Add(view);
         }
 
         public void addView(CharacterView view, int x, int y)
