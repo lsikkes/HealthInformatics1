@@ -13,7 +13,7 @@ namespace Visualizer
     {
         #region Fields
 
-        private Collection<CharacterViewModel> _objects = new Collection<CharacterViewModel>();
+        private Collection<BenchViewModel> _objects = new Collection<BenchViewModel>();
         private MainWindow _main;
 
         #endregion Fields

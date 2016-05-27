@@ -41,7 +41,7 @@ namespace Visualizer
             _handler = new Handler(this);
         }
 
-        public void addView(CharacterView view, int x, int y)
+        public void addView(BenchView view, int x, int y)
         {
             canvas.Children.Add(view);
 

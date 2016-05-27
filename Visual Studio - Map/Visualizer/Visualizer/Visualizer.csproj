@@ -111,11 +111,15 @@
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
     <Compile Include="ViewModels\AbstractViewModel.cs" />
+    <Compile Include="ViewModels\BenchViewModel.cs" />
     <Compile Include="ViewModels\CharacterViewModel.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="ViewModels\VRObjectViewModel.cs" />
+    <Compile Include="Views\BenchView.xaml.cs">
+      <DependentUpon>BenchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CharacterView.xaml.cs">
       <DependentUpon>CharacterView.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BenchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CharacterView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

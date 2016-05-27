@@ -25,9 +25,10 @@ namespace Visualizer.Models.Furniture
         /// </summary>
         /// <param name="pos">The position.</param>
         /// <param name="id">The identifier.</param>
-        public BenchModel(VRPosition pos, int id)
+        public BenchModel(VRPosition pos, int id, int amountSeats)
             : base(pos, id)
         {
+            this.NumberOfSeats = amountSeats;
         }
 
         #endregion Constructors

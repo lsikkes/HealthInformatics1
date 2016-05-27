@@ -13,10 +13,10 @@ namespace Visualizer.Factories
     {
         #region Methods
 
-        public static CharacterViewModel newVRObject(int x, int y, MainWindow main)
+        public static BenchViewModel newVRObject(int x, int y, MainWindow main)
         {
-            CharacterView view = new CharacterView();
-            CharacterViewModel viewModel = new CharacterViewModel(new VRPosition(x, y, 0), 0, 1, 0);
+            BenchView view = new BenchView();
+            BenchViewModel viewModel = new BenchViewModel(new VRPosition(x, y, 0), 0, 4);
             view.DataContext = viewModel;
             main.addView(view, x, y);
             return viewModel;

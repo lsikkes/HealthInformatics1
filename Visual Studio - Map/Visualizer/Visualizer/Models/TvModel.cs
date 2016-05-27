@@ -21,6 +21,10 @@ namespace Visualizer.Models
             this.IsOn = false;
         }
 
+        #endregion Constructors
+
+        #region Properties
+
         /// <summary>
         /// Gets or sets the text on screen.
         /// </summary>
@@ -45,6 +49,6 @@ namespace Visualizer.Models
         /// <value><c>true</c> if this instance is on; otherwise, <c>false</c>.</value>
         public bool IsOn { get; set; }
 
-        #endregion Constructors
+        #endregion Properties
     }
 }
