@@ -77,7 +77,6 @@
     <Compile Include="Models\Cars\CarModel.cs" />
     <Compile Include="Models\Cars\EmergencyCarModel.cs" />
     <Compile Include="Models\Furniture\BenchModel.cs" />
-    <Compile Include="Models\Furniture\SeatModel.cs" />
     <Compile Include="Models\SurroundingModel.cs" />
     <Compile Include="Models\TvModel.cs" />
     <Compile Include="Utilities\Character\CharacterAction.cs" />

@@ -101,6 +101,14 @@ namespace Visualizer.ViewModels
             }
         }
 
+        public int AmountSeats
+        {
+            get
+            {
+                return this.benchModel.NumberOfSeats;
+            }
+        }
+
         #endregion Properties
 
         #region Methods

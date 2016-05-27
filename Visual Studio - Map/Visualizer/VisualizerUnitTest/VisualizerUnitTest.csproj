@@ -56,7 +56,6 @@
     <Compile Include="Models\Cars\EmergencyCarModelTest.cs" />
     <Compile Include="Models\CharacterModelTest.cs" />
     <Compile Include="Models\Furniture\BenchModelTest.cs" />
-    <Compile Include="Models\Furniture\SeatModelTest.cs" />
     <Compile Include="Models\SurroundingModelTest.cs" />
     <Compile Include="Models\TvModelTest.cs" />
     <Compile Include="PatientTest.cs" />
@@ -71,11 +70,16 @@
     <Compile Include="CarFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\VRPositionTest.cs" />
+    <Compile Include="ViewModels\BenchViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MVVM\MVVM.csproj">
+      <Project>{21159742-18b9-4381-a182-f70c3bc084a2}</Project>
+      <Name>MVVM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Visualizer\Visualizer.csproj">
       <Project>{b7071d57-0a3f-49eb-b2af-bcba1eddf641}</Project>
       <Name>Visualizer</Name>
