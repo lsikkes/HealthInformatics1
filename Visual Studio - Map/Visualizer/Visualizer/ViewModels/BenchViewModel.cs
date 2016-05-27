@@ -1,33 +1,47 @@
-﻿namespace Visualizer.ViewModels
+﻿// <copyright file="BenchViewModel.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary>PatientViewModel class</summary>
+// ***********************************************************************
+namespace Visualizer.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows;
     using System.Windows.Media;
-    using System.Windows.Shapes;
-    using Visualizer.Models;
     using Visualizer.Models.Furniture;
     using Visualizer.Utilities;
 
+    /// <summary>
+    /// The view-model for the bench.
+    /// </summary>
+    /// <seealso cref="Visualizer.ViewModels.AbstractViewModel" />
     public class BenchViewModel : AbstractViewModel
     {
         #region Fields
 
-        //private List<Ellipse> iconList;
+        /// <summary>
+        /// The rectangle width is initialized at 0, will be set in constructor
+        /// </summary>
         private int rectangleWidth = 0;
 
+        /// <summary>
+        /// The bench model
+        /// </summary>
         private BenchModel benchModel;
 
+        /// <summary>
+        /// The icon brush of a seat
+        /// </summary>
         private ImageBrush iconBrush;
 
         #endregion Fields
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BenchViewModel"/> class.
+        /// </summary>
+        /// <param name="pos">The position.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="amountSeats">The amount seats.</param>
         public BenchViewModel(VRPosition pos, int id, int amountSeats)
             : base(pos)
         {
@@ -39,54 +53,14 @@
 
         #endregion Constructors
 
-        #region Methods
-
-        //public List<Ellipse> IconList
-        //{
-        //    get
-        //    {
-        //        return this.iconList;
-        //    }
-
-        //    set
-        //    {
-        //        if (value != this.iconList)
-        //        {
-        //            for (int i = 0; i < this.amountSeats; i++)
-        //            {
-        //                Ellipse e = new Ellipse();
-
-        //                e.Width = 80;
-        //                e.Height = 80;
-        //                Thickness margin = e.Margin;
-        //                margin.Left = 10;
-        //                e.Margin = margin;
-        //                e.Fill = new SolidColorBrush(Colors.Blue);
-        //                iconList.Add(e);
-        //            }
-        //            this.RaisePropertyChanged("IconList");
-        //        }
-        //    }
-        //}
-
-        public void SetRectangleWidth(int amountSeats)
-        {
-            int widthForOneSeat = 100;
-            this.BenchRectangleWidth = widthForOneSeat * amountSeats;
-        }
-
-        public void SetIcon()
-        {
-            ImageSource source = ImageMap.GetImage("ChairIcon");
-            ImageBrush brush = this.IconBrush;
-            brush.ImageSource = source;
-            this.iconBrush = brush;
-        }
-
-        #endregion Methods
-
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the icon brush.
+        /// </summary>
+        /// <value>
+        /// The icon brush.
+        /// </value>
         public ImageBrush IconBrush
         {
             get
@@ -94,7 +68,7 @@
                 return this.iconBrush;
             }
 
-            private set
+            set
             {
                 if (this.IconBrush != value)
                 {
@@ -104,6 +78,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the width of the bench rectangle.
+        /// </summary>
+        /// <value>
+        /// The width of the bench rectangle.
+        /// </value>
         public int BenchRectangleWidth
         {
             get
@@ -122,5 +102,30 @@
         }
 
         #endregion Properties
+
+        #region Methods
+
+        /// <summary>
+        /// Sets the width of the rectangle.
+        /// </summary>
+        /// <param name="amountSeats">The amount of seats.</param>
+        public void SetRectangleWidth(int amountSeats)
+        {
+            int widthForOneSeat = 100;
+            this.BenchRectangleWidth = widthForOneSeat * amountSeats;
+        }
+
+        /// <summary>
+        /// Sets the icon of a seat.
+        /// </summary>
+        public void SetIcon()
+        {
+            ImageSource source = ImageMap.GetImage("ChairIcon");
+            ImageBrush brush = this.IconBrush;
+            brush.ImageSource = source;
+            this.iconBrush = brush;
+        }
+
+        #endregion Methods
     }
 }

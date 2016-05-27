@@ -13,7 +13,7 @@ namespace Visualizer
     {
         #region Fields
 
-        private Collection<BenchViewModel> _objects = new Collection<BenchViewModel>();
+        private Collection<AbstractViewModel> _objects = new Collection<AbstractViewModel>();
         private MainWindow _main;
 
         #endregion Fields
@@ -41,7 +41,7 @@ namespace Visualizer
 
         public void addObject(int x, int y)
         {
-            _objects.Add(VRObjectFactory.newVRObject(x, y, _main));
+            _objects.Add((new BenchFactory()).CreateNewBench(x, y, _main));
         }
 
         #endregion Methods

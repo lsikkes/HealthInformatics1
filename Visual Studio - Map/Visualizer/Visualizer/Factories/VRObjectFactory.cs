@@ -9,7 +9,7 @@ using Visualizer.Views;
 
 namespace Visualizer.Factories
 {
-    internal class VRObjectFactory
+    public class VRObjectFactory
     {
         #region Methods
 
