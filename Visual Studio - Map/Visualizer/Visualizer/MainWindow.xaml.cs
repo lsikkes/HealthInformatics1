@@ -86,6 +86,11 @@ namespace Visualizer
             }
         }
 
+        /// <summary>
+        /// Closes the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void close(object sender, RoutedEventArgs e)
         {
             this.Close();
