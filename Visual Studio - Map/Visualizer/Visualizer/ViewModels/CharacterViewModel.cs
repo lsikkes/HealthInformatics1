@@ -3,7 +3,7 @@
 // </copyright>
 // <summary>CharacterViewModel class</summary>
 // ***********************************************************************
-﻿namespace Visualizer.ViewModels
+namespace Visualizer.ViewModels
  {
      using System.Windows.Media;
      using Visualizer.Models;

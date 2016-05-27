@@ -18,19 +18,23 @@ namespace Visualizer.Utilities
         /// List with all the available images used in the program.
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "field should be public")]
-        public static ImageEnum AmbulanceCar = new ImageEnum("image_police_car.png"),
-            AmbulanceCarIcon = new ImageEnum("icon_police.png"),
-            PoliceCar = new ImageEnum("image_police_car.png"),
-            PoliceCarIcon = new ImageEnum("icon_police.png"),
-            FireFighterCar = new ImageEnum("image_police_car.png"),
-            FireFighterCarIcon = new ImageEnum("icon_police.png"),
-            NormalCar = new ImageEnum("image_police_car.png"),
-            NormalCarIcon = new ImageEnum("icon_police.png"),
+        public static ImageEnum
+            AmbulanceCar = new ImageEnum("image_car_ambulance.png"),
+            PoliceCar = new ImageEnum("image_car_police.png"),
+            FireFighterCar = new ImageEnum("image_car_firefigther.png"),
+            NormalCar = new ImageEnum("image_car_regular.png"),
+            
+            AmbulanceCarIcon = new ImageEnum("icon_car.png"),
+            PoliceCarIcon = new ImageEnum("icon_car.png"),
+            FireFighterCarIcon = new ImageEnum("icon_car.png"),
+            NormalCarIcon = new ImageEnum("icon_car.png"),
+
             CharacterEmotion = new ImageEnum("character_emoji_"),
+
+            PoliceIcon = new ImageEnum("icon_characteraction_1.png"),
             ChairIcon = new ImageEnum("icon_chair.png"),
             LightIconOn = new ImageEnum("icon_light_on.png"),
             LightIconOff = new ImageEnum("icon_light_off.png"),
-            PoliceIcon = new ImageEnum("icon_police.png"),
             TvIcon = new ImageEnum("icon_tv.png"),
             PatientImage = new ImageEnum("image_player.png"),
             PatientScope = new ImageEnum("image_player_scope.png"),

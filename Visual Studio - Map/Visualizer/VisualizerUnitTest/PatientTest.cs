@@ -15,7 +15,6 @@ namespace VisualizerUnitTest
     using Visualizer.Patient;
     using Visualizer.Utilities;
 
-
     /// <summary>
     /// Class PatientTest.
     /// </summary>

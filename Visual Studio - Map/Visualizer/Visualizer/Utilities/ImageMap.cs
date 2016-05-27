@@ -79,7 +79,7 @@ namespace Visualizer.Utilities
             else
             {
                 logger.Error("image not found with key: " + key);
-                throw new FileNotFoundException("image isn't loaded");
+                throw new FileNotFoundException("image isn't loaded:" + key);
             }
         }
 
