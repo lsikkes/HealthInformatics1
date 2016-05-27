@@ -101,7 +101,6 @@ namespace Visualizer
             this.positionX = x;
             this.positionY = y;
             this.rotation = rotation;
-            this.logger.InfoVRObject(this, "position is set to " + x + ", " + y + ", " + rotation);
         }
 
         #endregion Methods

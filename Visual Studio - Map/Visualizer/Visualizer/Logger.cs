@@ -5,10 +5,11 @@
 // ***********************************************************************
 namespace Visualizer
 {
-    using GeenNaam;
     using System;
     using System.IO;
     using System.Linq;
+    using Visualizer.Models;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// The logger class is a singleton that manages logging.
@@ -51,11 +52,6 @@ namespace Visualizer
         /// </summary>
         private StreamWriter writerStore, writerCurrent;
 
-        /// <summary>
-        /// booleans to keep track where to log to
-        /// </summary>
-        private bool logAll = true, logBackup = true, toConsole = false;
-
         #endregion Fields
 
         #region Constructors
@@ -65,7 +61,7 @@ namespace Visualizer
         /// </summary>
         private Logger()
         {
-            path = MainWindow.getPath() + @"\logger\";
+            path = PathGetter.GetLoggerPath();
             this.CreateFiles();
         }
 
@@ -97,7 +93,8 @@ namespace Visualizer
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <param name="message">The message.</param>
-        public void InfoVRObject(VRObject obj, string message)
+
+        public void Info(AbstractVRObject obj, string message)
         {
             this.Info(this.GetStartString(obj) + message);
         }
@@ -107,7 +104,7 @@ namespace Visualizer
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <param name="message">The message.</param>
-        public void WarningVRObject(VRObject obj, string message)
+        public void Warning(AbstractVRObject obj, string message)
         {
             this.Warning(this.GetStartString(obj) + message);
         }
@@ -143,67 +140,13 @@ namespace Visualizer
         }
 
         /// <summary>
-        /// Sets the log all.
-        /// </summary>
-        /// <param name="state">if set to <c>true</c> [state].</param>
-        public void SetLogAll(bool state)
-        {
-            this.logAll = state;
-        }
-
-        /// <summary>
-        /// Sets the log backup.
-        /// </summary>
-        /// <param name="state">if set to <c>true</c> [state].</param>
-        public void SetLogBackup(bool state)
-        {
-            this.logBackup = state;
-        }
-
-        /// <summary>
-        /// Sets to console.
-        /// </summary>
-        /// <param name="state">if set to <c>true</c> [state].</param>
-        public void SetToConsole(bool state)
-        {
-            this.toConsole = state;
-        }
-
-        /// <summary>
-        /// Gets the log all.
-        /// </summary>
-        /// <returns>boolean logAll</returns>
-        public bool GetLogAll()
-        {
-            return this.logAll;
-        }
-
-        /// <summary>
-        /// Gets the log backup.
-        /// </summary>
-        /// <returns>boolean logBackup</returns>
-        public bool GetLogBackup()
-        {
-            return this.logBackup;
-        }
-
-        /// <summary>
-        /// Gets to console.
-        /// </summary>
-        /// <returns>boolean toConsole</returns>
-        public bool GetToConsole()
-        {
-            return this.toConsole;
-        }
-
-        /// <summary>
         /// Gets the start string for a log sentence.
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <returns>string with the standard sentence</returns>
-        private string GetStartString(VRObject obj)
+        private string GetStartString(AbstractVRObject obj)
         {
-            return "Object " + obj.ObjectName + " with id " + obj.Identifier + " ";
+            return "Object " + obj.GetType().Name + " with id " + obj.Id + " ";
         }
 
         /// <summary>
@@ -215,20 +158,10 @@ namespace Visualizer
         /// <param name="message">the message of the line</param>
         private void WriteLine(string color, string level, string message)
         {
-            if (this.logAll)
-            {
-                string line = this.GetTime() + "<span style='color:" + color + ";'><b> " + level + "</b></span> " + message + "<br/>";
-                this.WriteLine(this.writerCurrent, line);
-                if (this.logBackup)
-                {
-                    this.WriteLine(this.writerStore, line);
-                }
-
-                if (this.toConsole)
-                {
-                    Console.WriteLine(this.GetTime() + " " + level + " " + message);
-                }
-            }
+            string line = this.GetTime() + "<span style='color:" + color + ";'><b> " + level + "</b></span> " + message + "<br/>";
+            this.WriteLine(this.writerCurrent, line);
+            this.WriteLine(this.writerStore, line);
+            Console.WriteLine(this.GetTime() + " " + level + " " + message);
         }
 
         /// <summary>
@@ -249,22 +182,15 @@ namespace Visualizer
         /// </summary>
         private void CreateFiles()
         {
-            if (this.logAll)
+            Directory.CreateDirectory(path);
+            string time = DateTime.Now.ToString("MM-dd-yy HH_mm_ss");
+            this.writerCurrent = new StreamWriter(path + @"\current.html");
+            this.WriteStart(this.writerCurrent);
+            this.writerStore = new StreamWriter(path + @"\" + time + ".html");
+            this.WriteStart(this.writerStore);
+            foreach (var file in new DirectoryInfo(path).GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(LogFiles))
             {
-                Directory.CreateDirectory(path);
-                string time = DateTime.Now.ToString("MM-dd-yy HH_mm_ss");
-                this.writerCurrent = new StreamWriter(path + @"\current.html");
-                this.WriteStart(this.writerCurrent);
-                if (this.logBackup)
-                {
-                    this.writerStore = new StreamWriter(path + @"\" + time + ".html");
-                    this.WriteStart(this.writerStore);
-                }
-
-                foreach (var file in new DirectoryInfo(path).GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(LogFiles))
-                {
-                    file.Delete();
-                }
+                file.Delete();
             }
         }
 

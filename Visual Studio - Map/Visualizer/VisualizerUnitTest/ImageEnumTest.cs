@@ -9,6 +9,8 @@ using Visualizer;
 
 namespace VisualizerUnitTest
 {
+    using Visualizer.Utilities;
+
     [TestFixture]
     public class ImageEnumTest
     {

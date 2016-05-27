@@ -24,7 +24,7 @@ namespace Visualizer.Patient
     /// <summary>
     /// Class PatientFactory.
     /// </summary>
-    /// <seealso cref="Visualizer.Factory" />
+    /// <seealso cref="Visualizer.Factories" />
     public class PatientFactory : Factory
     {
         #region Constructors

@@ -21,6 +21,7 @@ namespace Visualizer.Patient
     using System.Windows.Navigation;
     using System.Windows.Shapes;
     using Visualizer;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// Class Patient.
@@ -103,7 +104,6 @@ namespace Visualizer.Patient
             this.MoveTo(x, y);
             this.RenderTransform = new RotateTransform(rotation, 10, 190);
             this.UpdatePosition(x, y, rotation);
-            this.logger.InfoVRObject(this, "moved to position " + x + ", " + y + " with rotation " + rotation);
         }
 
         /// <summary>

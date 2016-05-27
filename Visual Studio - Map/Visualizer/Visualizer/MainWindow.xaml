@@ -1,4 +1,4 @@
-﻿<Window x:Class="GeenNaam.MainWindow"
+﻿<Window x:Class="Visualizer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowState="Maximized"
@@ -6,19 +6,43 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Title="Visualizer"
-        KeyDown="keyPress"
         >
     <Grid Name="content" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+        <Canvas Name="canvas"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                Background="Tomato">
+        </Canvas>
         <Grid Name="map" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"></Grid>
 
-        <Grid Name="menuOpener" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"  Background="Blue" Opacity="0.7">
+        <Grid Name="menuOpener" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"  Background="Blue" Opacity="0.9">
             <Button Content="Menu" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="120" Click="toggleMenu"/>
         </Grid>
         
         <Grid Name="menu" HorizontalAlignment="Left" Margin="0,50,0,0" Width="150" Background="Blue" Opacity="0.7" Visibility="Collapsed">
-            <Button Content="Afsluiten" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="120" Click="close"/>
+            <Button Content="Afsluiten" 
+                    HorizontalAlignment="Left" 
+                    Margin="15,15,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="120" 
+                    Click="close"/>
+            <Button Content="Move object" 
+                    HorizontalAlignment="Left" 
+                    Margin="15,50,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="120" 
+                    Click ="click2" />
+            <Button Content="Add object" 
+                    HorizontalAlignment="Left" 
+                    Margin="15,85,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="120" 
+                    Click ="click" />
         </Grid>
 
+        
+        
+        
         <Grid Name="hoverTop" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
             <Grid.Style>
                 <Style TargetType="Grid">

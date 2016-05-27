@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Visualizer</RootNamespace>
     <AssemblyName>Visualizer</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,10 +35,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.2.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.2.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,26 +66,35 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Cars\Car.cs" />
-    <Compile Include="Cars\CarFactory.cs" />
-    <Compile Include="Cars\AmbulanceCar.cs" />
-    <Compile Include="Cars\NormalCar.cs" />
-    <Compile Include="Cars\FirefighterCar.cs" />
-    <Compile Include="Cars\PoliceCar.cs" />
-    <Compile Include="Character\Character.cs" />
-    <Compile Include="Character\CharacterAction.cs" />
-    <Compile Include="Character\CharacterEmotion.cs" />
-    <Compile Include="Character\CharacterFactory.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="Furniture\Bench.cs" />
-    <Compile Include="Furniture\BenchFactory.cs" />
-    <Compile Include="Furniture\FurnitureFactory.cs" />
-    <Compile Include="Furniture\Seat.cs" />
-    <Compile Include="ImageEnum.cs">
+    <Compile Include="Factory\BenchFactory.cs" />
+    <Compile Include="Factory\CarFactory.cs" />
+    <Compile Include="Factory\CharacterFactory.cs" />
+    <Compile Include="Models\Cars\AbstractCarModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="ImageMap.cs" />
+    <Compile Include="Models\Cars\AmbulanceCarModel.cs" />
+    <Compile Include="Models\Cars\CarModel.cs" />
+    <Compile Include="Models\Cars\FiretruckCarModel.cs" />
+    <Compile Include="Models\Cars\PoliceCarModel.cs" />
+    <Compile Include="Models\Furniture\BenchModel.cs" />
+    <Compile Include="Models\SurroundingModel.cs" />
+    <Compile Include="Models\TvModel.cs" />
+    <Compile Include="Utilities\Character\CharacterAction.cs" />
+    <Compile Include="Utilities\Character\CharacterEmotion.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="Handler.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Utilities\ImageEnum.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Utilities\ImageMap.cs" />
     <Compile Include="ImmovableObject.cs" />
+    <Compile Include="Models\CharacterModel.cs" />
+    <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Utilities\PathGetter.cs" />
+    <Compile Include="Utilities\VRPosition.cs" />
+    <Compile Include="Models\AbstractVRObject.cs" />
     <Compile Include="MovableObject.cs" />
     <Compile Include="Surroundings\SurroundingFactory.cs" />
     <Compile Include="Patient\PatientFactory.cs" />
@@ -88,6 +105,26 @@
     <Compile Include="Surroundings\Wall.cs" />
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
+    <Compile Include="ViewModels\AbstractViewModel.cs" />
+    <Compile Include="ViewModels\AmbulanceCarViewModel.cs" />
+    <Compile Include="ViewModels\BenchViewModel.cs" />
+    <Compile Include="ViewModels\CharacterViewModel.cs" />
+    <Compile Include="ViewModels\EmergencyCarViewModel.cs" />
+    <Compile Include="ViewModels\FiretruckCarViewModel.cs" />
+    <Compile Include="ViewModels\NormalCarViewModel.cs" />
+    <Compile Include="ViewModels\PatientViewModel.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="ViewModels\PoliceCarViewModel.cs" />
+    <Compile Include="Views\BenchView.xaml.cs">
+      <DependentUpon>BenchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterView.xaml.cs">
+      <DependentUpon>CharacterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CarView.xaml.cs">
+      <DependentUpon>CarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VRObject.cs" />
     <Compile Include="Logger.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
@@ -97,6 +134,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BenchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CharacterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -116,13 +165,20 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MVVM\MVVM.csproj">
+      <Project>{21159742-18b9-4381-a182-f70c3bc084a2}</Project>
+      <Name>MVVM</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

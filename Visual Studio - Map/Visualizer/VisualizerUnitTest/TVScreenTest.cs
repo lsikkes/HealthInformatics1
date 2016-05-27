@@ -14,6 +14,7 @@ namespace VisualizerUnitTest
     using System.Threading;
     using Visualizer;
     using Visualizer.Tv;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// Class TVScreenTest.
