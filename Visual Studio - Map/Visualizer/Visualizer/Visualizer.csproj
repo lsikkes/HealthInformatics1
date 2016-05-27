@@ -82,9 +82,6 @@
     <Compile Include="Utilities\Character\CharacterAction.cs" />
     <Compile Include="Utilities\Character\CharacterEmotion.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Furniture\Bench.cs" />
-    <Compile Include="Furniture\FurnitureFactory.cs" />
-    <Compile Include="Furniture\Seat.cs" />
     <Compile Include="Handler.cs" />
     <Compile Include="Utilities\ImageEnum.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
