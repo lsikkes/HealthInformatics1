@@ -101,6 +101,12 @@ namespace Visualizer.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the amount seats.
+        /// </summary>
+        /// <value>
+        /// The amount seats.
+        /// </value>
         public int AmountSeats
         {
             get
