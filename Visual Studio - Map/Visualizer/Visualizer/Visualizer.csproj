@@ -82,7 +82,9 @@
     <Compile Include="Utilities\Character\CharacterAction.cs" />
     <Compile Include="Utilities\Character\CharacterEmotion.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Handler.cs" />
+    <Compile Include="Handler.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Utilities\ImageEnum.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>

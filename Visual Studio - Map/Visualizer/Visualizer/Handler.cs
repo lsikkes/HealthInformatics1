@@ -1,49 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using Visualizer.Factories;
-using Visualizer.Utilities;
-using Visualizer.ViewModels;
+﻿// <copyright file="Handler.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 
 namespace Visualizer
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Text;
+    using Visualizer.Factories;
+    using Visualizer.Utilities;
+    using Visualizer.ViewModels;
+
+    /// <summary>
+    /// Handler which manages which models will be imported.
+    /// </summary>
     public class Handler
     {
         #region Fields
 
-        private Collection<AbstractViewModel> _objects = new Collection<AbstractViewModel>();
-        private MainWindow _main;
+        /// <summary>
+        /// The _objects which will be included in the main.
+        /// </summary>
+        private Collection<AbstractViewModel> objects = new Collection<AbstractViewModel>();
+
+        /// <summary>
+        /// The mainWindow.
+        /// </summary>
+        private MainWindow main;
 
         #endregion Fields
 
         #region Constructors
 
-        public Handler()
-        {
-        }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Handler"/> class.
+        /// </summary>
+        /// <param name="main">The main.</param>
         public Handler(MainWindow main)
         {
-            _main = main;
+            this.main = main;
         }
 
         #endregion Constructors
 
         #region Methods
 
-        public void moveObject(int id, int x, int y)
+        /// <summary>
+        /// Moves the object.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        public void MoveObject(int id, int x, int y)
         {
             Console.WriteLine("setting x and y");
-            _objects[id].SetPosition(new VRPosition(x, y, 0));
+            this.objects[id].SetPosition(new VRPosition(x, y, 0));
         }
 
-        public void addObject(int x, int y)
+        /// <summary>
+        /// Add the objects.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        public void AddObjects(int x, int y)
         {
-            _objects.Add((new BenchFactory()).CreateNewBench(x, y, _main));
+            int amountSeats = 3;
+            this.objects.Add((new BenchFactory()).CreateNewBench(x, y, this.main, amountSeats));
             CharacterFactory factory = new CharacterFactory();
-            _objects.Add(factory.CreateCharacter(x, y, _main, 0, 1, 1));
+            this.objects.Add(factory.CreateCharacter(x, y, this.main, 0, 1, 1));
         }
 
         #endregion Methods
