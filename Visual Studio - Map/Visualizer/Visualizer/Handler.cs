@@ -42,6 +42,8 @@ namespace Visualizer
         public void addObject(int x, int y)
         {
             _objects.Add((new BenchFactory()).CreateNewBench(x, y, _main));
+            CharacterFactory factory = new CharacterFactory();
+            _objects.Add(factory.CreateCharacter(x, y, _main, 0, 1, 1));
         }
 
         #endregion Methods

@@ -49,6 +49,7 @@
     <Reference Include="System.Xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\CharacterFactoryTest.cs" />
     <Compile Include="Models\AbstractVRObjectTest.cs" />
     <Compile Include="ImageEnumTest.cs" />
     <Compile Include="CarTest.cs" />
@@ -61,16 +62,15 @@
     <Compile Include="PatientTest.cs" />
     <Compile Include="TVScreenTest.cs" />
     <Compile Include="SurroundingTest.cs" />
-    <Compile Include="CharacterTest.cs" />
     <Compile Include="LoggerTest.cs" />
     <Compile Include="TvFactoryTest.cs" />
     <Compile Include="PatientFactoryTest.cs" />
     <Compile Include="SurroundingFactoryTest.cs" />
-    <Compile Include="CharacterFactoryTest.cs" />
     <Compile Include="CarFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\VRPositionTest.cs" />
     <Compile Include="ViewModels\BenchViewModelTest.cs" />
+    <Compile Include="ViewModels\CharacterViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -88,6 +88,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
