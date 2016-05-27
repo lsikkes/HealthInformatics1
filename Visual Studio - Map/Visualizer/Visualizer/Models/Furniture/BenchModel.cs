@@ -5,11 +5,6 @@
 // ***********************************************************************
 namespace Visualizer.Models.Furniture
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Utilities;
 
     /// <summary>
@@ -21,13 +16,15 @@ namespace Visualizer.Models.Furniture
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BenchModel"/> class.
+        /// Initializes a new instance of the <see cref="BenchModel" /> class.
         /// </summary>
         /// <param name="pos">The position.</param>
         /// <param name="id">The identifier.</param>
-        public BenchModel(VRPosition pos, int id)
+        /// <param name="amountSeats">The amount seats.</param>
+        public BenchModel(VRPosition pos, int id, int amountSeats)
             : base(pos, id)
         {
+            this.NumberOfSeats = amountSeats;
         }
 
         #endregion Constructors
@@ -57,7 +54,7 @@ namespace Visualizer.Models.Furniture
         /// </summary>
         public void RemoveSeat()
         {
-            if (NumberOfSeats > 0)
+            if (this.NumberOfSeats > 0)
             {
                 this.NumberOfSeats--;
             }

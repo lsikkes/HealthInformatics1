@@ -36,7 +36,7 @@ namespace Visualizer.Factories
             CharacterViewModel character = new CharacterViewModel(new VRPosition(x, y, 0), id, emotion, action);
             CharacterView view = new CharacterView();
             view.DataContext = character;
-            main.addControl(view);
+            main.AddControl(view);
             return character;
         }
 

@@ -46,31 +46,21 @@ namespace Visualizer
         /// Adds the user control to the map
         /// </summary>
         /// <param name="view"></param>
-        public void addControl(UserControl view)
+        public void AddControl(UserControl view)
         {
             canvas.Children.Add(view);
-        }
-
-        public void addView(CharacterView view, int x, int y)
-        {
-            canvas.Children.Add(view);
-
-            //    Thickness a = view.Margin;
-            //    a.Left = x;
-            //    a.Top = y;
-            //    view.Margin = a;
         }
 
         public void click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("click");
-            _handler.addObject(250, 250);
+            _handler.AddObjects(250, 250);
         }
 
         public void click2(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("click2");
-            _handler.moveObject(0, 310, 410);
+            _handler.MoveObject(0, 310, 410);
         }
 
         public void OnMouseEnterHandler(object sender, MouseEventArgs e)

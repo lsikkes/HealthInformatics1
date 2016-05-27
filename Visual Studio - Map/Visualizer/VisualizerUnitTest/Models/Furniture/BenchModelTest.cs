@@ -25,7 +25,7 @@
         public void SetUp()
         {
             position = new VRPosition(1, 1, 0);
-            bench = new BenchModel(position, 11);
+            bench = new BenchModel(position, 11, 0);
         }
 
         [Test]

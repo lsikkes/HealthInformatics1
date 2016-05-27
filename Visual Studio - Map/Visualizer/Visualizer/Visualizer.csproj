@@ -72,21 +72,19 @@
     <Compile Include="Cars\NormalCar.cs" />
     <Compile Include="Cars\FirefighterCar.cs" />
     <Compile Include="Cars\PoliceCar.cs" />
+    <Compile Include="Factory\BenchFactory.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
     <Compile Include="Models\Cars\CarModel.cs" />
     <Compile Include="Models\Cars\EmergencyCarModel.cs" />
     <Compile Include="Models\Furniture\BenchModel.cs" />
-    <Compile Include="Models\Furniture\SeatModel.cs" />
     <Compile Include="Models\SurroundingModel.cs" />
     <Compile Include="Models\TvModel.cs" />
     <Compile Include="Utilities\Character\CharacterAction.cs" />
     <Compile Include="Utilities\Character\CharacterEmotion.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Furniture\Bench.cs" />
-    <Compile Include="Furniture\BenchFactory.cs" />
-    <Compile Include="Furniture\FurnitureFactory.cs" />
-    <Compile Include="Furniture\Seat.cs" />
-    <Compile Include="Handler.cs" />
+    <Compile Include="Handler.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Utilities\ImageEnum.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
@@ -108,9 +106,13 @@
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
     <Compile Include="ViewModels\AbstractViewModel.cs" />
+    <Compile Include="ViewModels\BenchViewModel.cs" />
     <Compile Include="ViewModels\CharacterViewModel.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Views\BenchView.xaml.cs">
+      <DependentUpon>BenchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterView.xaml.cs">
       <DependentUpon>CharacterView.xaml</DependentUpon>
@@ -124,6 +126,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BenchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CharacterView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
