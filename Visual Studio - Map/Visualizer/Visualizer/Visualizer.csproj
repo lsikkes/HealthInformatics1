@@ -80,6 +80,7 @@
     <Compile Include="Factory\CharacterFactory.cs" />
     <Compile Include="Log\LoggerView.xaml.cs">
       <DependentUpon>LoggerView.xaml</DependentUpon>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Log\LoggerViewModel.cs" />
     <Compile Include="Log\LogMessage.cs" />
