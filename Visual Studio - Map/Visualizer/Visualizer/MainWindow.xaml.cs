@@ -1,80 +1,135 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using Visualizer.Views;
-
+﻿// <copyright file="MainWindow.xaml.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary>The main window</summary>
+// ***********************************************************************
 namespace Visualizer
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using Visualizer.Views;
+    using Visualizer.Log;
+
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow
     /// </summary>
+    /// <seealso cref="System.Windows.Window" />
     public partial class MainWindow : Window
     {
         #region Fields
 
-        private Handler _handler;
-
+        /// <summary>
+        /// The Data handler
+        /// </summary>
+        private Handler handler; 
+        
         #endregion Fields
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
-            StartMain();
-            InitializeComponent();
+            this.StartMain();
+            this.InitializeComponent();
         }
 
         #endregion Constructors
 
         #region Methods
 
-        public static String getPath()
-        {
-            return "";
-        }
-
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
         public void StartMain()
         {
-            _handler = new Handler(this);
+            this.handler = new Handler(this);
         }
 
         /// <summary>
         /// Adds the user control to the map
         /// </summary>
-        /// <param name="view"></param>
+        /// <param name="view">The view.</param>
         public void AddControl(UserControl view)
         {
             canvas.Children.Add(view);
         }
 
-        public void click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds an object to the map.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        public void Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("click");
-            _handler.AddObjects(250, 250);
+            this.handler.AddObjects(250, 250);
+            this.handler.MoveObject(0, 610, 410);
         }
 
-        public void click2(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Moves the first object.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        public void Click2(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("click2");
-            _handler.MoveObject(0, 310, 410);
+            this.handler.MoveObject(0, 310, 410);
         }
 
+        /// <summary>
+        /// Toggles the logger.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        public void ToggleLogger(object sender, RoutedEventArgs e)
+        {
+            if (this.logRow.Height.Value==0)
+            {
+                Logger.GetInstance().Info("Showing Log panel");
+                Logger.GetInstance().Debug("Showing Log panel");
+                Logger.GetInstance().Warning("Showing Log panel");
+                Logger.GetInstance().Error("Showing Log panel");
+                if (this.LogPanel.Children.Count == 0)
+                {
+                    this.LogPanel.Children.Add(LoggerControl.Instance());
+                }
+                this.logRow.Height = new GridLength(1, GridUnitType.Star);
+            }
+            else
+            {
+                Logger.GetInstance().Info("Hiding Log panel");
+                this.logRow.Height = new GridLength(0);
+            }
+        }
+
+        /// <summary>
+        /// Called when mouse enters a bouncer.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         public void OnMouseEnterHandler(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("hovering on: ");
         }
 
+        /// <summary>
+        /// Called when mouse leaves a bouncer.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         public void OnMouseLeaveHandler(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("hovering off ");
         }
 
-        //method to add a square to the environment
-        private void toggleMenu(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Toggles the menu.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void ToggleMenu(object sender, RoutedEventArgs e)
         {
             if (menu.Visibility == System.Windows.Visibility.Collapsed)
             {
@@ -91,7 +146,7 @@ namespace Visualizer
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        private void close(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

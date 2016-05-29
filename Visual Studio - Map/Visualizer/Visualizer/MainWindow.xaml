@@ -11,8 +11,8 @@
           HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80*" />
-            <RowDefinition Name="logRow" Height="20*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Name="logRow" Height="0" />
         </Grid.RowDefinitions>
         
         <Grid Name="map"
@@ -23,7 +23,7 @@
             <Canvas Name="canvas"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                Background="Tomato">
+                Background="FloralWhite">
             </Canvas>
 
             <Grid Name="hoverTop" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
@@ -86,7 +86,7 @@
                     Margin="15,15,0,0" 
                     VerticalAlignment="Top" 
                     Width="120" 
-                    Click="toggleMenu"/>
+                    Click="ToggleMenu"/>
             </Grid>
 
             <Grid Name="menu" 
@@ -99,38 +99,36 @@
                     Margin="15,10,0,0" 
                     VerticalAlignment="Top" 
                     Width="120" 
-                    Click ="click2" />
+                    Click ="Click2" />
                 <Button Content="Add object" 
                     HorizontalAlignment="Left" 
                     Margin="15,35,0,0" 
                     VerticalAlignment="Top" 
                     Width="120" 
-                    Click ="click" />
+                    Click ="Click" />
 
                 <Button Content="Toon log" 
                     HorizontalAlignment="Left" 
                     Margin="15,0,0,40" 
                     VerticalAlignment="Bottom" 
                     Width="120" 
-                    Click="ToggleLog"/>
+                    Click="ToggleLogger"/>
                 <Button Content="Afsluiten" 
                     HorizontalAlignment="Left" 
                     Margin="15,0,0,15" 
                     VerticalAlignment="Bottom" 
                     Width="120" 
-                    Click="close"/>
+                    Click="Close"/>
 
             </Grid>
 
         </Grid>
-        
-        <ScrollViewer
+
+        <StackPanel
+            Name="LogPanel"
             Grid.Row="1"
-            Background="white">
-            
-        </ScrollViewer>
-            
-        
+            Background="Black">
+        </StackPanel>
 
     </Grid>
 </Window>

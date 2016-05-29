@@ -9,6 +9,7 @@ namespace Visualizer
     using System.Net.Sockets;
     using System.Text;
     using Visualizer;
+    using Visualizer.Log;
 
     /// <summary>
     /// The client class is the receiver part of the connection.

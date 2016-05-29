@@ -6,6 +6,7 @@
 namespace Visualizer.Cars
 {
     using Visualizer.Utilities;
+    using Visualizer.Log;
 
     /// <summary>
     /// Class FirefighterCar.

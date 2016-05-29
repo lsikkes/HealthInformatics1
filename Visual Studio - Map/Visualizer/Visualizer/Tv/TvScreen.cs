@@ -11,6 +11,7 @@ namespace Visualizer.Tv
     using System.Linq;
     using System.Text;
     using Visualizer.Utilities;
+    using Visualizer.Log;
 
     /// <summary>
     /// Class TVScreen.

@@ -11,6 +11,7 @@ namespace Visualizer.Utilities
     using System.IO;
     using System.Linq;
     using System.Windows.Media.Imaging;
+    using Visualizer.Log;
 
     /// <summary>
     /// Image map with all the images in the recourses map with the extension ".png", ".jpg" and ".jpeg".

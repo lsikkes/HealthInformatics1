@@ -71,7 +71,10 @@ namespace Visualizer
             int amountSeats = 3;
             this.objects.Add((new BenchFactory()).CreateNewBench(x, y, this.main, amountSeats));
             CharacterFactory factory = new CharacterFactory();
-            this.objects.Add(factory.CreateCharacter(x, y, this.main, 0, 1, 1));
+
+            this.objects.Add(factory.CreateCharacter(x + 500, y-200, this.main, 0, 1, 1));
+            this.objects.Add(factory.CreateCharacter(x + 750, y-100, this.main, 1, 6, 1));
+            this.objects.Add(factory.CreateCharacter(x + 900, y, this.main, 0, 1, 1));
         }
 
         #endregion Methods

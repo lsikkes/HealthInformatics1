@@ -9,6 +9,7 @@ namespace Visualizer.Cars
     using System.Windows.Controls;
     using System.Windows.Media;
     using Visualizer.Cars;
+    using Visualizer.Log;
 
     /// <summary>
     /// Class CarFactory.

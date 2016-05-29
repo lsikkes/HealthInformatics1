@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Log\LoggerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,6 +78,11 @@
     <Compile Include="Cars\PoliceCar.cs" />
     <Compile Include="Factory\BenchFactory.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
+    <Compile Include="Log\LoggerView.xaml.cs">
+      <DependentUpon>LoggerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Log\LoggerViewModel.cs" />
+    <Compile Include="Log\LogMessage.cs" />
     <Compile Include="Models\Cars\CarModel.cs" />
     <Compile Include="Models\Cars\EmergencyCarModel.cs" />
     <Compile Include="Models\Furniture\BenchModel.cs" />
@@ -118,7 +127,7 @@
       <DependentUpon>CharacterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VRObject.cs" />
-    <Compile Include="Logger.cs">
+    <Compile Include="Log\Logger.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Patient\Patient.cs" />
@@ -167,6 +176,7 @@
       <Name>MVVM</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
