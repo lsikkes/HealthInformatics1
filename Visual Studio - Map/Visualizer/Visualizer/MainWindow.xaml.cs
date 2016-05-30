@@ -5,11 +5,9 @@
 // ***********************************************************************
 namespace Visualizer
 {
-    using System;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using Visualizer.Views;
     using Visualizer.Log;
 
     /// <summary>
@@ -36,6 +34,7 @@ namespace Visualizer
         {
             this.StartMain();
             this.InitializeComponent();
+            this.SetIcon();
         }
 
         #endregion Constructors
@@ -97,6 +96,7 @@ namespace Visualizer
                 {
                     this.LogPanel.Children.Add(LoggerView.Instance());
                 }
+
                 this.logRow.Height = new GridLength(1, GridUnitType.Star);
             }
             else
@@ -139,6 +139,13 @@ namespace Visualizer
             {
                 menu.Visibility = System.Windows.Visibility.Collapsed;
             }
+        }
+
+        /// <summary>
+        /// Sets the icon.
+        /// </summary>
+        private void SetIcon()
+        {
         }
 
         /// <summary>

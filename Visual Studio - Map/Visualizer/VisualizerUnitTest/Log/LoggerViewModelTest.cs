@@ -102,7 +102,5 @@ namespace VisualizerUnitTest.Log
             Assert.AreEqual(vm.Max, vm.Logs.Count);
         }
         #endregion
-
-
     }
 }
