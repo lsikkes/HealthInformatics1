@@ -1,22 +1,51 @@
-﻿namespace Visualizer.ViewModels
+﻿// <copyright file="TreeViewModel.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary>PoliceCarViewModel class</summary>
+// ***********************************************************************
+namespace Visualizer.ViewModels
 {
     using System.Windows.Media;
     using Visualizer.Models;
     using Visualizer.Utilities;
 
+    /// <summary>
+    /// The tree View-model
+    /// </summary>
+    /// <seealso cref="Visualizer.ViewModels.AbstractViewModel" />
     public class TreeViewModel : AbstractViewModel
     {
         #region Fields
 
+        /// <summary>
+        /// The tree model
+        /// </summary>
         private TreeModel treeModel;
+
+        /// <summary>
+        /// The width
+        /// </summary>
         private int width;
+
+        /// <summary>
+        /// The height
+        /// </summary>
         private int height;
+
+        /// <summary>
+        /// The image
+        /// </summary>
         private ImageBrush image;
 
         #endregion Fields
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TreeViewModel"/> class.
+        /// </summary>
+        /// <param name="pos">The position.</param>
+        /// <param name="id">The identifier.</param>
         public TreeViewModel(VRPosition pos, int id)
             : base(pos)
         {
@@ -33,9 +62,11 @@
         #region Properties
 
         /// <summary>
-        /// Gets or sets the height of the image.
+        /// Gets or sets the height.
         /// </summary>
-        /// <value>The icon brush.</value>
+        /// <value>
+        /// The height.
+        /// </value>
         public int Height
         {
             get
@@ -54,9 +85,11 @@
         }
 
         /// <summary>
-        /// Gets or sets the width of the image.
+        /// Gets or sets the width.
         /// </summary>
-        /// <value>The icon brush.</value>
+        /// <value>
+        /// The width.
+        /// </value>
         public int Width
         {
             get
@@ -74,6 +107,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the surrounding image.
+        /// </summary>
+        /// <value>
+        /// The surrounding image.
+        /// </value>
         public ImageBrush SurroundingImage
         {
             get

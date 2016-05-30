@@ -1,4 +1,9 @@
-﻿namespace Visualizer.ViewModels
+﻿// <copyright file="BuildingViewModel.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary>PoliceCarViewModel class</summary>
+// ***********************************************************************
+namespace Visualizer.ViewModels
 {
     using System;
     using System.Collections.Generic;

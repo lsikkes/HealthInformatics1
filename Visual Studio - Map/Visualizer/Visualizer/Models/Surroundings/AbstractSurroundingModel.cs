@@ -1,4 +1,4 @@
-﻿// <copyright file="SurroundingModel.cs" company="HI1">
+﻿// <copyright file="AbstractSurroundingModel.cs" company="HI1">
 //     Copyright ©  2016
 // </copyright>
 // <summary>SurroundingModel class</summary>

@@ -1,4 +1,9 @@
-﻿namespace Visualizer.Views
+﻿// <copyright file="SurroundingView.xaml.cs" company="HI1">
+//     Copyright ©  2016
+// </copyright>
+// <summary>PoliceCarViewModel class</summary>
+// ***********************************************************************
+namespace Visualizer.Views
 {
     using System;
     using System.Collections.Generic;
@@ -16,15 +21,18 @@
     using System.Windows.Shapes;
 
     /// <summary>
-    /// Interaction logic for SurroundingView.xaml
+    /// Interaction logic for SurroundingView
     /// </summary>
     public partial class SurroundingView : UserControl
     {
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SurroundingView"/> class.
+        /// </summary>
         public SurroundingView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         #endregion Constructors
