@@ -13,17 +13,17 @@ namespace Visualizer.Log
     /// <summary>
     /// Interaction logic for LoggerControl
     /// </summary>
-    public partial class LoggerControl : UserControl
+    public partial class LoggerView : UserControl
     {
         /// <summary>
         /// The instance of the controller
         /// </summary>
-        private static LoggerControl instance;
+        private static LoggerView instance;
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="LoggerControl"/> class from being created.
+        /// Prevents a default instance of the <see cref="LoggerView"/> class from being created.
         /// </summary>
-        private LoggerControl()
+        private LoggerView()
         {
             instance = this;
             this.InitializeComponent();
@@ -34,7 +34,7 @@ namespace Visualizer.Log
         /// Returns this instance.
         /// </summary>
         /// <returns>this instance</returns>
-        public static LoggerControl Instance()
+        public static LoggerView Instance()
         {
             if (instance != null)
             {
@@ -42,7 +42,7 @@ namespace Visualizer.Log
             }
             else
             {
-                return new LoggerControl();
+                return new LoggerView();
             }
         }
 
@@ -53,7 +53,6 @@ namespace Visualizer.Log
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public void BtnShowAll(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("pressed all");
             LoggerViewModel.Instance().SetActive(LoggerEnum.AllString.ToString());
         }
 
@@ -64,7 +63,6 @@ namespace Visualizer.Log
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public void BtnShowErr(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("pressed err");
             LoggerViewModel.Instance().SetActive(LoggerEnum.ErrorString.ToString());
         }
 
@@ -75,7 +73,6 @@ namespace Visualizer.Log
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public void BtnShowDeb(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("pressed deb");
             LoggerViewModel.Instance().SetActive(LoggerEnum.DebugString.ToString());
         }
 
@@ -86,7 +83,6 @@ namespace Visualizer.Log
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public void BtnShowInf(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("pressed inf");
             LoggerViewModel.Instance().SetActive(LoggerEnum.InfoString.ToString());
         }
 
@@ -97,7 +93,6 @@ namespace Visualizer.Log
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public void BtnShowWar(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("pressed war");
             LoggerViewModel.Instance().SetActive(LoggerEnum.WarningString.ToString());
         }
 

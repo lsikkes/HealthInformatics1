@@ -61,7 +61,7 @@ namespace Visualizer.Log
         #region Properties
 
         /// <summary>
-        /// Gets or sets the logs.
+        /// Gets the Show.
         /// </summary>
         /// <value>
         /// The logs.
@@ -69,7 +69,28 @@ namespace Visualizer.Log
         public ObservableCollection<LogMessage> Show
         {
             get { return this.show; }
-            set { this.show = value; }
+        }
+
+        /// <summary>
+        /// Gets the logs.
+        /// </summary>
+        /// <value>
+        /// The logs.
+        /// </value>
+        public Collection<LogMessage> Logs
+        {
+            get { return this.logs; }
+        }
+
+        /// <summary>
+        /// Gets the max.
+        /// </summary>
+        /// <value>
+        /// The logs.
+        /// </value>
+        public  int Max
+        {
+            get { return this.max; }
         }
 
         /// <summary>
@@ -105,12 +126,12 @@ namespace Visualizer.Log
         /// <summary>
         /// Sets the active type.
         /// </summary>
-        /// <param name="type">The type.</param>
-        public void SetActive(string type)
+        /// <param name="newtype">The type.</param>
+        public void SetActive(string newtype)
         {
-            if (this.type != type)
+            if (this.type != newtype)
             {
-                this.type = type;
+                this.type = newtype;
                 this.ResetShow();
                 Logger.GetInstance().Debug("set logger type to: '" + this.type + "' | " + this.logs.Count + " : " + this.show.Count);
             }
@@ -119,15 +140,18 @@ namespace Visualizer.Log
         /// <summary>
         /// Adds the a new log to the list.
         /// </summary>
-        /// <param name="time">The time.</param>
-        /// <param name="type">The type.</param>
-        /// <param name="text">The text.</param>
+        /// <param name="log">The new log.</param>
         public void Add(LogMessage log)
         {
             this.logs.Add(log);
             if (this.type.Equals(LoggerEnum.AllString.ToString()) || log.Type.Equals(this.type))
             {
                 this.show.Add(log);
+            }
+
+            if (this.Logs.Count > this.max)
+            {
+                this.logs.RemoveAt(0);
             }
         }
 
@@ -149,8 +173,6 @@ namespace Visualizer.Log
         /// </summary>
         private void ResetShow()
         {
-            string s = "reseting temp for type: " + this.type + "from " + this.show.Count;
-
             ObservableCollection<LogMessage> temp = new ObservableCollection<LogMessage>();
             foreach (LogMessage log in this.show)
             {
@@ -172,8 +194,6 @@ namespace Visualizer.Log
                     this.show.Add(log);
                 }
             }
-
-            Console.WriteLine(s + " " + this.type + " --> " + this.show.Count);
         }
         #endregion Methods
     }

@@ -95,7 +95,7 @@ namespace Visualizer
                 Logger.GetInstance().Error("Showing Log panel");
                 if (this.LogPanel.Children.Count == 0)
                 {
-                    this.LogPanel.Children.Add(LoggerControl.Instance());
+                    this.LogPanel.Children.Add(LoggerView.Instance());
                 }
                 this.logRow.Height = new GridLength(1, GridUnitType.Star);
             }

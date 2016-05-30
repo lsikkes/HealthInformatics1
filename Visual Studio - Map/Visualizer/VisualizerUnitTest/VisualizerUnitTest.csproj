@@ -49,7 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CharacterFactoryTest.cs" />
+    <Compile Include="Log\LoggerEnumTest.cs" />
     <Compile Include="Log\LoggerViewModelTest.cs" />
+    <Compile Include="Log\LoggerViewTest.cs" />
+    <Compile Include="Log\LogMessageTest.cs" />
     <Compile Include="Models\AbstractVRObjectTest.cs" />
     <Compile Include="ImageEnumTest.cs" />
     <Compile Include="Models\Cars\CarModelTests.cs" />
@@ -60,7 +63,7 @@
     <Compile Include="PatientTest.cs" />
     <Compile Include="TVScreenTest.cs" />
     <Compile Include="SurroundingTest.cs" />
-    <Compile Include="LoggerTest.cs" />
+    <Compile Include="Log\LoggerTest.cs" />
     <Compile Include="TvFactoryTest.cs" />
     <Compile Include="PatientFactoryTest.cs" />
     <Compile Include="SurroundingFactoryTest.cs" />

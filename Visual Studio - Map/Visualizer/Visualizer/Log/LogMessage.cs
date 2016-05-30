@@ -52,17 +52,6 @@ namespace Visualizer.Log
             this.Text = text;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LogMessage"/> class.
-        /// </summary>
-        public LogMessage()
-        {
-            this.Type = string.Empty;
-            this.Time = string.Empty;
-            this.Text = string.Empty;
-            this.Color = string.Empty;
-        }
-
         #endregion Constructors
 
         #region Properties
@@ -117,7 +106,7 @@ namespace Visualizer.Log
 
             set
             {
-                if (this.type != value)
+                if (this.Type != value)
                 {
                     this.type = value;
                     this.RaisePropertyChanged("Type");
