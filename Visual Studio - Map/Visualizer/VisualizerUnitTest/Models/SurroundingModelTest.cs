@@ -14,14 +14,14 @@
     {
         #region Methods
 
-        private SurroundingModel surrounding;
+        private AbstractSurroundingModel surrounding;
         private VRPosition position;
 
         [SetUp]
         public void SetUp()
         {
             position = new VRPosition(100, 100, 230);
-            surrounding = new SurroundingModel(position, 10);
+            surrounding = new AbstractSurroundingModel(position, 10);
         }
 
         [Test]

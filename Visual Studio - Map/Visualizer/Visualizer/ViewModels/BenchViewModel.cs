@@ -70,7 +70,7 @@ namespace Visualizer.ViewModels
 
             set
             {
-                if (this.IconBrush != value)
+                if (this.iconBrush != value)
                 {
                     this.iconBrush = value;
                     this.RaisePropertyChanged("IconBrush");

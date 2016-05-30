@@ -75,6 +75,14 @@ namespace Visualizer
 
             CarFactory cf = new CarFactory();
             this.objects.Add(cf.CreateCar(500, 500, 0, this.main, 0, 1));
+
+            TreeFactory tf = new TreeFactory();
+            this.objects.Add(tf.CreateNewTree(600, 600, this.main, 0));
+
+            BuildingFactory bf = new BuildingFactory();
+            this.objects.Add(bf.CreateNewBuilding(700, 700, this.main, 2));
+            this.objects.Add(bf.CreateNewBuilding(800, 700, this.main, 1));
+            this.objects.Add(bf.CreateNewBuilding(700, 800, this.main, 5));
         }
 
         #endregion Methods

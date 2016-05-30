@@ -23,7 +23,7 @@ namespace Visualizer.Utilities
             PoliceCar = new ImageEnum("image_car_police.png"),
             FireFighterCar = new ImageEnum("image_car_firefigther.png"),
             NormalCar = new ImageEnum("image_car_regular.png"),
-            
+
             AmbulanceCarIcon = new ImageEnum("icon_car.png"),
             PoliceCarIcon = new ImageEnum("icon_car.png"),
             FireFighterCarIcon = new ImageEnum("icon_car.png"),
@@ -39,7 +39,9 @@ namespace Visualizer.Utilities
             PatientImage = new ImageEnum("image_player.png"),
             PatientScope = new ImageEnum("image_player_scope.png"),
             Logo = new ImageEnum("logo.png"),
-            CharacterImage = new ImageEnum("image_character_");
+            CharacterImage = new ImageEnum("image_character_"),
+            TreeIcon = new ImageEnum("icon_tree.png"),
+            WallImage = new ImageEnum("image_wall.png");
 
         /// <summary>
         /// The name of the class
