@@ -20,9 +20,16 @@
                 <Button Name="btnShowWar" Click="BtnShowWar">Show Warnings</Button>
                 <Button Name="btnResetLo" Click="BtnResetLo">Reset Logger</Button>
             </StackPanel>
-            <ScrollViewer Margin="5"
+            <ScrollViewer Name="scrollPane" 
+                          Margin="5"
+                          Background="White"
                           Height="140">
                 <ListView ItemsSource="{Binding Show}">
+                    <ListView.Template>
+                        <ControlTemplate>
+                            <ItemsPresenter></ItemsPresenter>
+                        </ControlTemplate>
+                    </ListView.Template>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
