@@ -40,14 +40,14 @@
         {
             get
             {
-                return this.height;
+                return this.treeModel.Height;
             }
 
             protected set
             {
-                if (this.height != value)
+                if (this.Height != value)
                 {
-                    this.height = value;
+                    this.treeModel.Height = value;
                     this.RaisePropertyChanged("Height");
                 }
             }
@@ -61,14 +61,14 @@
         {
             get
             {
-                return this.width;
+                return this.treeModel.Width;
             }
 
             protected set
             {
-                if (this.width != value)
+                if (this.Width != value)
                 {
-                    this.width = value;
+                    this.treeModel.Width = value;
                     this.RaisePropertyChanged("Width");
                 }
             }
@@ -78,14 +78,14 @@
         {
             get
             {
-                return this.image;
+                return this.treeModel.SurroundingImage;
             }
 
             protected set
             {
-                if (this.image != value)
+                if (this.SurroundingImage != value)
                 {
-                    this.image = value;
+                    this.treeModel.SurroundingImage = value;
                     this.RaisePropertyChanged("SurroundingImage");
                 }
             }

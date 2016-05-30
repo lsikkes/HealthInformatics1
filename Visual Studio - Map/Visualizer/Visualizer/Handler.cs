@@ -80,9 +80,9 @@ namespace Visualizer
             this.objects.Add(tf.CreateNewTree(600, 600, this.main, 0));
 
             BuildingFactory bf = new BuildingFactory();
-            this.objects.Add(bf.CreateNewBuilding(700, 700, this.main, 2));
-            this.objects.Add(bf.CreateNewBuilding(800, 700, this.main, 1));
-            this.objects.Add(bf.CreateNewBuilding(700, 800, this.main, 5));
+            this.objects.Add(bf.CreateNewBuilding(1000, 300, this.main, 2));
+            this.objects.Add(bf.CreateNewBuilding(1100, 200, this.main, 1));
+            this.objects.Add(bf.CreateNewBuilding(1000, 400, this.main, 5));
         }
 
         #endregion Methods

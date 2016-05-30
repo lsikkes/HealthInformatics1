@@ -71,7 +71,7 @@
     <Compile Include="Factory\BenchFactory.cs" />
     <Compile Include="Factory\CarFactory.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
-    <Compile Include="Models\BuildingModel.cs" />
+    <Compile Include="Models\Surroundings\BuildingModel.cs" />
     <Compile Include="Models\Cars\AbstractCarModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
@@ -79,9 +79,9 @@
     <Compile Include="Models\Cars\CarModel.cs" />
     <Compile Include="Models\Cars\FiretruckCarModel.cs" />
     <Compile Include="Models\Cars\PoliceCarModel.cs" />
-    <Compile Include="Models\Furniture\BenchModel.cs" />
-    <Compile Include="Models\AbstractSurroundingModel.cs" />
-    <Compile Include="Models\TreeModel.cs" />
+    <Compile Include="Models\BenchModel.cs" />
+    <Compile Include="Models\Surroundings\AbstractSurroundingModel.cs" />
+    <Compile Include="Models\Surroundings\TreeModel.cs" />
     <Compile Include="Models\TvModel.cs" />
     <Compile Include="Utilities\Character\CharacterAction.cs" />
     <Compile Include="Utilities\Character\CharacterEmotion.cs" />

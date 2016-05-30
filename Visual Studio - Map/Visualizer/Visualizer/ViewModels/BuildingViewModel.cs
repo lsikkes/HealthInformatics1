@@ -1,27 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using Visualizer.Models;
-using Visualizer.Utilities;
-
-namespace Visualizer.ViewModels
+﻿namespace Visualizer.ViewModels
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Media;
+    using Visualizer.Models;
+    using Visualizer.Utilities;
+
+    /// <summary>
+    /// Building View-model
+    /// </summary>
+    /// <seealso cref="Visualizer.ViewModels.AbstractViewModel" />
     public class BuildingViewModel : AbstractViewModel
     {
         #region Fields
 
+        /// <summary>
+        /// The building model
+        /// </summary>
         private BuildingModel buildingModel;
-        private int width;
-        private int height;
+
+        /// <summary>
+        /// The image
+        /// </summary>
         private ImageBrush image;
 
         #endregion Fields
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BuildingViewModel"/> class.
+        /// </summary>
+        /// <param name="pos">The position.</param>
+        /// <param name="id">The identifier.</param>
         public BuildingViewModel(VRPosition pos, int id)
             : base(pos)
         {
@@ -39,59 +53,69 @@ namespace Visualizer.ViewModels
         #region Properties
 
         /// <summary>
-        /// Gets or sets the height of the image.
+        /// Gets or sets the height.
         /// </summary>
-        /// <value>The icon brush.</value>
+        /// <value>
+        /// The height.
+        /// </value>
         public int Height
         {
             get
             {
-                return this.height;
+                return this.buildingModel.Height;
             }
 
             protected set
             {
-                if (this.height != value)
+                if (this.Height != value)
                 {
-                    this.height = value;
+                    this.buildingModel.Height = value;
                     this.RaisePropertyChanged("Height");
                 }
             }
         }
 
         /// <summary>
-        /// Gets or sets the width of the image.
+        /// Gets or sets the width.
         /// </summary>
-        /// <value>The icon brush.</value>
+        /// <value>
+        /// The width.
+        /// </value>
         public int Width
         {
             get
             {
-                return this.width;
+                return this.buildingModel.Width;
             }
 
             protected set
             {
-                if (this.width != value)
+                if (this.Width != value)
                 {
-                    this.width = value;
+                    this.buildingModel.Width = value;
                     this.RaisePropertyChanged("Width");
                 }
             }
         }
 
-        public ImageBrush SurroundingImageImage
+        /// <summary>
+        /// Gets or sets the surrounding image.
+        /// </summary>
+        /// <value>
+        /// The surrounding image.
+        /// </value>
+        public ImageBrush SurroundingImage
         {
             get
             {
-                return this.image;
+                return this.buildingModel.SurroundingImage;
             }
 
             protected set
             {
-                if (this.image != value)
+                if (this.SurroundingImage != value)
                 {
-                    this.image = value;
+                    this.buildingModel.SurroundingImage = value;
                     this.RaisePropertyChanged("SurroundingImage");
                 }
             }
