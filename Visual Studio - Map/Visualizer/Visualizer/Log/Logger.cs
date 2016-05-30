@@ -23,19 +23,9 @@ namespace Visualizer.Log
         #region Fields
 
         /// <summary>
-        /// Log levels
-        /// </summary>
-        public static readonly string DebugS = "DEBUG", InfoS = "INFO", ErrorS = "ERROR", WarningS = "WARNING";
-
-        /// <summary>
         /// The log panel
         /// </summary>
         private static readonly LoggerViewModel LogPanel = LoggerViewModel.Instance();
-
-        /// <summary>
-        /// Colors used for marking the log levels
-        /// </summary>
-        private static readonly string Black = "black", Red = "red", Orange = "orange", Green = "green";
 
         /// <summary>
         /// Amount of log files stored
@@ -90,7 +80,8 @@ namespace Visualizer.Log
         /// <param name="message"> the message to log </param>
         public void Info(string message)
         {
-            this.WriteLine(Black, InfoS, message);
+            LogMessage log = new LogMessageInfo(message);
+            this.WriteLine(log);
         }
 
         /// <summary>
@@ -120,7 +111,8 @@ namespace Visualizer.Log
         /// <param name="message"> the message to log</param>
         public void Debug(string message)
         {
-            this.WriteLine(Green, DebugS, message);
+            LogMessage log = new LogMessageDebug(message);
+            this.WriteLine(log);
         }
 
         /// <summary>
@@ -130,7 +122,8 @@ namespace Visualizer.Log
         /// <param name="message"> the message to log</param>
         public void Error(string message)
         {
-            this.WriteLine(Red, ErrorS, message);
+            LogMessage log = new LogMessageError(message);
+            this.WriteLine(log);
         }
 
         /// <summary>
@@ -140,7 +133,8 @@ namespace Visualizer.Log
         /// <param name="message"> the message to log</param>
         public void Warning(string message)
         {
-            this.WriteLine(Orange, WarningS, message);
+            LogMessage log = new LogMessageWarning(message);
+            this.WriteLine(log);
         }
 
         /// <summary>
@@ -153,21 +147,13 @@ namespace Visualizer.Log
             return "Object " + obj.GetType().Name + " with id " + obj.Id + " ";
         }
 
-        /// <summary>
-        /// Writes the line to both writes and console
-        /// If those are active
-        /// </summary>
-        /// <param name="color">The color of the line</param>
-        /// <param name="level">The level of the line</param>
-        /// <param name="message">the message of the line</param>
-        private void WriteLine(string color, string level, string message)
+        private void WriteLine(LogMessage log)
         {
-            string time = this.GetTime();
-            string line = time + "<span style='color:" + color + ";'><b> " + level + "</b></span> " + message + "<br/>";
+            string line = log.Time + "<span style='color:" + log.Color + ";'><b> " + log.Type + "</b></span> " + log.Text + "<br/>";
             this.WriteLine(this.writerCurrent, line);
             this.WriteLine(this.writerStore, line);
-            Console.WriteLine(time + " " + level + " " + message);
-            LogPanel.Add(time, level, message);
+            Console.WriteLine(log.Time + " " + log.Type + " " + log.Text);
+            LogPanel.Add(log);
         }
 
         /// <summary>
@@ -206,7 +192,7 @@ namespace Visualizer.Log
         /// <param name="writer"> writer to be used </param>
         private void WriteStart(StreamWriter writer)
         {
-            writer.WriteLine("Log file of the run on " + this.GetTime() + "</br>");
+            writer.WriteLine("Log file of the run on " + DateTime.Now.ToString("HH:mm:ss") + "</br>");
             writer.WriteLine("<span style='color:red;'><b>red</b></span> text stands for ERROR</br>");
             writer.WriteLine("<span style='color:orange;'><b>orange</b></span> text stands for WARNING</br>");
             writer.WriteLine("<span style='color:green;'><b>green</b></span> text stands for DEBUG</br>");
@@ -214,14 +200,7 @@ namespace Visualizer.Log
             writer.Flush();
         }
 
-        /// <summary>
-        /// Get the current time in the preferred format
-        /// </summary>
-        /// <returns> String with the current time</returns>
-        private string GetTime()
-        {
-            return DateTime.Now.ToString("HH:mm:ss");
-        }
+
 
         #endregion Methods
     }

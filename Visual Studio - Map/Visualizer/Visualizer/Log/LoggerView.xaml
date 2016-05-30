@@ -22,7 +22,7 @@
             </StackPanel>
             <ScrollViewer Margin="5"
                           Height="140">
-                <ListView ItemsSource="{Binding Logs}">
+                <ListView ItemsSource="{Binding Show}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>

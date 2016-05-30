@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CharacterFactoryTest.cs" />
+    <Compile Include="Log\LoggerViewModelTest.cs" />
     <Compile Include="Models\AbstractVRObjectTest.cs" />
     <Compile Include="ImageEnumTest.cs" />
     <Compile Include="Models\Cars\CarModelTests.cs" />

@@ -11,14 +11,9 @@ namespace Visualizer.Log
     /// <summary>
     /// The ViewModel connected to the logger panel
     /// </summary>
-    internal class LoggerViewModel
+    public class LoggerViewModel
     {
         #region Fields
-
-        /// <summary>
-        /// The tag to show all the log types
-        /// </summary>
-        public static readonly string AllS = "all";
 
         /// <summary>
         /// The instance of the LoggerViewModel to make it a singleton
@@ -28,7 +23,7 @@ namespace Visualizer.Log
         /// <summary>
         /// All the logs in the program
         /// </summary>
-        private ObservableCollection<LogMessage> logs;
+        private Collection<LogMessage> logs;
 
         /// <summary>
         /// All the logs to show at the moment
@@ -54,10 +49,10 @@ namespace Visualizer.Log
         /// </summary>
         public LoggerViewModel()
         {
-            this.logs = new ObservableCollection<LogMessage>();
+            this.logs = new Collection<LogMessage>();
             this.show = new ObservableCollection<LogMessage>();
 
-            this.type = AllS;
+            this.type = LoggerEnum.AllString.ToString();
             instance = this;
         }
 
@@ -71,7 +66,7 @@ namespace Visualizer.Log
         /// <value>
         /// The logs.
         /// </value>
-        public ObservableCollection<LogMessage> Logs
+        public ObservableCollection<LogMessage> Show
         {
             get { return this.show; }
             set { this.show = value; }
@@ -127,11 +122,10 @@ namespace Visualizer.Log
         /// <param name="time">The time.</param>
         /// <param name="type">The type.</param>
         /// <param name="text">The text.</param>
-        public void Add(string time, string type, string text)
+        public void Add(LogMessage log)
         {
-            LogMessage log = new LogMessage { Time = time, Type = type, Text = text };
             this.logs.Add(log);
-            if (this.type.Equals(AllS) || this.type.Equals(type))
+            if (this.type.Equals(LoggerEnum.AllString.ToString()) || log.Type.Equals(this.type))
             {
                 this.show.Add(log);
             }
@@ -173,13 +167,14 @@ namespace Visualizer.Log
 
             foreach (LogMessage log in this.logs)
             {
-                if ((log.Type.Equals(this.type) || this.type.Equals(AllS)) && !this.show.Contains(log))
+                if ((log.Type.Equals(this.type) || this.type.Equals(LoggerEnum.AllString.ToString())) && !this.show.Contains(log))
                 {
                     this.show.Add(log);
                 }
             }
-        }
 
+            Console.WriteLine(s + " " + this.type + " --> " + this.show.Count);
+        }
         #endregion Methods
     }
 }

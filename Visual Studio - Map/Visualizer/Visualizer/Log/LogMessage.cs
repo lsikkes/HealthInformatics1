@@ -6,31 +6,37 @@
 namespace Visualizer.Log
 {
     using MVVM;
+    using System;
 
     /// <summary>
     /// A class which contains a single line of log information.
     /// </summary>
     /// <seealso cref="MVVM.ObservableObject" />
-    internal class LogMessage : ObservableObject
+    public class LogMessage : ObservableObject
     {
         #region Fields
 
         /// <summary>
         /// The type
         /// </summary>
-        private string type;
+        protected string type;
+
+        /// <summary>
+        /// The color
+        /// </summary>
+        protected string color;
 
         /// <summary>
         /// The time
         /// </summary>
-        private string time;
+        protected string time;
 
         /// <summary>
         /// The text
         /// </summary>
-        private string text;
+        protected string text;
 
-        #endregion
+        #endregion Fields
 
         #region Constructors
 
@@ -40,11 +46,10 @@ namespace Visualizer.Log
         /// <param name="time">The time.</param>
         /// <param name="type">The type.</param>
         /// <param name="text">The text.</param>
-        public LogMessage(string time, string type, string text)
+        public LogMessage(string text)
         {
-            this.type = type;
-            this.time = time;
-            this.text = text;
+            this.Time = DateTime.Now.ToString("HH:mm:ss");
+            this.Text = text;
         }
 
         /// <summary>
@@ -52,12 +57,13 @@ namespace Visualizer.Log
         /// </summary>
         public LogMessage()
         {
-            this.type = string.Empty;
-            this.time = string.Empty;
-            this.text = string.Empty;
+            this.Type = string.Empty;
+            this.Time = string.Empty;
+            this.Text = string.Empty;
+            this.Color = string.Empty;
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Properties
 
@@ -92,29 +98,8 @@ namespace Visualizer.Log
         /// </value>
         public string Color
         {
-            get
-            {
-                if (this.type.Equals(Logger.DebugS))
-                {
-                    return "Green";
-                }
-                else if (this.type.Equals(Logger.ErrorS))
-                {
-                    return "Red";
-                }
-                else if (this.type.Equals(Logger.WarningS))
-                {
-                    return "Orange";
-                }
-                else
-                {
-                    return "Black";
-                }
-            }
-
-            set
-            {
-            }
+            get { return this.color; }
+            set { this.color = value; }
         }
 
         /// <summary>
@@ -162,6 +147,7 @@ namespace Visualizer.Log
                 }
             }
         }
-        #endregion
+
+        #endregion Properties
     }
 }

@@ -53,7 +53,7 @@ namespace Visualizer.Log
         public void BtnShowAll(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("pressed all");
-            LoggerViewModel.Instance().SetActive(LoggerViewModel.AllS);
+            LoggerViewModel.Instance().SetActive(LoggerEnum.AllString.ToString());
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Visualizer.Log
         public void BtnShowErr(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("pressed err");
-            LoggerViewModel.Instance().SetActive(Logger.ErrorS);
+            LoggerViewModel.Instance().SetActive(LoggerEnum.ErrorString.ToString());
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Visualizer.Log
         public void BtnShowDeb(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("pressed deb");
-            LoggerViewModel.Instance().SetActive(Logger.DebugS);
+            LoggerViewModel.Instance().SetActive(LoggerEnum.DebugString.ToString());
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Visualizer.Log
         public void BtnShowInf(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("pressed inf");
-            LoggerViewModel.Instance().SetActive(Logger.InfoS);
+            LoggerViewModel.Instance().SetActive(LoggerEnum.InfoString.ToString());
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Visualizer.Log
         public void BtnShowWar(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("pressed war");
-            LoggerViewModel.Instance().SetActive(Logger.WarningS);
+            LoggerViewModel.Instance().SetActive(LoggerEnum.WarningString.ToString());
         }
 
         /// <summary>
