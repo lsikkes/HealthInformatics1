@@ -51,7 +51,10 @@ namespace Visualizer.DataHandlers
                 return this.logger;
             }
 
-            private set;
+            private set
+            {
+                this.logger = value;
+            }
         }
 
         /// <summary>
