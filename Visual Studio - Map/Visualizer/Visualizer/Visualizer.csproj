@@ -67,8 +67,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataHandlers\AbstractDataHandler.cs" />
+	<Compile Include="DataHandlers\BenchHandler.cs" />
+	<Compile Include="DataHandlers\CarHandler.cs" />
     <Compile Include="DataHandlers\CharacterHandler.cs" />
     <Compile Include="DataHandlers\DataHandler.cs" />
+	<Compile Include="DataHandlers\PatientHandler.cs" />
+	<Compile Include="DataHandlers\SurroundingHandler.cs" />
+	<Compile Include="DataHandlers\TvHandler.cs" />
     <Compile Include="Factory\BenchFactory.cs" />
     <Compile Include="Factory\CarFactory.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
