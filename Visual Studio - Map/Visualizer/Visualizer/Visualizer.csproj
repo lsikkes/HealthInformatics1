@@ -66,6 +66,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataHandlers\AbstractDataHandler.cs" />
+    <Compile Include="DataHandlers\CharacterHandler.cs" />
+    <Compile Include="DataHandlers\RubenVindtDezeNaamRaar.cs" />
     <Compile Include="Factory\BenchFactory.cs" />
     <Compile Include="Factory\CarFactory.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
