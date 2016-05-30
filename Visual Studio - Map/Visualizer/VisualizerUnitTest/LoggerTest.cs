@@ -9,6 +9,8 @@ using Visualizer;
 
 namespace VisualizerUnitTest
 {
+    using Visualizer.Log;
+
     //[TestFixture]
     public class LoggerTest
     {

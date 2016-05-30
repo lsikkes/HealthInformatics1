@@ -7,90 +7,128 @@
         WindowStartupLocation="CenterScreen"
         Title="Visualizer"
         >
-    <Grid Name="content" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
-        <Canvas Name="canvas"
+    <Grid Name="content" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Name="logRow" Height="0" />
+        </Grid.RowDefinitions>
+
+        <Grid Name="map"
+              Grid.Row="0"
+              VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch">
+
+            <Canvas Name="canvas"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                Background="Tomato">
-        </Canvas>
-        <Grid Name="map" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"></Grid>
+                Background="FloralWhite">
+            </Canvas>
 
-        <Grid Name="menuOpener" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"  Background="Blue" Opacity="0.9">
-            <Button Content="Menu" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="120" Click="toggleMenu"/>
-        </Grid>
-        
-        <Grid Name="menu" HorizontalAlignment="Left" Margin="0,50,0,0" Width="150" Background="Blue" Opacity="0.7" Visibility="Collapsed">
-            <Button Content="Afsluiten" 
+            <Grid Name="hoverTop" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Opacity" Value="0.0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <Grid Name="hoverBot" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Opacity" Value="0.0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <Grid Name="hoverLef" Background="Red" Width="10"  HorizontalAlignment="Left"    VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Opacity" Value="0.0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <Grid Name="hoverRig" Background="Red" Width="10" HorizontalAlignment="Right"   VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Opacity" Value="0.0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+
+            <Grid Name="menuOpener"
+              HorizontalAlignment="Left" 
+              VerticalAlignment="Top" 
+              Width="150" 
+              Height="50"  
+              Background="Blue">
+                <Button Content="Menu" 
                     HorizontalAlignment="Left" 
                     Margin="15,15,0,0" 
                     VerticalAlignment="Top" 
                     Width="120" 
-                    Click="close"/>
-            <Button Content="Move object" 
+                    Click="ToggleMenu"/>
+            </Grid>
+
+            <Grid Name="menu" 
+              HorizontalAlignment="Left" 
+              Margin="0,50,0,0" 
+              Width="150" 
+              Background="Blue" >
+                <Button Content="Move object" 
                     HorizontalAlignment="Left" 
-                    Margin="15,50,0,0" 
+                    Margin="15,10,0,0" 
                     VerticalAlignment="Top" 
                     Width="120" 
-                    Click ="click2" />
-            <Button Content="Add object" 
+                    Click ="Click2" />
+                <Button Content="Add object" 
                     HorizontalAlignment="Left" 
-                    Margin="15,85,0,0" 
+                    Margin="15,35,0,0" 
                     VerticalAlignment="Top" 
                     Width="120" 
-                    Click ="click" />
+                    Click ="Click" />
+
+                <Button Content="Toon log" 
+                    HorizontalAlignment="Left" 
+                    Margin="15,0,0,40" 
+                    VerticalAlignment="Bottom" 
+                    Width="120" 
+                    Click="ToggleLogger"/>
+                <Button Content="Afsluiten" 
+                    HorizontalAlignment="Left" 
+                    Margin="15,0,0,15" 
+                    VerticalAlignment="Bottom" 
+                    Width="120" 
+                    Click="Close"/>
+
+            </Grid>
+
         </Grid>
 
-        
-        
-        
-        <Grid Name="hoverTop" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Top"     MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="Opacity" Value="0.0"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-        </Grid>
-        <Grid Name="hoverBot" Background="Red" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="Opacity" Value="0.0"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-        </Grid>
-        <Grid Name="hoverLef" Background="Red" Width="10"  HorizontalAlignment="Left"    VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="Opacity" Value="0.0"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-        </Grid>
-        <Grid Name="hoverRig" Background="Red" Width="10" HorizontalAlignment="Right"   VerticalAlignment="Stretch" MouseEnter="OnMouseEnterHandler" MouseLeave="OnMouseLeaveHandler">
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="Opacity" Value="0.0"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="0.5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-        </Grid>
+        <StackPanel
+            Name="LogPanel"
+            Grid.Row="1"
+            Background="Black">
+        </StackPanel>
 
     </Grid>
 </Window>
