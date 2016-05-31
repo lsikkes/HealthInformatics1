@@ -23,7 +23,7 @@ namespace Visualizer.Utilities
             PoliceCar = new ImageEnum("image_car_police.png"),
             FireFighterCar = new ImageEnum("image_car_firefigther.png"),
             NormalCar = new ImageEnum("image_car_regular.png"),
-            
+
             AmbulanceCarIcon = new ImageEnum("icon_car.png"),
             PoliceCarIcon = new ImageEnum("icon_car.png"),
             FireFighterCarIcon = new ImageEnum("icon_car.png"),

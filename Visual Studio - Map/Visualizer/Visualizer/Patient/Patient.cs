@@ -22,6 +22,7 @@ namespace Visualizer.Patient
     using System.Windows.Shapes;
     using Visualizer;
     using Visualizer.Utilities;
+    using Visualizer.Log;
 
     /// <summary>
     /// Class Patient.

@@ -10,6 +10,7 @@ namespace Visualizer.Models
     using System.Linq;
     using System.Text;
     using Visualizer.Utilities;
+    using Visualizer.Log;
 
     /// <summary>
     /// Class VRObjectModel that is the base of the VR objects.

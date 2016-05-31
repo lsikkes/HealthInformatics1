@@ -14,6 +14,7 @@ namespace Visualizer.ViewModels
     using System.Windows;
     using Visualizer.Models;
     using Visualizer.Utilities;
+    using Visualizer.Log;
 
     /// <summary>
     /// Class AbstractViewModel.

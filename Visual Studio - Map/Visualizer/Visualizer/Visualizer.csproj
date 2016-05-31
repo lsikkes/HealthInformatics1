@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Log\LoggerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +73,16 @@
     <Compile Include="Factory\BenchFactory.cs" />
     <Compile Include="Factory\CarFactory.cs" />
     <Compile Include="Factory\CharacterFactory.cs" />
+    <Compile Include="Log\LoggerEnum.cs" />
+    <Compile Include="Log\LoggerViewModel.cs" />
+    <Compile Include="Log\LoggerView.xaml.cs">
+      <DependentUpon>LoggerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Log\LogMessage.cs" />
+    <Compile Include="Log\LogMessageDebug.cs" />
+    <Compile Include="Log\LogMessageInfo.cs" />
+    <Compile Include="Log\LogMessageWarning.cs" />
+    <Compile Include="Log\LogMessageError.cs" />
     <Compile Include="Models\Cars\AbstractCarModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
@@ -126,7 +140,7 @@
       <DependentUpon>CarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VRObject.cs" />
-    <Compile Include="Logger.cs">
+    <Compile Include="Log\Logger.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Patient\Patient.cs" />
