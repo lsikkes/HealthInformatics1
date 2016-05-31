@@ -7,12 +7,12 @@
     using Visualizer.ViewModels;
 
     [TestFixture]
-    public class CarViewModelTest
+    public class PoliceCarViewModelTest
     {
         #region Fields
 
         private VRPosition position1;
-        private EmergencyCarViewModel car;
+        private AbstractCarViewModel car;
 
         #endregion Fields
 
@@ -22,7 +22,7 @@
         public void SetUp()
         {
             position1 = new VRPosition(42, 42, 42);
-            car = new EmergencyCarViewModel(position1, 1);
+            car = new PoliceCarViewModel(position1, 1);
         }
 
         [Test]
