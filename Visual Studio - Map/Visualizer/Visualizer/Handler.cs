@@ -69,7 +69,7 @@ namespace Visualizer
         public void AddObjects(int x, int y)
         {
             int amountSeats = 3;
-            this.objects.Add((new BenchFactory()).CreateNewBench(x, y, this.main, amountSeats));
+            this.objects.Add((new BenchFactory()).CreateNewBench(x, y, this.main, 0, amountSeats));
             CharacterFactory factory = new CharacterFactory();
             this.objects.Add(factory.CreateCharacter(x, y, this.main, 0, 1, 1));
 

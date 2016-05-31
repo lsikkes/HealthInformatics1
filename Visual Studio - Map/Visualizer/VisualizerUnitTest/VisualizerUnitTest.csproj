@@ -48,23 +48,28 @@
     <Reference Include="System.Xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\BenchFactoryTest.cs" />
+    <Compile Include="Factories\TreeFactoryTest.cs" />
+    <Compile Include="Factories\BuildingFactoryTest.cs" />
     <Compile Include="Factories\CharacterFactoryTest.cs" />
     <Compile Include="Models\AbstractVRObjectTest.cs" />
     <Compile Include="ImageEnumTest.cs" />
     <Compile Include="Models\Cars\CarModelTests.cs" />
     <Compile Include="Models\CharacterModelTest.cs" />
-    <Compile Include="Models\Furniture\BenchModelTest.cs" />
-    <Compile Include="Models\SurroundingModelTest.cs" />
+    <Compile Include="Models\BenchModelTest.cs" />
+    <Compile Include="Models\Surroundings\SurroundingModelTest.cs" />
+    <Compile Include="Models\Surroundings\BuildingModelTest.cs" />
+    <Compile Include="Models\Surroundings\TreeModelTest.cs" />
     <Compile Include="Models\TvModelTest.cs" />
     <Compile Include="PatientTest.cs" />
     <Compile Include="TVScreenTest.cs" />
-    <Compile Include="SurroundingTest.cs" />
     <Compile Include="LoggerTest.cs" />
     <Compile Include="TvFactoryTest.cs" />
     <Compile Include="PatientFactoryTest.cs" />
-    <Compile Include="SurroundingFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\VRPositionTest.cs" />
+    <Compile Include="ViewModels\TreeViewModelTest.cs" />
+    <Compile Include="ViewModels\BuildingViewModelTest.cs" />
     <Compile Include="ViewModels\CarViewModelTest.cs" />
     <Compile Include="ViewModels\BenchViewModelTest.cs" />
     <Compile Include="ViewModels\CharacterViewModelTest.cs" />

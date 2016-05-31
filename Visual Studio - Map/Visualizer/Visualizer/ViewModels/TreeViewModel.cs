@@ -22,21 +22,6 @@ namespace Visualizer.ViewModels
         /// </summary>
         private TreeModel treeModel;
 
-        /// <summary>
-        /// The width
-        /// </summary>
-        private int width;
-
-        /// <summary>
-        /// The height
-        /// </summary>
-        private int height;
-
-        /// <summary>
-        /// The image
-        /// </summary>
-        private ImageBrush image;
-
         #endregion Fields
 
         #region Constructors

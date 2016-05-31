@@ -28,10 +28,10 @@ namespace Visualizer.Factories
         /// <param name="y">The y coordinate.</param>
         /// <param name="main">The main window.</param>
         /// <returns> the viewModel of the bench.</returns>
-        public BenchViewModel CreateNewBench(int x, int y, MainWindow main, int amountSeats)
+        public BenchViewModel CreateNewBench(int x, int y, MainWindow main, int id, int amountSeats)
         {
             BenchView view = new BenchView();
-            BenchViewModel viewModel = new BenchViewModel(new VRPosition(x, y, 0), 0, amountSeats);
+            BenchViewModel viewModel = new BenchViewModel(new VRPosition(x, y, 0), id, amountSeats);
             view.DataContext = viewModel;
             main.AddControl(view);
             return viewModel;

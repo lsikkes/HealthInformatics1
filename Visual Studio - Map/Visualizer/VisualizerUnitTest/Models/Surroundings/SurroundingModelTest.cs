@@ -21,7 +21,7 @@
         public void SetUp()
         {
             position = new VRPosition(100, 100, 230);
-            surrounding = new AbstractSurroundingModel(position, 10);
+            surrounding = new TreeModel(position, 10);
         }
 
         [Test]
