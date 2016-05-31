@@ -93,6 +93,7 @@
     <Compile Include="Models\Furniture\BenchModel.cs" />
     <Compile Include="Models\SurroundingModel.cs" />
     <Compile Include="Models\TvModel.cs" />
+    <Compile Include="Utilities\CarEnum.cs" />
     <Compile Include="Utilities\Character\CharacterAction.cs" />
     <Compile Include="Utilities\Character\CharacterEmotion.cs" />
     <Compile Include="Client.cs" />
@@ -120,16 +121,16 @@
     <Compile Include="Tv\TvFactory.cs" />
     <Compile Include="Tv\TvScreen.cs" />
     <Compile Include="ViewModels\AbstractViewModel.cs" />
-    <Compile Include="ViewModels\AmbulanceCarViewModel.cs" />
+    <Compile Include="ViewModels\Cars\AmbulanceCarViewModel.cs" />
     <Compile Include="ViewModels\BenchViewModel.cs" />
     <Compile Include="ViewModels\CharacterViewModel.cs" />
-    <Compile Include="ViewModels\EmergencyCarViewModel.cs" />
-    <Compile Include="ViewModels\FiretruckCarViewModel.cs" />
-    <Compile Include="ViewModels\NormalCarViewModel.cs" />
+    <Compile Include="ViewModels\Cars\AbstractCarViewModel.cs" />
+    <Compile Include="ViewModels\Cars\FiretruckCarViewModel.cs" />
+    <Compile Include="ViewModels\Cars\NormalCarViewModel.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="ViewModels\PoliceCarViewModel.cs" />
+    <Compile Include="ViewModels\Cars\PoliceCarViewModel.cs" />
     <Compile Include="Views\BenchView.xaml.cs">
       <DependentUpon>BenchView.xaml</DependentUpon>
     </Compile>
