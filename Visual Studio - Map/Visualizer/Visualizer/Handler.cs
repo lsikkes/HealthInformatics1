@@ -71,7 +71,7 @@ namespace Visualizer
             int amountSeats = 3;
             this.objects.Add((new BenchFactory()).CreateNewBench(x, y, this.main, amountSeats));
             CharacterFactory factory = new CharacterFactory();
-            this.objects.Add(factory.CreateCharacter(x, y, this.main, 0, 1, 1));
+            this.objects.Add(factory.CreateCharacter(x, y, this.main, 0, 5, 1));
 
             CarFactory cf = new CarFactory();
             this.objects.Add(cf.CreateCar(500, 500, 0, this.main, 0, 1));

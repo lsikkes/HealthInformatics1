@@ -24,22 +24,19 @@ namespace Visualizer.Utilities
             FireFighterCar = new ImageEnum("image_car_firefigther.png"),
             NormalCar = new ImageEnum("image_car_regular.png"),
 
-            AmbulanceCarIcon = new ImageEnum("icon_car.png"),
-            PoliceCarIcon = new ImageEnum("icon_car.png"),
-            FireFighterCarIcon = new ImageEnum("icon_car.png"),
-            NormalCarIcon = new ImageEnum("icon_car.png"),
+            CarIcon = new ImageEnum("icon_car.png"),
 
             CharacterEmotion = new ImageEnum("character_emoji_"),
+            CharacterAction = new ImageEnum("icon_characteraction_"),
+            CharacterImage = new ImageEnum("image_character_"),
 
-            PoliceIcon = new ImageEnum("icon_characteraction_1.png"),
             ChairIcon = new ImageEnum("icon_chair.png"),
             LightIconOn = new ImageEnum("icon_light_on.png"),
             LightIconOff = new ImageEnum("icon_light_off.png"),
             TvIcon = new ImageEnum("icon_tv.png"),
             PatientImage = new ImageEnum("image_player.png"),
             PatientScope = new ImageEnum("image_player_scope.png"),
-            Logo = new ImageEnum("logo.png"),
-            CharacterImage = new ImageEnum("image_character_");
+            Logo = new ImageEnum("logo.png");
 
         /// <summary>
         /// The name of the class
@@ -88,10 +85,9 @@ namespace Visualizer.Utilities
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>string of character action image.</returns>
-        //TODO change it to the action images
         public static string GetCharacterAction(int id)
         {
-            return ImageEnum.CharacterEmotion.ToString() + id + ".png";
+            return ImageEnum.CharacterAction.ToString() + id + ".png";
         }
 
         /// <summary>

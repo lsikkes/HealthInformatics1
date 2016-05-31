@@ -30,7 +30,7 @@ namespace Visualizer.Models.Cars
         public FiretruckCarModel(VRPosition pos, int id)
             : base(pos, id)
         {
-            this.Image = ImageMap.GetImage("image_car_firefigther.png");
+            this.Image = ImageMap.GetImage(ImageEnum.FireFighterCar.ToString());
             this.Height = 300;
         }
 

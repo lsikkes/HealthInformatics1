@@ -6,12 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Visualizer;
+using Visualizer.Log;
 
 namespace VisualizerUnitTest
 {
-    using Visualizer.Log
-    ;
-
     [TestFixture]
     public class LoggerEnumTest
     {

@@ -30,7 +30,7 @@ namespace Visualizer.Models.Cars
         public PoliceCarModel(VRPosition pos, int id)
             : base(pos, id)
         {
-            this.Image = ImageMap.GetImage("image_car_police.png");
+            this.Image = ImageMap.GetImage(ImageEnum.PoliceCar.ToString());
         }
 
         #endregion Constructors
