@@ -30,7 +30,7 @@ namespace Visualizer.Models.Cars
             : base(pos, id)
         {
             this.IconImage = null;
-            this.Image = ImageMap.GetImage("image_car_regular.png");
+            this.Image = ImageMap.GetImage(ImageEnum.NormalCar.ToString());
         }
 
         #endregion Constructors

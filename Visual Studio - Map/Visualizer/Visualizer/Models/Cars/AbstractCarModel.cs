@@ -26,7 +26,7 @@ namespace Visualizer.Models.Cars
         public AbstractCarModel(VRPosition pos, int id)
             : base(pos, id)
         {
-            this.IconImage = ImageMap.GetImage("icon_car.png");
+            this.IconImage = ImageMap.GetImage(ImageEnum.CarIcon.ToString());
             this.SirenOn = false;
             this.Width = 75;
             this.Height = 150;
