@@ -1,4 +1,6 @@
 # HealthInformatics1
+Master:[![Build status](https://ci.appveyor.com/api/projects/status/845bwkn77x1y995u/branch/master?svg=true)](https://ci.appveyor.com/project/RubenMeeuw/healthinformatics1/branch/master)
+Developer: [![Build status](https://ci.appveyor.com/api/projects/status/845bwkn77x1y995u/branch/master?svg=true)](https://ci.appveyor.com/project/RubenMeeuw/healthinformatics1/branch/dev)
 
 #### The 2D Map 
 * How to Run:
