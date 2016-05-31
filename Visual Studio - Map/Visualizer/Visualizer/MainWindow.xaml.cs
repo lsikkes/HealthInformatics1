@@ -5,10 +5,16 @@
 // ***********************************************************************
 namespace Visualizer
 {
+    using System;
     using System.Windows;
+
     using System.Windows.Controls;
+
     using System.Windows.Input;
+
+    using System.Windows.Media.Imaging;
     using Visualizer.Log;
+    using Visualizer.Utilities;
 
     /// <summary>
     /// Interaction logic for MainWindow
@@ -17,6 +23,16 @@ namespace Visualizer
     public partial class MainWindow : Window
     {
         #region Fields
+
+        /// <summary>
+        /// The height
+        /// </summary>
+        private double height;
+
+        /// <summary>
+        /// The width
+        /// </summary>
+        private double width;
 
         /// <summary>
         /// The Data handler
@@ -32,9 +48,10 @@ namespace Visualizer
         /// </summary>
         public MainWindow()
         {
+            Logger.GetInstance().Info("Starting the MainWindow");
+
             this.StartMain();
             this.InitializeComponent();
-            this.SetIcon();
         }
 
         #endregion Constructors
@@ -47,6 +64,7 @@ namespace Visualizer
         public void StartMain()
         {
             this.handler = new Handler(this);
+            this.SetIcon();
         }
 
         /// <summary>
@@ -146,6 +164,11 @@ namespace Visualizer
         /// </summary>
         private void SetIcon()
         {
+            Uri iconUri = new Uri(PathGetter.GetResourcePath() + "logo.PNG");
+            this.Icon = BitmapFrame.Create(iconUri);
+            width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            Logger.GetInstance().Debug("window size is " + width + "x" + height);
         }
 
         /// <summary>

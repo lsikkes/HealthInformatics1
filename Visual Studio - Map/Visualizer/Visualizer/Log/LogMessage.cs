@@ -48,7 +48,7 @@ namespace Visualizer.Log
         /// <param name="text">The text.</param>
         public LogMessage(string text)
         {
-            this.Time = DateTime.Now.ToString("HH:mm:ss");
+            this.Time = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss.ffff");
             this.Text = text;
         }
 
