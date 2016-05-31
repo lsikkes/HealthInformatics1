@@ -51,7 +51,7 @@ namespace Visualizer.Log
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void BtnShowAll(object sender, RoutedEventArgs e)
+        public void ButtonShowAll(object sender, RoutedEventArgs e)
         {
             LoggerViewModel.Instance().SetActive(LoggerEnum.AllString.ToString());
         }
@@ -61,7 +61,7 @@ namespace Visualizer.Log
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void BtnShowErr(object sender, RoutedEventArgs e)
+        public void ButtonShowError(object sender, RoutedEventArgs e)
         {
             LoggerViewModel.Instance().SetActive(LoggerEnum.ErrorString.ToString());
         }
@@ -71,7 +71,7 @@ namespace Visualizer.Log
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void BtnShowDeb(object sender, RoutedEventArgs e)
+        public void ButtonShowDebug(object sender, RoutedEventArgs e)
         {
             LoggerViewModel.Instance().SetActive(LoggerEnum.DebugString.ToString());
         }
@@ -81,7 +81,7 @@ namespace Visualizer.Log
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void BtnShowInf(object sender, RoutedEventArgs e)
+        public void ButtonShowInfo(object sender, RoutedEventArgs e)
         {
             LoggerViewModel.Instance().SetActive(LoggerEnum.InfoString.ToString());
         }
@@ -91,7 +91,7 @@ namespace Visualizer.Log
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void BtnShowWar(object sender, RoutedEventArgs e)
+        public void ButtonShowWarning(object sender, RoutedEventArgs e)
         {
             LoggerViewModel.Instance().SetActive(LoggerEnum.WarningString.ToString());
         }
@@ -101,7 +101,7 @@ namespace Visualizer.Log
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
-        public void BtnResetLo(object sender, RoutedEventArgs e)
+        public void ButtonReset(object sender, RoutedEventArgs e)
         {
             LoggerViewModel.Instance().Reset();
             Logger.GetInstance().Info("Reset the logger window");

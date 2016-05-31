@@ -48,45 +48,45 @@ namespace VisualizerUnitTest.Log
         [Test]
         public void ShowAllTest()
         {
-            view.BtnShowAll(null, null);
+            view.ButtonShowAll(null, null);
             Assert.AreEqual(LoggerEnum.AllString.ToString(), viewmodel.Type);
         }
 
         [Test]
         public void ShowDebugTest()
         {
-            view.BtnShowDeb(null, null);
+            view.ButtonShowDebug(null, null);
             Assert.AreEqual(LoggerEnum.DebugString.ToString(), viewmodel.Type);
         }
 
         [Test]
         public void ShowErrorTest()
         {
-            view.BtnShowErr(null, null);
+            view.ButtonShowError(null, null);
             Assert.AreEqual(LoggerEnum.ErrorString.ToString(), viewmodel.Type);
         }
 
         [Test]
         public void ShowInfoTest()
         {
-            view.BtnShowInf(null, null);
+            view.ButtonShowInfo(null, null);
             Assert.AreEqual(LoggerEnum.InfoString.ToString(), viewmodel.Type);
         }
 
         [Test]
         public void ShowWarningTest()
         {
-            view.BtnShowWar(null, null);
+            view.ButtonShowWarning(null, null);
             Assert.AreEqual(LoggerEnum.WarningString.ToString(), viewmodel.Type);
         }
 
         [Test]
         public void ResetTest()
         {
-            view.BtnShowInf(null, null);
-            view.BtnShowErr(null, null);
+            view.ButtonShowInfo(null, null);
+            view.ButtonShowError(null, null);
             Assert.AreNotEqual(1, viewmodel.Logs.Count);
-            view.BtnResetLo(null, null);
+            view.ButtonReset(null, null);
             Assert.AreEqual(1, viewmodel.Logs.Count);
         }
 

@@ -7,11 +7,8 @@ namespace Visualizer
 {
     using System;
     using System.Windows;
-
     using System.Windows.Controls;
-
     using System.Windows.Input;
-
     using System.Windows.Media.Imaging;
     using Visualizer.Log;
     using Visualizer.Utilities;
@@ -49,7 +46,6 @@ namespace Visualizer
         public MainWindow()
         {
             Logger.GetInstance().Info("Starting the MainWindow");
-
             this.StartMain();
             this.InitializeComponent();
         }

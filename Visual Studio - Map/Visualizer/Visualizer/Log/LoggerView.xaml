@@ -13,12 +13,12 @@
                         <Setter Property="Margin" Value="0,0,0,5" />
                     </Style>
                 </StackPanel.Resources>
-                <Button Name="btnShowAll" Click="BtnShowAll">Show All</Button>
-                <Button Name="btnShowErr" Click="BtnShowErr">Show Errors</Button>
-                <Button Name="btnShowDeb" Click="BtnShowDeb">Show Debug</Button>
-                <Button Name="btnShowInf" Click="BtnShowInf">Show Info</Button>
-                <Button Name="btnShowWar" Click="BtnShowWar">Show Warnings</Button>
-                <Button Name="btnResetLo" Click="BtnResetLo">Reset Logger</Button>
+                <Button Name="btnShowAll" Click="ButtonShowAll">Show All</Button>
+                <Button Name="btnShowErr" Click="ButtonShowError">Show Errors</Button>
+                <Button Name="btnShowDeb" Click="ButtonShowDebug">Show Debug</Button>
+                <Button Name="btnShowInf" Click="ButtonShowInfo">Show Info</Button>
+                <Button Name="btnShowWar" Click="ButtonShowWarning">Show Warnings</Button>
+                <Button Name="btnResetLo" Click="ButtonReset">Reset Logger</Button>
             </StackPanel>
             <ScrollViewer Name="scrollPane" 
                           Margin="5"

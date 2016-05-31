@@ -21,16 +21,41 @@ namespace VisualizerUnitTest
         /// Gets the image test.
         /// </summary>
         [Test]
-        public void LoggerEnumTestContent
+        public void LoggerEnumTestContentAll
             ()
         {
             Assert.NotNull(LoggerEnum.AllString.ToString());
+        }
+
+        [Test]
+        public void LoggerEnumTestContentDebug
+            ()
+        {
+            Assert.NotNull(LoggerEnum.DebugString.ToString());
+            Assert.NotNull(LoggerEnum.DebugColor.ToString());
+        }
+
+        [Test]
+        public void LoggerEnumTestContentError
+            ()
+        {
             Assert.NotNull(LoggerEnum.ErrorString.ToString());
-            Assert.NotNull(LoggerEnum.InfoString.ToString());
-            Assert.NotNull(LoggerEnum.WarningString.ToString());
             Assert.NotNull(LoggerEnum.ErrorColor.ToString());
+        }
+
+        [Test]
+        public void LoggerEnumTestContentInfo
+            ()
+        {
+            Assert.NotNull(LoggerEnum.InfoString.ToString());
             Assert.NotNull(LoggerEnum.InfoColor.ToString());
-            Assert.NotNull(LoggerEnum.WarningColor.ToString());
+        }
+
+        [Test]
+        public void LoggerEnumTestContentWarning
+            ()
+        {
+            Assert.NotNull(LoggerEnum.WarningString.ToString());
             Assert.NotNull(LoggerEnum.WarningColor.ToString());
         }
 
